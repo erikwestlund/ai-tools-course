@@ -1,0 +1,61 @@
+---
+title: "Context A/B: Penguin Visualization (With Context File)"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+---
+
+```{r}
+#| include: false
+library(dplyr)
+library(ggplot2)
+library(palmerpenguins)
+```
+
+## Goal
+
+Create a polished scatter plot exploring the relationship between bill length and body mass across penguin species.
+
+## Data
+
+```{r}
+glimpse(penguins)
+```
+
+## Task
+
+1. Remove rows with missing values.
+2. Create a scatter plot of bill length (x) vs body mass (y), colored by species.
+3. Style the plot for publication quality.
+4. Write 2-3 sentences of descriptive interpretation.
+
+## Starter Code
+
+```{r}
+penguins_clean <- penguins %>%
+  filter(
+    !is.na(bill_length_mm),
+    !is.na(body_mass_g),
+    !is.na(species)
+  )
+
+ggplot(
+  penguins_clean,
+  aes(x = bill_length_mm, y = body_mass_g, color = species)
+) +
+  geom_point(alpha = 0.8, size = 2) +
+  scale_color_brewer(palette = "Dark2") +
+  labs(
+    title = "Bill Length vs Body Mass by Penguin Species",
+    subtitle = "Data from the palmerpenguins package (Palmer Station LTER)",
+    x = "Bill length (mm)",
+    y = "Body mass (g)",
+    color = "Species",
+    caption = "Source: Palmer Station LTER (palmerpenguins package)"
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(legend.position = "bottom")
+```
+
+The scatter plot shows distinct species clusters, with larger-bodied penguins generally having longer bills. Gentoo penguins tend to occupy the higher body mass range, while Adelie penguins cluster at lower masses and shorter bills. Chinstrap penguins overlap with Adelie on body mass but skew toward longer bills. 

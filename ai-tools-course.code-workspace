@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"name": "ai-tools-course",
+			"path": "."
+		},
+		{
+			"name": "ai-tools-for-data-science-and-statistics",
+			"path": "../ai-tools-for-data-science-and-statistics"
+		},
+		{
+			"name": "data-visualization-course",
+			"path": "../data-visualization-course"
+		},
+		{
+			"name": "data-visualization-2026",
+			"path": "../../Code/Courses/data-visualization-2026"
+		}
+	],
+	"settings": {}
+}

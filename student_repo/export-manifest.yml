@@ -1,0 +1,60 @@
+# Student repository export manifest.
+#
+# This documents the intended public/student-facing export rules. The build
+# script reads `target_root_default`, `must_exist_after_export`, and
+# `must_not_exist_after_export` from this file.
+
+target_root_default: ~/Code/Courses/ai-tools-course-2026
+
+# Source materials students may open and run.
+source_exports:
+  - index.qmd
+  - course_docs/*.qmd
+  - modules/**/*.qmd
+  - demos/**/*.qmd
+  - slides/**/*.qmd
+  - data/**/*
+  - output/**/*
+  - scaffold.R
+  - settings.yml
+  - updater.R
+  - README.md
+
+# Rendered public artifacts copied from docs/.
+rendered_exports:
+  - docs/**/*.html
+  - docs/**/*.json
+  - docs/site_libs/**/*
+
+# Student-owned files should not be overwritten by the updater.
+student_work:
+  - practice/work/
+
+must_exist_after_export:
+  - README.md
+  - updater.R
+  - _quarto.yml
+  - index.qmd
+  - docs/index.html
+  - docs/course_docs/syllabus.html
+  - docs/course_docs/course-project.html
+  - docs/slides/01-foundations.html
+  - docs/slides/02-tools-introduction.html
+  - docs/demos/2-tools-introduction/summary.html
+  - data/synthetic/simulated_maternal_health_data.csv
+  - course_docs/syllabus.qmd
+  - course_docs/course-project.qmd
+  - ai-tools-course.Rproj
+  - ai-tools-course.code-workspace
+  - practice/work/README.md
+
+must_not_exist_after_export:
+  - util_docs
+  - teaching-scratch
+  - .claude
+  - .artifacts
+  - framework.db
+  - data/private
+  - course_docs/planning
+  - ai-tools-for-data-science-and-statistics.Rproj
+  - ai-tools-for-data-science-and-statistics.code-workspace
