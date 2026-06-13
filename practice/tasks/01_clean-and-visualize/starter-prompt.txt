@@ -1,0 +1,8 @@
+I am practicing an AI-assisted data visualization workflow in R.
+
+Dataset: data/simulated/county_wellness_indicators_long.csv
+Codebook: data/codebooks/simulated_county_wellness_indicators_long.md
+
+Please inspect the dataset and codebook. First, tell me what one row represents,
+what cleaning or checking is needed, and what visualization would be reasonable.
+Do not write the full analysis yet.

@@ -1,0 +1,45 @@
+---
+title: "Data Summary Practice"
+subtitle: "A first useful agent task"
+format:
+  html:
+    embed-resources: true
+    toc: true
+---
+
+# Goal
+
+Use an AI agent to create a first-pass data summary that is actually useful for later analysis.
+
+# Dataset
+
+Choose one:
+
+- `data/synthetic/simulated_maternal_health_data.csv`
+- `data/simulated/neighborhood_health_survey_analysis.csv`
+- `data/simulated/new_parent_wellness_survey.csv`
+
+# Your Task
+
+Use an agent to help create an exploratory summary notebook.
+
+Go beyond generic summary statistics. Your output should help a collaborator understand what the dataset is, what variables matter, what is missing, and what analysis tasks are plausible.
+
+# Acceptance Criteria
+
+Your notebook should include:
+
+- Dataset dimensions.
+- Variable names and likely variable types.
+- Missingness summary.
+- At least one table of important categorical variables.
+- At least one table of important numeric variables.
+- At least two plots.
+- A short written summary of what the dataset can and cannot support.
+- A short list of checks you performed on the AI output.
+
+# Work Area
+
+```{r}
+# Start here.
+```

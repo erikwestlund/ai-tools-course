@@ -1,0 +1,147 @@
+---
+title: "Final Project: Simulated Data Privacy Workflow"
+subtitle: "Develop with simulated data, run verified code on real data"
+format:
+  html:
+    embed-resources: true
+    toc: true
+---
+
+# Due Date
+
+Due Friday, July 3, 2026, at 11:59 pm.
+
+# Overview
+
+The final project practices the privacy-aware workflow that matters most for applied public health, epidemiology, and biostatistics. You will choose a real dataset, create your own simulated version, develop code using the simulated data, and then run AI-assisted code on real data without exposing the real data to an external AI tool.
+
+We will start this workflow during Session 3, but the completed project is an at-home assignment.
+
+# Flexibility And AI Use
+
+This assignment is designed for you to practice using AI tools on a data analysis project. Ideally, it will help you learn how to use the tools to improve your work and also give you insight into the limitations of these tools. If you are inexperienced with analysis, this is an opportunity to learn more. Evaluation will focus on evidence of your thoughtful engagement with the tools and assignment.
+
+If a different analysis or data project would be more useful, or if the standard version does not fit your background, propose an alternate version. Talk with me in class or email [ewestlund@jhu.edu](mailto:ewestlund@jhu.edu). Use only non-sensitive data.
+
+# Core Rules
+
+- Choose your project dataset from `data/real/`, or use your own non-sensitive dataset after discussing it in class.
+- Do **not** use the prebuilt files in `data/simulated/` as your final project's simulated dataset. Those are examples and practice datasets.
+- Create your own simulated dataset for the real dataset you choose.
+- Do **not** put the real dataset, real rows, or real analysis output into an external AI tool. Use AI on your simulation code, simulated dataset, and simulated-side analysis only.
+
+**Note:** None of the real datasets are sensitive, but the goal is to practice real-world analysis in a privacy-preserving way.
+
+# Choosing A Real Dataset
+
+Choose one dataset where `dataset_kind` is `real` in `data/manifest.csv`, or bring your own non-sensitive dataset after discussing it in class. Good starter choices include:
+
+- `data/real/prams_2011_selected.csv`
+- `data/real/nhanes_2021_2023_analysis.csv`
+- `data/real/post_coma_recovery.csv`
+- `data/real/places_county_core_measures_long.csv`
+- `data/real/flu_vaccination_age_time_clean.csv`
+
+# Creating Your Own Simulated Dataset
+
+Before developing the analysis, write code that creates a simulated dataset with the same variables you plan to use from the real dataset.
+
+Your simulated dataset should:
+
+- use the same column names as the real variables used in your analysis
+- use plausible data types, such as numeric, categorical, date, or logical
+- contain enough rows to test your workflow, usually at least 100 rows unless the real dataset is smaller
+- include realistic messiness if your workflow includes cleaning
+- be clearly fake and not copied from the real data
+
+You may use the real dataset's codebook, column names, and general variable descriptions to design the simulation. Do not copy real rows into the simulated dataset.
+
+AI may help you write or debug the simulation code if you provide only non-sensitive structure, variable descriptions, and your own simulated examples.
+
+# Required Folder Structure
+
+Your submission should include two folders:
+
+```text
+simulated/
+real/
+```
+
+The `simulated/` folder should contain the code that creates your simulated dataset, the simulated dataset itself, and the AI-assisted development notebook and outputs created using that simulated dataset.
+
+The `real/` folder should contain the final code and rendered output after running the reviewed workflow on the real dataset.
+
+# Required Tasks
+
+## Task 1: Real Dataset Choice And Privacy Framing
+
+Describe the real dataset you chose and explain why this workflow protects privacy.
+
+Identify the unit of analysis, the real variables you plan to use, and what information will not be shared with AI.
+
+## Task 2: Simulated Data Creation
+
+Create your own simulated dataset for the analysis.
+
+Include:
+
+- the code that creates the simulated data
+- a short explanation of how each key variable was simulated
+- a structure comparison showing that the simulated dataset has the columns and data types needed for the real-data analysis
+
+## Task 3: Simulated-Side AI Workflow
+
+Use AI only with your simulated dataset and public/non-sensitive structure.
+
+Develop a small analysis that includes:
+
+- cleaning or filtering
+- at least one visualization
+- at least one model or statistical summary
+
+## Task 4: Real-Side Execution
+
+Run the reviewed workflow on the real dataset outside the AI tool.
+
+Document what worked and what needed to change.
+
+## Task 5: Verification And Adaptation
+
+Explain how you checked the AI-generated work.
+
+Include any code review, diagnostic checks, manual calculations, alternate model checks, or comparison of simulated-side and real-side outputs.
+
+## Task 6: Reflection And Documentation
+
+Write a reflection explaining:
+
+- what information did and did not go to the AI tool
+- how you created the simulated data
+- what changed when moving from simulated data to real data
+- what you would do differently in a true restricted-data setting
+
+# Submission
+
+Submit a zip file through CoursePlus containing the two-folder structure and rendered HTML outputs.
+
+# Rubric
+
+The final project is worth 50 points.
+
+| Category | Points | Observable Criteria |
+|:---------|-------:|:--------------------|
+| Real Dataset Choice And Privacy Framing | 10 | Chooses a dataset from `data/real/`, identifies the unit of analysis and key variables, and clearly explains the privacy boundary. |
+| Simulated Data Creation | 10 | Creates an original simulated dataset with appropriate variable names, data types, plausible fake values, and reproducible simulation code. |
+| Simulated-Side AI Workflow | 10 | Shows AI-assisted development using the student-created simulated data only, including cleaning/filtering, visualization, and modeling or statistical summary. |
+| Real-Side Execution And Verification | 10 | Runs reviewed code on the real dataset, includes rendered output, checks AI-generated work, and documents what worked or changed. |
+| Reflection, Documentation, And Reproducibility | 10 | Provides clear folders, reproducible code, rendered outputs, and a thoughtful privacy/simulation/verification reflection. |
+
+These criteria will be applied to each 10-point category:
+
+| Score | Meaning |
+|------:|:--------|
+| 9-10 | Complete, clear, strong. |
+| 7-8 | Mostly complete, with minor issues. |
+| 5-6 | Partially complete, with important gaps. |
+| 3-4 | Minimal attempt, with major issues. |
+| 0-2 | Missing or not assessable. |

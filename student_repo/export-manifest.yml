@@ -1,60 +1,119 @@
 # Student repository export manifest.
 #
-# This documents the intended public/student-facing export rules. The build
-# script reads `target_root_default`, `must_exist_after_export`, and
-# `must_not_exist_after_export` from this file.
+# The build script reads this file to decide the public target, which days are
+# released, and which files must or must not exist after export.
 
-target_root_default: ~/Code/Courses/ai-tools-course-2026
+target_root_default: ~/Code/Courses/ai-tools-2026
 
-# Source materials students may open and run.
-source_exports:
-  - index.qmd
-  - course_docs/*.qmd
-  - modules/**/*.qmd
-  - demos/**/*.qmd
-  - slides/**/*.qmd
-  - data/**/*
-  - output/**/*
-  - scaffold.R
-  - settings.yml
-  - updater.R
-  - README.md
+# Day-level publishing gate for the public/student repo.
+# Valid values: preclass, day-01, day-02, day-03, all.
+published_days:
+  - all
 
-# Rendered public artifacts copied from docs/.
-rendered_exports:
-  - docs/**/*.html
-  - docs/**/*.json
-  - docs/site_libs/**/*
-
-# Student-owned files should not be overwritten by the updater.
+# Student-owned files are ignored by Git and should not be overwritten.
 student_work:
   - practice/work/
 
 must_exist_after_export:
   - README.md
-  - updater.R
+  - .gitignore
   - _quarto.yml
-  - index.qmd
-  - docs/index.html
-  - docs/course_docs/syllabus.html
-  - docs/course_docs/course-project.html
-  - docs/slides/01-foundations.html
-  - docs/slides/02-tools-introduction.html
-  - docs/demos/2-tools-introduction/summary.html
-  - data/synthetic/simulated_maternal_health_data.csv
-  - course_docs/syllabus.qmd
-  - course_docs/course-project.qmd
   - ai-tools-course.Rproj
   - ai-tools-course.code-workspace
+  - index.html
+  - syllabus.html
+  - git-workflow.html
+  - assignments/problem-set-1-data-visualization.html
+  - assignments/problem-set-2-statistical-modeling.html
+  - assignments/final-project-simulated-data-workflow.html
+  - slides/01-session-1.html
+  - slides/02-session-2.html
+  - slides/03-session-3.html
+  - modules/01_installation-instructions.html
+  - modules/01_agent-demo/prompt.txt
+  - skills/prams-subgroup-analysis.md
+  - skills/matter-of-fact-language.md
+  - modules/01_agent-demo/01_data-cleaning.html
+  - modules/01_agent-demo/02_data-summary.html
+  - modules/01_agent-demo/03_data-analysis.html
+  - modules/01_agent-demo/outputs/.gitkeep
+  - modules/02_context-management/index.html
+  - modules/02_context-management/with-context/AGENTS.md
+  - modules/02_context-management/with-context/visualization-task.html
+  - modules/02_context-management/without-context/visualization-task.html
+  - modules/03_agent-differences-example/index.html
+  - modules/03_agent-differences-example/simple-prompt.txt
+  - modules/03_agent-differences-example/detailed-prompt.txt
+  - modules/03_agent-differences-example/review-checklist.txt
+  - modules/03_agent-differences-example/outputs/.gitkeep
+  - data/manifest.csv
+  - data/synthetic/simulated_maternal_health_data.csv
+  - data/simulated/prams_messy_for_cleaning.csv
+  - data/simulated/new_parent_wellness_survey.csv
+  - data/simulated/neighborhood_health_survey_analysis.csv
+  - data/simulated/county_wellness_indicators_long.csv
+  - data/codebooks/simulated_prams_messy_for_cleaning.md
+  - data/codebooks/simulated_new_parent_wellness_survey.md
+  - data/codebooks/simulated_neighborhood_health_survey_analysis.md
+  - data/codebooks/simulated_county_wellness_indicators_long.md
+  - practice/tasks/README.md
+  - practice/tasks/01_clean-and-visualize/README.md
+  - practice/tasks/01_clean-and-visualize/starter-prompt.txt
+  - practice/tasks/01_clean-and-visualize/starter-notebook.qmd
+  - practice/tasks/02_modeling-workflow/README.md
+  - practice/tasks/02_modeling-workflow/starter-prompt.txt
+  - practice/tasks/02_modeling-workflow/starter-notebook.qmd
+  - practice/work/.gitkeep
   - practice/work/README.md
 
 must_not_exist_after_export:
+  - updater.R
+  - docs
+  - index.qmd
+  - assignments/problem-set-1-data-visualization.qmd
+  - assignments/problem-set-2-statistical-modeling.qmd
+  - assignments/final-project-simulated-data-workflow.qmd
+  - practice/templates
+  - practice/tasks/01_clean-and-visualize.md
+  - demos
+  - slides/temp_source
+  - slides/01-session-1.qmd
+  - slides/02-session-2.qmd
+  - slides/03-session-3.qmd
+  - modules/temp_source
+  - modules/01_installation-instructions.qmd
+  - modules/01_first-agent-demo.html
+  - modules/01_first-agent-demo.qmd
+  - modules/01_agent-demo/01_data-cleaning.qmd
+  - modules/01_agent-demo/02_data-summary.qmd
+  - modules/01_agent-demo/03_data-analysis.qmd
+  - modules/01_agent-demo/skills
+  - modules/02_context-management/index.qmd
+  - modules/02_context-management/with-context/visualization-task.qmd
+  - modules/02_context-management/without-context/visualization-task.qmd
+  - modules/03_agent-differences-example/index.qmd
+  - modules/01_chatbots-vs-agents.qmd
+  - modules/01_context-management.qmd
+  - modules/01_data-summary-practice.qmd
+  - modules/01_data-cleaning-prams-spec.qmd
+  - modules/01_data-visualization-practice.qmd
+  - modules/01_ols-modeling-diagnostics.qmd
+  - modules/01_advanced-modeling-stretch.qmd
+  - modules/01_model-critique-cross-check.qmd
+  - modules/01_find-analysis-error.qmd
+  - modules/01_simulated-data-privacy-workflow.qmd
+  - slides/01-foundations.qmd
+  - slides/02-tools-introduction.qmd
+  - slides/03-tools-and-workflow.qmd
+  - slides/04-project-presentations-and-workflow.qmd
+  - search.json
+  - course-project.html
+  - data/private
+  - modules/gen_ai_session
+  - scaffold.R
+  - settings.yml
   - util_docs
   - teaching-scratch
   - .claude
   - .artifacts
   - framework.db
-  - data/private
-  - course_docs/planning
-  - ai-tools-for-data-science-and-statistics.Rproj
-  - ai-tools-for-data-science-and-statistics.code-workspace

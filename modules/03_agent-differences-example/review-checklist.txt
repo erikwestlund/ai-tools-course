@@ -1,0 +1,27 @@
+Agent-output review checklist
+
+Execution
+- Does the code run from a clean R session?
+- Are all required packages loaded?
+- Are file paths explicit and correct?
+- Are generated files written to an intended output folder?
+
+Data handling
+- Does the code use the intended dataset?
+- Are identifiers handled as identifiers rather than predictors by default?
+- Are categorical variables typed consistently?
+- Are binary indicators coded consistently?
+- Are missing values counted and handled explicitly?
+
+Modeling
+- Is the outcome defined correctly?
+- Is the outcome distribution inspected before model choice?
+- Are at least two plausible model approaches compared?
+- Are diagnostics used before interpreting coefficients?
+- Are standard errors, intervals, or uncertainty summaries reported where appropriate?
+
+Interpretation
+- Are claims limited to the fitted model and displayed summaries?
+- Are causal claims avoided?
+- Are synthetic-data limitations stated?
+- Are surprising findings treated cautiously?

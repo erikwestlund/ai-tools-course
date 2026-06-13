@@ -1,0 +1,62 @@
+---
+title: "Simulated PRAMS Analysis: Data Analysis"
+subtitle: "Step 3 of 3"
+format:
+  html:
+    embed-resources: true
+    toc: true
+---
+
+# Objective
+
+Create one small analysis and one readable visualization from the cleaned simulated PRAMS-style subgroup estimate data.
+
+# Files
+
+- Dataset: `data/simulated/prams_messy_for_cleaning.csv`
+- Codebook: `data/codebooks/simulated_prams_messy_for_cleaning.md`
+- Skill: `skills/prams-subgroup-analysis.md`
+- Language: `skills/matter-of-fact-language.md`
+- Outputs: `modules/01_agent-demo/outputs/`
+
+# Output Directory
+
+This analysis reads and writes derived files under `modules/01_agent-demo/outputs/`. Code should use explicit paths to that folder. The `.gitkeep` file only keeps the folder present when it is empty.
+
+Use a setup like this when running from the repository root:
+
+```{r}
+#| eval: false
+output_dir <- file.path("modules", "01_agent-demo", "outputs")
+cleaned_data_path <- file.path(output_dir, "prams_cleaned.csv")
+plot_path <- file.path(output_dir, "prams_subgroup_plot.png")
+```
+
+# Analysis Request
+
+Ask for one small analysis, not a complete report.
+
+```text
+Create one simple analysis and one visualization from the cleaned data.
+
+Focus on comparing estimate_percent across subgroup categories or subgroups.
+Use a plot that is easy to read in a short analysis report.
+Include a brief interpretation and limitations.
+Save the plot in `modules/01_agent-demo/outputs/` using an explicit file path such as `plot_path`.
+```
+
+# Checks
+
+Before trusting the result, check:
+
+- whether the plot uses the cleaned numeric estimate
+- whether labels match the dataset
+- whether the interpretation avoids overclaiming from simulated, pre-aggregated data
+- whether the code or output should be simplified before reuse
+
+# Analysis Notes
+
+- Ask for one stage at a time.
+- Check the data after each stage.
+- Verify the statistical meaning before trusting generated code or interpretation.
+- Keep generated outputs in `modules/01_agent-demo/outputs/`.

@@ -1,0 +1,117 @@
+---
+title: "Problem Set 1: AI-Assisted Data Visualization"
+subtitle: "Cleaning, plotting, critique, and reflection"
+format:
+  html:
+    embed-resources: true
+    toc: true
+---
+
+# Due Date
+
+Due Thursday, June 18, 2026, at 11:59 pm.
+
+# Purpose
+
+Use an AI agent to help clean a dataset and produce a short visualization report. Give useful context, check the output, revise it, and explain what you trusted.
+
+# Flexibility And AI Use
+
+This assignment is designed for you to practice using AI tools on a common task in data science and statistics. Ideally, it will help you learn how to use the tools to improve your work and also give you insight into the limitations of these tools. If you are inexperienced with visualization, this is an opportunity to learn more. Evaluation will focus on evidence of your thoughtful engagement with the tools and assignment.
+
+If a different visualization or data project would be more useful, or if the standard version does not fit your background, propose an alternate version. Talk with me in class or email [ewestlund@jhu.edu](mailto:ewestlund@jhu.edu). Use only non-sensitive data.
+
+# Datasets
+
+Choose one dataset from the course repository:
+
+- `data/simulated/new_parent_wellness_survey.csv`
+- `data/simulated/neighborhood_health_survey_analysis.csv`
+- `data/simulated/county_wellness_indicators_long.csv`
+- `data/synthetic/simulated_maternal_health_data.csv`
+
+You may also bring your own non-sensitive data or propose another course dataset if it lets you practice the main goals of this assignment. We will discuss BYO data options in class.
+
+# Submission
+
+Submit a rendered HTML notebook or equivalent document (e.g., Word document with inlined visualizations).
+
+Your notebook should include code, output, visualizations, written interpretation, and a short reflection on how you used and checked AI output.
+
+# Required Tasks
+
+## Task 1: Research Question And Dataset Orientation
+
+State a short research question and describe:
+
+- what one row represents in the data set
+- the main variables you will use
+
+You should study the data sets yourself and come up with your own research question. Do not use AI to generate the question. It is permissible to ask AI for help in crafting your question.
+
+## Task 2: Data Cleaning
+
+Use AI assistance to plan or write cleaning code, then check the result yourself.
+
+Your notebook should show:
+
+- what cleaning was needed
+- the code used to clean or filter the data
+- at least one before/after check, such as dimensions, missingness, or value levels
+
+## Task 3: Visualization Set
+
+Create at least three visualizations.
+
+Your set should include:
+
+- at least one grouped comparison
+- at least one distribution, trend, or ranking plot
+- clear labels, scales, and captions
+
+If your chosen research question or data set doesn't support these visualizations, prepare something comparable.
+
+## Task 4: Revision Or Critique Of AI Output
+
+Choose one AI-generated plot that you revised or rejected on its first run.
+
+Explain:
+
+- what the first version did well
+- what was wrong, unclear, misleading, or incomplete
+- what you changed or why you rejected it
+
+A small revision is fine. You may use a separate AI model or model instance to critique the first plot. Use the critique to improve the result, then document what changed.
+
+## Task 5: Interpretation 
+
+Write short interpretations for your visualizations.
+
+# Expectations
+
+Your submission should include at least three visualizations. At least one visualization should use a data cleaning, filtering, grouping, or recoding step before plotting.
+
+Your reflection should make clear how AI helped, what you checked manually, and what you did not trust without verification.
+
+# Rubric
+
+Problem Set 1 is worth 30 points.
+
+| Section | Points |
+|:--------|-------:|
+| Task 1: Research Question And Dataset Orientation | 5 |
+| Task 2: Data Cleaning | 5 |
+| Task 3: Visualization Set | 5 |
+| Task 4: Revision Or Critique Of AI Output | 5 |
+| Task 5: Interpretation And Limitations | 5 |
+| Presentation And Reproducibility | 5 |
+
+The same criteria will be applied to each 5-point section:
+
+| Score | Meaning |
+|------:|:--------|
+| 5 | Complete, thorough, and correct. |
+| 4 | Complete and mostly correct, with minor gaps in explanation, polish, or interpretation. |
+| 3 | Partially complete, with important gaps in completeness, thoroughness, or correctness. |
+| 2 | Minimal attempt, with major issues in completeness or correctness. |
+| 0-1 | Missing, not assessable, or not responsive to the task. |

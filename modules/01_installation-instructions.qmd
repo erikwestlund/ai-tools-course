@@ -1,0 +1,99 @@
+---
+title: "Pre-Class Setup Checklist"
+subtitle: "AI Tools for Data Science and Statistics"
+format:
+  html:
+    embed-resources: true
+    toc: true
+    toc-depth: 3
+---
+
+Before the first class, please install the core software and set up at least one AI **agent** tool. Choose one agent path that matches the subscription or account you already have.
+
+# What You Need
+
+Please have these ready before class:
+
+- R
+- RStudio, Positron, VS Code, Stata, SAS, or another statistics/programming environment you plan to use
+- Quarto
+- Git
+- Access to at least one AI agent tool
+
+You do **not** necessarily need a GitHub account. You only need one if your chosen tool requires it, such as GitHub Copilot.
+
+# Install Git First
+
+Git is required for this course. We will use it to download and update course materials.
+
+Open a terminal and type:
+
+```bash
+git
+```
+
+If Git is installed, you should see Git help text or a list of Git commands. If your computer says the command was not found, install Git.
+
+macOS and Linux computers often already have Git installed. If Git is missing on macOS, macOS may prompt you to install Command Line Tools. Follow the prompt. You can also install Git from:
+
+<https://git-scm.com/downloads/mac>
+
+Windows users should install **Git for Windows**:
+
+<https://git-scm.com/downloads/win>
+
+During installation, use the recommended PATH option: **Git from the command line and also from 3rd-party software**.
+
+# Get The Course Materials
+
+The supported workflow is to clone the public course repository with Git:
+
+```bash
+git clone https://github.com/erikwestlund/ai-tools-2026.git
+cd ai-tools-2026
+```
+
+At the start of each class, update the course materials with:
+
+```bash
+git pull
+```
+
+Save your own notebooks, scripts, rendered files, and notes in `practice/work/`. Instructor-provided tasks live in `practice/tasks/` and update with `git pull`. Copy a task into `practice/work/` before editing it. Do not edit files in `practice/tasks/`, `modules/`, `assignments/`, or `data/`; those folders are course-owned and may change.
+
+If you cannot use Git, you may download a ZIP from the green **Code** button at <https://github.com/erikwestlund/ai-tools-2026>, but this is discouraged. ZIP users must manually copy their `practice/work/` files into each fresh download.
+
+# Core Software
+
+Follow the official installation instructions for each tool you need.
+
+- R: <https://cran.r-project.org/>
+- RStudio Desktop: <https://posit.co/download/rstudio-desktop/>
+- Positron: <https://positron.posit.co/download.html>
+- VS Code: <https://code.visualstudio.com/>
+- Quarto: <https://quarto.org/docs/get-started/>
+
+# AI Agent Options
+
+Install at least one agent-capable tool. Follow the official installation instructions for the tool you choose.
+
+- Claude Code: <https://code.claude.com/docs/en/quickstart>
+- Claude Code overview: <https://code.claude.com/docs/en/overview>
+- Codex CLI: <https://github.com/openai/codex>
+- Gemini CLI: <https://github.com/google-gemini/gemini-cli>
+- GitHub Copilot: <https://docs.github.com/en/copilot>
+- GitHub Copilot for VS Code: <https://marketplace.visualstudio.com/items?itemName=GitHub.copilot>
+- GitHub Copilot Chat for VS Code: <https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat>
+
+If you already use RStudio, Stata, SAS, or another statistics program, a CLI agent such as Claude Code, Codex CLI, or Gemini CLI is a good companion. If you already use VS Code or Positron, GitHub Copilot Agent Mode or another editor-based agent is also fine.
+
+# If Something Fails
+
+First, follow the troubleshooting guidance in the official installation instructions for the tool you selected. If you are still stuck, bring the error message to class or email me beforehand at [ewestlund@jhu.edu](mailto:ewestlund@jhu.edu).
+
+The most useful information is:
+
+- your operating system
+- which statistics environment you plan to use
+- which AI subscription or agent tool you selected
+- the exact error message

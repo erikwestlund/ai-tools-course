@@ -143,4 +143,5 @@ ehthumbs.db
 *~
 
 /.quarto/
+**/.quarto/
 **/*.quarto_ipynb

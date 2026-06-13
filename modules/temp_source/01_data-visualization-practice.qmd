@@ -1,0 +1,43 @@
+---
+title: "Data Visualization Practice"
+subtitle: "Use an agent, then judge the result"
+format:
+  html:
+    embed-resources: true
+    toc: true
+---
+
+# Goal
+
+Use an AI agent to produce clear, defensible visualizations, then critique them.
+
+# Dataset Options
+
+Choose one:
+
+- `data/simulated/new_parent_wellness_survey.csv`
+- `data/simulated/neighborhood_health_survey_analysis.csv`
+- `data/simulated/county_wellness_indicators_long.csv`
+- `data/synthetic/simulated_maternal_health_data.csv`
+
+# Task
+
+Create a short visualization report that answers one substantive question about the dataset.
+
+# Acceptance Criteria
+
+Your report should include:
+
+- A short question the plots are meant to answer.
+- Data cleaning or filtering required for the plots.
+- At least three plots.
+- At least one plot that compares groups.
+- At least one plot that shows a distribution or trend.
+- Figure captions that make the takeaway clear.
+- A critique of one AI-generated plot that you rejected or revised.
+
+# Work Area
+
+```{r}
+# Start here.
+```

@@ -1,0 +1,204 @@
+---
+title: "Context Management"
+subtitle: "Project instructions, skills, and when to use them"
+format:
+  html:
+    embed-resources: true
+    toc: true
+---
+
+# Try This First: Context A/B
+
+Run the same task twice and compare what changes when the folder contains a context file.
+
+- [Without context file](context-ab/without-context/visualization-task.html)
+- [With context file](context-ab/with-context/visualization-task.html)
+
+Use the same agent, same model, and same prompt as much as possible.
+
+```text
+Complete the visualization task in this notebook. Use simple R code. Do not make causal claims. After editing, explain your choices and what still needs human review.
+```
+
+After both runs, compare:
+
+- Did the agent follow the requested plot style?
+- Did it use readable labels and units?
+- Did it add a subtitle and caption?
+- Did it avoid causal language?
+- Did it explain what it changed?
+
+# What Changed?
+
+Agents are different from chatbots because they can inspect files, edit files, and run commands. That means the project folder itself becomes part of the prompt.
+
+In the A/B exercise, the `with-context` folder contains an `AGENTS.md` file. The `without-context` folder lacks that file. The file gives the agent durable instructions without making you paste those instructions into every prompt.
+
+# Context Files
+
+Context files are plain text instruction files stored in a project. Different tools look for different names.
+
+| File | Commonly read by | Typical scope |
+|:-----|:-----------------|:--------------|
+| `CLAUDE.md` | Claude Code, OpenCode | Project or directory |
+| `AGENTS.md` | Codex, OpenCode, emerging standard | Project or directory |
+| `.cursorrules` | Cursor | Project root |
+
+Many agents also infer context by reading files such as `README.md`, `_quarto.yml`, `pyproject.toml`, `DESCRIPTION`, `renv.lock`, `package.json`, or source code. Context files should not duplicate all of that documentation. They should state the rules the agent is unlikely to infer reliably.
+
+# What Belongs In A Context File
+
+Use context files for durable, high-signal instructions.
+
+Good candidates:
+
+- project purpose and audience
+- required workflow steps
+- file and directory conventions
+- package or language rules
+- privacy and data handling constraints
+- testing, rendering, or verification commands
+- style rules that matter for the work
+- instructions about what not to change
+
+Poor candidates:
+
+- vague advice such as "be rigorous" or "write clean code"
+- copied documentation the agent can read elsewhere
+- huge lists of preferences that rarely matter
+- instructions that conflict with other files
+- sensitive information, credentials, or private data
+
+# Evidence And Caution
+
+Context files help, but they cannot guarantee good output.
+
+Gloaguen, Mundler, Muller, Raychev, and Vechev (2026) evaluated `AGENTS.md` files on SWE-bench tasks and found that AI-generated repository context files often reduced agent success rates and increased cost. Hand-written context files performed better.
+
+Practical takeaway:
+
+- write context files yourself
+- keep them short
+- make rules concrete and testable
+- remove stale instructions
+- do not treat the file as a safety guarantee
+
+A context file can tell an agent not to overwrite data, expose PHI, or make unsupported causal claims. You still need to review what the agent does.
+
+# A Portable Pattern
+
+A useful context file often has five parts.
+
+## Context
+
+Briefly explain the project, audience, and environment.
+
+## Rules
+
+List concrete requirements the agent should follow.
+
+## Examples
+
+Show one or two examples of correct behavior.
+
+## Anti-Patterns
+
+State the common mistakes to avoid.
+
+## References
+
+Point to the real source of truth, such as a style guide, data dictionary, assignment prompt, or analysis plan.
+
+# Example: Analysis Project Context
+
+```markdown
+# AGENTS.md
+
+## Context
+
+This is a teaching project for an applied biostatistics course. Students are learning reproducible AI-assisted workflows in R and Quarto.
+
+## Rules
+
+- Use relative file paths from the project root.
+- Prefer simple, readable R code that students can inspect.
+- Use `read.csv()` or `readr::read_csv()` consistently within a single file.
+- Do not make causal claims from observational summaries.
+- Keep generated code simple enough for students to inspect.
+- After editing a `.qmd` file, render it and report any errors.
+
+## Examples
+
+- Good: "People with higher exposure had higher observed outcome values in this sample."
+- Bad: "The exposure caused the outcome to increase."
+
+## Anti-Patterns
+
+- Do not add new packages unless the assignment requires them.
+- Do not overwrite files in `data/real/`.
+- Do not paste or summarize private data into cloud tools.
+
+## References
+
+- Course setup: `README.md`
+- Data dictionary: `data/codebooks/`
+- Assignment instructions: `assignments/`
+```
+
+# Skills
+
+Skills are reusable, task-specific instruction bundles for agents. They are useful when the same workflow comes up repeatedly across projects or sessions.
+
+Examples:
+
+- review an R analysis for statistical interpretation errors
+- convert a messy script into a reproducible Quarto notebook
+- check a visualization against a publication style guide
+- audit a simulated-data workflow before code touches real data
+
+Anthropic's skill format usually includes a `SKILL.md` file with frontmatter plus instructions. A minimal skill looks like this:
+
+```markdown
+---
+name: analysis-review
+description: Review an applied statistical analysis for reproducibility, statistical interpretation, and verification gaps.
+---
+
+Use this skill when reviewing R, Python, Stata, or SAS analysis code.
+
+Check for:
+- unsupported causal language
+- missing data handling
+- incorrect model interpretation
+- unverified AI-generated code
+- outputs that are not reproducible from source files
+```
+
+Skills are still a developing practice. Agents may not always invoke them when you expect, and invoked skills add context cost. Use skills for recurring workflows, not one-off project facts.
+
+# Context File Or Skill?
+
+Use this rule of thumb.
+
+| Need | Better fit |
+|:-----|:-----------|
+| Project-specific rules | `AGENTS.md` or `CLAUDE.md` |
+| Directory-specific behavior | nested `AGENTS.md` or `CLAUDE.md` |
+| Reusable workflow across projects | skill |
+| One-time task instruction | prompt |
+| Factual project documentation | `README.md`, codebook, or analysis plan |
+
+# Reflection
+
+Answer briefly:
+
+- What instruction helped the agent most?
+- What instruction did the agent ignore or over-apply?
+- What should be in a project context file for your own work?
+- What should stay in a one-time prompt instead?
+
+# References
+
+- Gloaguen, T., Mundler, N., Muller, M., Raychev, V., & Vechev, M. (2026). Evaluating AGENTS.md: Are repository-level context files helpful for coding agents? <https://arxiv.org/abs/2602.11988>
+- Anthropic Skills examples: <https://github.com/anthropics/skills>
+- Laravel Skills documentation: <https://skills.laravel.cloud/docs>

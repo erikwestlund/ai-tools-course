@@ -1,0 +1,57 @@
+---
+title: "Find The Analysis Error"
+subtitle: "Can an agent catch a serious statistical mistake?"
+format:
+  html:
+    embed-resources: true
+    toc: true
+---
+
+# Goal
+
+Practice asking an AI tool to audit an analysis for conceptual and statistical errors.
+
+# Dataset
+
+Use:
+
+```text
+data/simulated/neighborhood_health_survey_analysis.csv
+```
+
+# Flawed Analysis
+
+The analysis below contains a serious problem. Ask an AI tool to review it, then decide whether the tool found the issue.
+
+```{r}
+#| eval: false
+analysis_df <- read.csv("data/simulated/neighborhood_health_survey_analysis.csv")
+
+fit <- glm(
+  adult_high_bp_range ~ systolic_mean + diastolic_mean + age_years + gender + race_ethnicity,
+  data = analysis_df,
+  family = binomial()
+)
+
+summary(fit)
+```
+
+# Hint For Instructor
+
+The outcome `adult_high_bp_range` is defined using blood pressure measurements, so using `systolic_mean` and `diastolic_mean` as predictors creates outcome leakage. The model will look strong for the wrong reason.
+
+# Acceptance Criteria
+
+Your report should include:
+
+- What the AI tool identified.
+- Whether it found the leakage problem.
+- Any false positives or irrelevant critiques.
+- A corrected analysis plan.
+- A short reflection on how to ask better audit questions.
+
+# Work Area
+
+```{r}
+# Start here.
+```

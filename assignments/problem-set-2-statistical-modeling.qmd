@@ -1,0 +1,112 @@
+---
+title: "Problem Set 2: AI-Assisted Statistical Modeling"
+subtitle: "Cleaning, model fitting, diagnostics, and verification"
+format:
+  html:
+    embed-resources: true
+    toc: true
+---
+
+# Due Date
+
+Due Monday, June 22, 2026, at 11:59 pm.
+
+# Purpose
+
+Use an AI agent to help clean a dataset, fit a statistical model, produce diagnostics, and explain the results. You are responsible for the final analysis.
+
+# Flexibility And AI Use
+
+This assignment is designed for you to practice using AI tools on a common task in data science and statistics. Ideally, it will help you learn how to use the tools to improve your work and also give you insight into the limitations of these tools. If you are inexperienced with statistical modeling, this is an opportunity to learn more. Evaluation will focus on evidence of your thoughtful engagement with the tools and assignment.
+
+If a different modeling or data project would be more useful, or if the standard version does not fit your background, propose an alternate version. Talk with me in class or email [ewestlund@jhu.edu](mailto:ewestlund@jhu.edu). Use only non-sensitive data.
+
+# Recommended Dataset
+
+Use:
+
+```text
+data/simulated/neighborhood_health_survey_analysis.csv
+```
+
+You may also bring your own non-sensitive data or propose another course dataset if it lets you practice the main goals of this assignment. We will discuss BYO data options in class.
+
+# Submission
+
+Submit a rendered HTML notebook or equivalent report (e.g., Microsoft Word document).
+
+Your notebook should include code, output, model results, diagnostics, written interpretation, and a section explaining how you verified AI-generated work.
+
+# Required Tasks
+
+## Task 1: Research Question And Model Framing
+
+State a research question and identify:
+
+- the outcome
+- the main predictors
+- the unit of analysis
+- whether the model is descriptive, predictive, or inferential
+
+You should study the data sets yourself and come up with your own research question. Do not use AI to generate the question. It is permissible to ask for help in crafting your question.
+
+## Task 2: Clean Analysis Dataset
+
+Create a cleaned analysis dataset.
+
+Show:
+
+- inclusion/exclusion or missing-data decisions
+- variable recoding or type conversion
+- row counts before and after cleaning
+- a short check that the outcome and key predictors are usable
+
+## Task 3: Model Fit And Results
+
+Fit a standard regression model appropriate for your outcome. If you are unsure, you can use the LLM to help guide you. If you are still unsure, you can ask me for help.
+
+Include:
+
+- model formula
+- short justification for the model
+- results table
+- plain-language interpretation of key parameters
+
+## Task 4: Diagnostics
+
+Include diagnostics appropriate for the model.
+
+## Task 5: AI Verification And Critique
+
+Describe what the AI got wrong, overstated, or failed to check.
+
+Explain how you independently verified the output. You may use a separate AI model or model instance to critique the first model output. Use the critique to improve the result, then document what changed.
+
+# Expectations
+
+A simple model is fine. It should be appropriate, interpretable, and checked.
+
+Your write-up should avoid causal claims unless the design supports them. For most course datasets, descriptive or associational language is safer.
+
+# Rubric
+
+Problem Set 2 is worth 30 points.
+
+| Section | Points |
+|:--------|-------:|
+| Task 1: Research Question And Model Framing | 5 |
+| Task 2: Clean Analysis Dataset | 5 |
+| Task 3: Model Fit And Results | 5 |
+| Task 4: Diagnostics And Sensitivity Check | 5 |
+| Task 5: AI Verification And Critique | 5 |
+| Presentation And Reproducibility | 5 |
+
+The same criteria will be applied to each 5-point section:
+
+| Score | Meaning |
+|------:|:--------|
+| 5 | Complete, thorough, and correct. |
+| 4 | Complete and mostly correct, with minor gaps in explanation, polish, or interpretation. |
+| 3 | Partially complete, with important gaps in completeness, thoroughness, or correctness. |
+| 2 | Minimal attempt, with major issues in completeness or correctness. |
+| 0-1 | Missing, not assessable, or not responsive to the task. |

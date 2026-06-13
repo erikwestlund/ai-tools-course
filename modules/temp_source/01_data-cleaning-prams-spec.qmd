@@ -1,0 +1,63 @@
+---
+title: "Data Cleaning With A Spec"
+subtitle: "PRAMS-shaped messy data"
+format:
+  html:
+    embed-resources: true
+    toc: true
+---
+
+# Goal
+
+Practice giving an agent good context, good directions, and clear acceptance criteria for data cleaning.
+
+# Dataset
+
+Use:
+
+```text
+data/simulated/prams_messy_for_cleaning.csv
+```
+
+Reference codebook:
+
+```text
+data/codebooks/simulated_prams_messy_for_cleaning.md
+```
+
+# Cleaning Spec
+
+Produce a cleaned dataset with these columns:
+
+- `state`: state name as title case text.
+- `subgroup_category`: cleaned subgroup category.
+- `subgroup`: cleaned subgroup label.
+- `measure`: cleaned measure label.
+- `estimate_percent`: numeric percentage estimate.
+- `estimate_available`: logical indicator for whether an estimate was available.
+- `year`: numeric year.
+
+# Required Recodes
+
+- Convert percent strings like `53.5%` to numeric values like `53.5`.
+- Treat `Suppressed`, `NA`, `--`, and `not available` as missing estimates.
+- Standardize capitalization and obvious spelling/punctuation inconsistencies.
+- Trim leading/trailing whitespace from all character fields.
+- Preserve original rows; do not silently drop missing estimates.
+
+# Acceptance Criteria
+
+Your notebook should include:
+
+- A short cleaning plan before code.
+- Cleaning code.
+- A before/after glimpse of the data.
+- A table showing missingness before and after cleaning.
+- A brief data dictionary for the cleaned output.
+- A list of recoding decisions you verified manually.
+
+# Work Area
+
+```{r}
+# Start here.
+```

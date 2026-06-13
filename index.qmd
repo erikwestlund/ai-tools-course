@@ -15,53 +15,54 @@ Department of Biostatistics, Johns Hopkins Bloomberg School of Public Health
 
 **Time:** 9:00–10:50 AM ET
 
-* [Syllabus](course_docs/syllabus.html)
-* [Course Project](course_docs/course-project.html)
-* [GitHub Repository](https://github.com/erikwestlund/aitools)
+* [Syllabus](syllabus.html)
+* [Course Materials And Git Workflow](git-workflow.html)
+* [Pre-Class Setup Checklist](modules/01_installation-instructions.html)
+* [Problem Set 1: Data Visualization](assignments/problem-set-1-data-visualization.html)
+* [Problem Set 2: Statistical Modeling](assignments/problem-set-2-statistical-modeling.html)
+* [Final Project: Simulated Data Workflow](assignments/final-project-simulated-data-workflow.html)
 
 ## Sessions
 
-### Session 1 (Monday, June 15): Introduction, Chatbots, and Harnesses
+### Session 1 (Monday, June 15): Introduction, Agents, and Context
 
-We will start with a condensed introduction to LLMs, why they are useful for statistical work, where they fail, and why structured workflows matter. We will compare chatbots, browser tools, GUI/IDE harnesses, and CLI harnesses on the same small task.
+We will start with a condensed introduction to LLMs, why they are useful for statistical work, where they fail, and why structured workflows matter. We will compare chatbots, browser tools, GUI/IDE harnesses, and CLI harnesses on the same small task, then introduce context management with `AGENTS.md`, `CLAUDE.md`, and skills.
 
-- [Slides](slides/01-foundations.html)
-- [Prompt Template: Chat](demos/2-tools-introduction/source/02-tools-chat-template.html)
-- [Prompt Template: Detailed](demos/2-tools-introduction/source/02-tools-detailed-template.html)
-- [Prompt Template: Simple](demos/2-tools-introduction/source/02-tools-simple-template.html)
-- **Practice:** Short synthetic-data task with no context, light context, and structured context.
+- **Slides:** [Session 1: Foundations and First Workflow](slides/01-session-1.html)
+- **Demo:** [First Agent Demo](modules/01_agent-demo/01_data-cleaning.html)
+- **Practice:** [Clean And Visualize](practice/tasks/01_clean-and-visualize/)
+- **Assigned:** [Problem Set 1: Data Visualization](assignments/problem-set-1-data-visualization.html)
 
-### Session 2 (Tuesday, June 16): Models, Agents, and Structured Workflows
+### Session 2 (Tuesday, June 16): Context, Agent Differences, and Modeling Workflows
 
-We will focus on model selection, agents, and repeatable AI-assisted data science workflows.
+We will focus on context management, agent differences, and repeatable AI-assisted modeling workflows. The day moves from a controlled context A/B demo into a worked agent-comparison case study and hands-on modeling practice.
 
-* Model selection: cost, speed, reasoning behavior, coding ability, and cloud/local tradeoffs
-* Agents: GUI/IDE workflows and CLI workflows
-* Skill files and context files: documenting what good work looks like
-* Structured practice: data preparation, visualization, and modeling on synthetic data
+- Context files, skills, prompts, and working-directory context
+- A/B demo: the same plotting task with and without `AGENTS.md`
+- Case study: how tool, model, prompt, and harness differences affect analysis output
+- Practice: count-modeling workflow on simulated maternal-health data
 
-- [Slides](slides/02-tools-introduction.html)
-- [Experiment: Comparing AI Tool Outputs on Maternal Health Data](demos/2-tools-introduction/summary.html)
-- [Rendered Notebooks (all runs)](demos/2-tools-introduction/summary.html#rendered-notebooks)
+- **Slides:** [Session 2: Context, Agent Differences, and Modeling Workflows](slides/02-session-2.html)
+- **Module:** [Context Management](modules/02_context-management/index.html)
+- **Module:** [Agent Differences Example](modules/03_agent-differences-example/index.html)
+- **Practice:** [Modeling Workflow](practice/tasks/02_modeling-workflow/)
 - **Due before class:** Short course project topic proposal.
+- **Assigned:** [Problem Set 2: Statistical Modeling](assignments/problem-set-2-statistical-modeling.html)
 
-### Session 3 (Wednesday, June 17): Privacy, GitHub, and Sandbox Workflows
+### Session 3 (Wednesday, June 17): Privacy And Simulated Data Workflows
 
-We will make privacy the capstone workflow. The day focuses on Git, GitHub, personal access tokens, and a two-repository sandbox simulation. One repository will simulate a restricted environment with pretend-sensitive data; another will simulate the AI-enabled development environment. We will practice moving code, metadata, schemas, and synthetic data across environments while keeping sensitive data out of external tools.
+We will make privacy the capstone workflow. The day focuses on PHI, simulated-data workflows, and developing code without exposing restricted data to AI tools. The emphasis is on code movement through approved mechanisms and keeping sensitive data inside approved environments.
 
-- [Slides](slides/03-tools-and-workflow.html)
-- [Demos and Notebooks](demos/4-tools-and-workflow-index.html)
-- [Git Push/Pull Bridge Demo](demos/5-git-push-pull/git-push-pull-bridge.html)
-- [Two-Machine Synthetic Simulation Demo](demos/7-phi-two-machine/phi-two-machine-synthetic-simulated.html)
-- **Due:** [Course project](course_docs/course-project.html): project materials and reflection; in-class share
+- **Slides:** [Session 3: PHI, Privacy, and Simulated-Data Workflows](slides/03-session-3.html)
+- **At-home assignment:** [Final Project](assignments/final-project-simulated-data-workflow.html): simulated and real folders, rendered outputs, and reflection. We will start the workflow in class; submit the completed project after the live sessions.
 
 ## Pre-Work
 
-Before the first class, students should create a GitHub account, install Git, install R/RStudio or Positron, install Quarto, and arrange access to at least one AI agent tool. We will create GitHub personal access tokens together during class.
+Before the first class, students should complete the [Pre-Class Setup Checklist](modules/01_installation-instructions.html): install Git if needed, install R/RStudio or Positron, install Quarto, and arrange access to at least one AI agent tool. A GitHub account is only needed if your chosen AI tool requires it, such as GitHub Copilot.
 
 ## Course Readings
 
-While I am not requiring you to read these papers, I am providing them for reference. The slides often reference them using the identifying numbers below. The concepts/problems these papers investigate and discuss are still relevant. Nevertheless, both the speed at which LLM technology is advancing as well the artificiality of many of the benchmarks should lead you to interpret presented data with caution.
+These papers are optional references. The slides often reference them using the identifying numbers below. The concepts these papers investigate are still relevant. Nevertheless, the speed of LLM development and the artificiality of many benchmarks should lead you to interpret presented data with caution.
 
 ### Published
 

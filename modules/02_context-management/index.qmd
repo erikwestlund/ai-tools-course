@@ -1,0 +1,42 @@
+---
+title: "Module 02: Context Management"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    embed-resources: true
+---
+
+# Purpose
+
+This module demonstrates how persistent context changes agent behavior on the same analysis task.
+
+# Files
+
+- `without-context/visualization-task.qmd`: the task without a local context file.
+- `with-context/visualization-task.qmd`: the same task with a local `AGENTS.md` file.
+- `with-context/AGENTS.md`: plotting and interpretation rules for the agent.
+- Dataset: `data/simulated/neighborhood_health_survey_analysis.csv`.
+
+# Demonstration Sequence
+
+1. Open the task in `without-context/`.
+2. Ask the agent to complete the visualization task.
+3. Record what style, labels, missing-data handling, and interpretation it produced.
+4. Open the task in `with-context/`.
+5. Ask the agent to inspect and follow `AGENTS.md`.
+6. Compare whether the output follows the explicit context rules.
+
+# Comparison Questions
+
+- Did the agent use the requested ggplot theme?
+- Did the agent place the legend at the bottom?
+- Did the agent include units in axis labels?
+- Did the agent add a subtitle and source caption?
+- Did the agent drop missing rows before plotting?
+- Did the written interpretation avoid causal language?
+- Did the agent explain which context rules it followed?
+
+# Takeaway
+
+Persistent context files are useful when rules should apply across multiple prompts or files. They do not replace review. The analyst still checks whether the agent followed the rules.

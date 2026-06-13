@@ -1,0 +1,60 @@
+---
+title: "Simulated Data Privacy Workflow"
+subtitle: "Move structure and code, not sensitive records"
+format:
+  html:
+    embed-resources: true
+    toc: true
+---
+
+# Goal
+
+Practice a privacy-aware workflow where the AI works on simulated data and the final code is run on the real dataset outside the AI conversation.
+
+# Core Principle
+
+Do not send sensitive or regulated records to an external AI tool. Move structure, metadata, code, and simulated data instead.
+
+# Paired Dataset Example
+
+Real public teaching dataset:
+
+```text
+data/real/prams_2011_selected.csv
+```
+
+Simulated analog:
+
+```text
+data/simulated/new_parent_wellness_survey.csv
+```
+
+These files have matching columns but different topics and values.
+
+# Workflow
+
+1. Inspect the real dataset manually or with approved local tools.
+2. Extract non-sensitive structure: column names, types, missingness patterns, and allowed values.
+3. Create or choose a simulated dataset with the same structure.
+4. Use AI tools only on the simulated dataset.
+5. Develop cleaning, visualization, and modeling code on simulated data.
+6. Review the code manually.
+7. Run the reviewed code on the real dataset outside the AI tool.
+8. Compare whether the code worked and what needed adjustment.
+
+# Acceptance Criteria
+
+Your notebook should include:
+
+- A diagram or numbered description of the workflow.
+- The real dataset path and simulated dataset path.
+- A structure comparison showing matching column names.
+- AI-assisted analysis code developed on the simulated data.
+- A record of changes needed to run on the real data.
+- A privacy reflection: what information did and did not leave the restricted side?
+
+# Work Area
+
+```{r}
+# Start here.
+```

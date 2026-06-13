@@ -1,0 +1,53 @@
+---
+title: "Statistical Modeling 1"
+subtitle: "OLS model with diagnostics"
+format:
+  html:
+    embed-resources: true
+    toc: true
+---
+
+# Goal
+
+Use an AI agent to fit a basic OLS model and produce a complete diagnostic report.
+
+# Recommended Dataset
+
+Use:
+
+```text
+data/simulated/neighborhood_health_survey_analysis.csv
+```
+
+Possible outcome:
+
+```text
+mean_daily_sodium_mg
+```
+
+Possible predictors:
+
+```text
+age_years, gender, race_ethnicity, education_adults_20_plus, family_income_to_poverty, mean_daily_energy_kcal
+```
+
+# Acceptance Criteria
+
+Your report should include:
+
+- A stated research question.
+- A cleaned analysis dataset.
+- A model formula.
+- Model coefficient table.
+- Plain-language interpretation of key coefficients.
+- Residual diagnostics.
+- Checks for influential observations.
+- Checks for collinearity or redundant predictors.
+- A short statement of model limitations.
+- A section explaining what you checked manually after the AI produced output.
+
+# Work Area
+
+```{r}
+# Start here.
+```

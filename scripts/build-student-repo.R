@@ -16,6 +16,11 @@ dir_create <- function(path) {
   }
 }
 
+write_lines <- function(path, lines) {
+  dir_create(dirname(path))
+  writeLines(lines, path)
+}
+
 read_simple_manifest <- function(path) {
   lines <- readLines(path, warn = FALSE)
   lines <- sub("[[:space:]]+#.*$", "", lines)
@@ -46,64 +51,93 @@ read_simple_manifest <- function(path) {
 }
 
 copy_file <- function(from, to) {
+  if (!is_file(from)) {
+    stop("Missing source file: ", from, call. = FALSE)
+  }
+
   dir_create(dirname(to))
   ok <- file.copy(from, to, overwrite = TRUE, copy.date = TRUE)
 
   if (!ok) {
     stop("Failed to copy ", from, " to ", to, call. = FALSE)
   }
+
+  invisible(TRUE)
 }
 
-write_lines <- function(path, lines) {
-  dir_create(dirname(path))
-  writeLines(lines, path)
+copy_optional_file <- function(from, to) {
+  if (is_file(from)) {
+    copy_file(from, to)
+  }
 }
 
-skip_names <- c(
-  ".DS_Store",
-  ".git",
-  ".quarto",
-  ".Rproj.user",
-  ".claude",
-  ".artifacts",
-  "_freeze",
-  "private",
-  "planning",
-  "teaching-scratch",
-  "util_docs"
-)
-
-should_skip <- function(path) {
-  name <- basename(path)
-
-  name %in% skip_names ||
-    grepl("_cache$", name) ||
-    grepl("_files$", name) ||
-    grepl("[.]knit[.]md$", name) ||
-    grepl("[.]utf8[.]md$", name) ||
-    grepl("^framework[.]db", name)
-}
-
-copy_clean_dir <- function(from, to) {
+copy_clean_dir <- function(from, to, include = function(path) TRUE) {
   if (!dir.exists(from)) {
     return(invisible(FALSE))
   }
 
-  dir_create(to)
-  entries <- list.files(from, all.files = TRUE, no.. = TRUE, full.names = TRUE)
-  entries <- entries[!vapply(entries, should_skip, logical(1))]
+  files <- list.files(from, recursive = TRUE, full.names = TRUE, all.files = TRUE, no.. = TRUE)
+  files <- files[!dir.exists(files)]
+  files <- files[vapply(files, include, logical(1))]
 
-  for (entry in entries) {
-    destination <- p(to, basename(entry))
-
-    if (dir.exists(entry)) {
-      copy_clean_dir(entry, destination)
-    } else {
-      copy_file(entry, destination)
-    }
+  for (file in files) {
+    relative <- substring(file, nchar(from) + 2)
+    copy_file(file, p(to, relative))
   }
 
   invisible(TRUE)
+}
+
+source_qmd_path <- function(path) {
+  source_path <- sub("[.]html$", ".qmd", path)
+
+  if (path %in% c("syllabus.html", "git-workflow.html")) {
+    source_path <- p("docs", source_path)
+  }
+
+  source_path
+}
+
+render_html_path <- function(path) {
+  source_path <- source_qmd_path(path)
+  source_file <- p(source_root, source_path)
+
+  if (!is_file(source_file)) {
+    stop("Missing source file for rendered output ", path, ": ", source_path, call. = FALSE)
+  }
+
+  path_parts <- strsplit(path, "/", fixed = TRUE)[[1]]
+  top_level <- path_parts[[1]]
+
+  output_dir <- if (top_level %in% c("assignments", "modules", "slides")) {
+    p(target_root, top_level)
+  } else {
+    dirname(p(target_root, path))
+  }
+
+  if (identical(output_dir, ".")) {
+    output_dir <- target_root
+  }
+
+  dir_create(output_dir)
+  status <- system2(
+    "quarto",
+    c("render", source_file, "--output-dir", output_dir),
+    stdout = "",
+    stderr = ""
+  )
+
+  if (!identical(status, 0L)) {
+    stop("Failed to render ", source_path, call. = FALSE)
+  }
+
+  if (!is_file(p(target_root, path))) {
+    stop("Render completed but expected output is missing: ", path, call. = FALSE)
+  }
+}
+
+copy_data_path <- function(path) {
+  copy_file(p(source_root, "data", path), p(target_root, "data", path))
 }
 
 validate_manifest_paths <- function(paths, should_exist) {
@@ -133,38 +167,64 @@ validate_manifest_paths <- function(paths, should_exist) {
   invisible(NULL)
 }
 
-write_student_gitignore <- function(path) {
-  write_lines(path, c(
-    ".DS_Store",
-    ".Rhistory",
-    ".RData",
-    ".Ruserdata",
-    ".Rproj.user/",
-    ".quarto/",
-    "_freeze/",
-    "*_cache/",
-    "*_files/",
-    "*.knit.md",
-    "*.utf8.md",
-    ".env",
-    ".Renviron",
-    "data/private/",
-    "**/private/",
-    "practice/work/*",
-    "!practice/work/",
-    "!practice/work/README.md"
-  ))
+html_files_in <- function(directory) {
+  files <- list.files(p(source_root, directory), pattern = "[.]qmd$", recursive = TRUE, full.names = FALSE)
+  p(directory, sub("[.]qmd$", ".html", files))
 }
 
-write_practice_readme <- function() {
-  write_lines(p(target_root, "practice", "work", "README.md"), c(
-    "# Practice Work",
-    "",
-    "Save your own notebooks, scripts, and notes here.",
-    "",
-    "Course updates should not overwrite files in this folder."
-  ))
-}
+day_definitions <- list(
+  preclass = list(
+    docs = c(
+      "index.html",
+      "syllabus.html",
+      "git-workflow.html",
+      "assignments/problem-set-1-data-visualization.html",
+      "assignments/problem-set-2-statistical-modeling.html",
+      "assignments/final-project-simulated-data-workflow.html",
+      "slides/01-session-1.html",
+      "slides/02-session-2.html",
+      "slides/03-session-3.html",
+      "modules/01_installation-instructions.html",
+      "modules/01_agent-demo/01_data-cleaning.html",
+      "modules/01_agent-demo/02_data-summary.html",
+      "modules/01_agent-demo/03_data-analysis.html",
+      "modules/02_context-management/index.html",
+      "modules/02_context-management/with-context/visualization-task.html",
+      "modules/02_context-management/without-context/visualization-task.html",
+      "modules/03_agent-differences-example/index.html"
+    ),
+    data = c("manifest.csv"),
+    data_dirs = character()
+  ),
+  `day-01` = list(
+    docs = character(),
+    data = c(
+      "synthetic/simulated_maternal_health_data.csv",
+      "simulated/prams_messy_for_cleaning.csv",
+      "simulated/new_parent_wellness_survey.csv",
+      "simulated/neighborhood_health_survey_analysis.csv",
+      "simulated/county_wellness_indicators_long.csv",
+      "codebooks/simulated_prams_messy_for_cleaning.md",
+      "codebooks/simulated_new_parent_wellness_survey.md",
+      "codebooks/simulated_neighborhood_health_survey_analysis.md",
+      "codebooks/simulated_county_wellness_indicators_long.md"
+    ),
+    data_dirs = character()
+  ),
+  `day-02` = list(
+    docs = character(),
+    data = c(
+      "simulated/prams_messy_for_cleaning.csv",
+      "codebooks/simulated_prams_messy_for_cleaning.md"
+    ),
+    data_dirs = character()
+  ),
+  `day-03` = list(
+    docs = character(),
+    data = character(),
+    data_dirs = c("real", "simulated", "codebooks")
+  )
+)
 
 manifest_path <- p(source_root, "student_repo", "export-manifest.yml")
 
@@ -172,11 +232,27 @@ if (!is_file(manifest_path)) {
   stop("Missing student export manifest: student_repo/export-manifest.yml", call. = FALSE)
 }
 
-if (!is_file(p(source_root, "course_docs", "syllabus.qmd"))) {
+if (!is_file(p(source_root, "docs", "syllabus.qmd"))) {
   stop("Run this script from the AI course source repository root.", call. = FALSE)
 }
 
 export_manifest <- read_simple_manifest(manifest_path)
+published_days <- export_manifest$published_days
+
+if (is.null(published_days) || length(published_days) == 0 || "all" %in% published_days) {
+  published_days <- names(day_definitions)
+}
+
+unknown_days <- setdiff(published_days, names(day_definitions))
+
+if (length(unknown_days) > 0) {
+  stop(
+    "Unknown published day(s) in student_repo/export-manifest.yml: ",
+    paste(unknown_days, collapse = ", "),
+    call. = FALSE
+  )
+}
+
 args <- commandArgs(trailingOnly = TRUE)
 
 if (length(args) > 1) {
@@ -200,24 +276,20 @@ if (identical(target_root, source_root) || startsWith(target_root, paste0(source
 }
 
 student_readme <- p(source_root, "student_repo", "README.md")
-student_updater <- p(source_root, "student_repo", "updater.R")
 
 if (!is_file(student_readme)) {
   stop("Missing student README template: student_repo/README.md", call. = FALSE)
 }
 
-if (!is_file(student_updater)) {
-  stop("Missing student updater script: student_repo/updater.R", call. = FALSE)
-}
-
 managed_paths <- c(
   "assignments",
-  "course_docs",
   "data",
   "demos",
   "docs",
   "modules",
   "output",
+  "practice",
+  "skills",
   "slides",
   "index.qmd",
   "_quarto.yml",
@@ -225,6 +297,11 @@ managed_paths <- c(
   "settings.yml",
   "render.sh",
   "README.md",
+  "index.html",
+  "syllabus.html",
+  "syllabus.pdf",
+  "git-workflow.html",
+  "course-project.html",
   "updater.R",
   ".gitignore",
   "ai-tools-course.Rproj",
@@ -240,33 +317,105 @@ for (path in managed_paths) {
 }
 
 copy_file(student_readme, p(target_root, "README.md"))
-copy_file(student_updater, p(target_root, "updater.R"))
-write_student_gitignore(p(target_root, ".gitignore"))
 
-root_files <- c(
-  "_quarto.yml",
-  "index.qmd",
-  "scaffold.R",
-  "settings.yml",
-  "render.sh",
-  "ai-tools-course.Rproj",
-  "ai-tools-course.code-workspace"
+copy_optional_file(p(source_root, "ai-tools-course.Rproj"), p(target_root, "ai-tools-course.Rproj"))
+copy_optional_file(p(source_root, "ai-tools-course.code-workspace"), p(target_root, "ai-tools-course.code-workspace"))
+
+write_lines(p(target_root, "_quarto.yml"), c(
+  "project:",
+  "  type: default",
+  "  execute-dir: project",
+  "",
+  "format:",
+  "  html:",
+  "    theme: cosmo",
+  "    toc: true",
+  "    toc-depth: 3",
+  "    embed-resources: true",
+  "    highlight-style: github"
+))
+
+published <- day_definitions[published_days]
+docs_to_copy <- unique(unlist(lapply(published, `[[`, "docs"), use.names = FALSE))
+data_to_copy <- unique(unlist(lapply(published, `[[`, "data"), use.names = FALSE))
+data_dirs_to_copy <- unique(unlist(lapply(published, `[[`, "data_dirs"), use.names = FALSE))
+
+for (path in docs_to_copy) {
+  render_html_path(path)
+}
+
+for (path in data_to_copy) {
+  copy_data_path(path)
+}
+
+for (directory in data_dirs_to_copy) {
+  copy_clean_dir(p(source_root, "data", directory), p(target_root, "data", directory))
+}
+
+copy_clean_dir(
+  p(source_root, "practice", "tasks"),
+  p(target_root, "practice", "tasks")
 )
 
-for (file in root_files) {
-  source_file <- p(source_root, file)
-  if (is_file(source_file)) {
-    copy_file(source_file, p(target_root, file))
-  }
+copy_clean_dir(
+  p(source_root, "skills"),
+  p(target_root, "skills")
+)
+
+active_module_dirs <- c(
+  "01_agent-demo",
+  "02_context-management",
+  "03_agent-differences-example"
+)
+
+for (directory in active_module_dirs) {
+  copy_clean_dir(
+    p(source_root, "modules", directory),
+    p(target_root, "modules", directory),
+    include = function(path) {
+      !grepl("[.]qmd$", path) && !grepl("/[.]quarto(/|$)", path)
+    }
+  )
 }
 
-for (directory in c("assignments", "course_docs", "data", "demos", "docs", "modules", "output", "slides")) {
-  copy_clean_dir(p(source_root, directory), p(target_root, directory))
-}
+write_lines(p(target_root, "practice", "work", ".gitkeep"), character())
+write_lines(p(target_root, "practice", "work", "README.md"), c(
+  "# Practice Work",
+  "",
+  "Save your own notebooks, scripts, rendered HTML files, and notes here.",
+  "",
+  "Files in this folder are ignored by Git so `git pull` can update course materials without overwriting your work.",
+  "",
+  "Do not save your work in course-owned folders such as `practice/tasks/`, `modules/`, `assignments/`, or `data/`. Those folders may change during updates."
+))
 
-write_practice_readme()
+write_lines(p(target_root, ".gitignore"), c(
+  ".DS_Store",
+  ".Rhistory",
+  ".RData",
+  ".Ruserdata",
+  ".Rproj.user/",
+  ".quarto/",
+  "_freeze/",
+  "*_cache/",
+  "*_files/",
+  "*.knit.md",
+  "*.utf8.md",
+  ".env",
+  ".Renviron",
+  "data/private/",
+  "**/private/",
+  "practice/*",
+  "!practice/tasks/",
+  "!practice/tasks/**",
+  "!practice/work/",
+  "practice/work/*",
+  "!practice/work/.gitkeep",
+  "!practice/work/README.md"
+))
 
 validate_manifest_paths(export_manifest$must_exist_after_export, should_exist = TRUE)
 validate_manifest_paths(export_manifest$must_not_exist_after_export, should_exist = FALSE)
 
-message("Student repo exported to: ", target_root)
+message("Student repository built at: ", target_root)
+message("Published days: ", paste(published_days, collapse = ", "))

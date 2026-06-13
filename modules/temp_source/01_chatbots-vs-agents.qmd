@@ -1,0 +1,52 @@
+---
+title: "Chatbots vs Agents"
+subtitle: "Harnesses, models, and what changes when tools can act"
+format:
+  html:
+    embed-resources: true
+    toc: true
+---
+
+# Goal
+
+Compare what happens when you ask for help in a chatbot versus an agent harness that can inspect files and run code.
+
+# Instructor Demo
+
+Use the same task across at least two surfaces:
+
+- Chatbot only.
+- IDE agent or CLI agent.
+- Optional: a second model or harness.
+
+# Dataset
+
+Use:
+
+```text
+data/synthetic/simulated_maternal_health_data.csv
+```
+
+# Task
+
+Ask the tool to inspect the dataset and produce a useful first-pass analysis plan.
+
+Use a rough prompt so students can watch how context, tool access, and harness behavior change the output.
+
+# What To Watch For
+
+- Did the tool inspect the actual file or guess?
+- Did it produce runnable code?
+- Did it run the code?
+- Did it notice missingness, variable types, and outcome structure?
+- Did it make unsupported claims?
+- Did it ask clarifying questions?
+
+# Notes
+
+Use this space to record what changed across surfaces.
+
+```{r}
+#| eval: false
+# Your notes here
+```

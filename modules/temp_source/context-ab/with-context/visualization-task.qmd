@@ -1,0 +1,90 @@
+---
+title: "Context A/B: Blood Pressure Visualization With Context"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+---
+
+## Goal
+
+Create a polished scatter plot exploring the relationship between age and mean systolic blood pressure in the simulated neighborhood health survey dataset.
+
+This folder includes an `AGENTS.md` file with plotting and interpretation rules. Ask your agent to inspect and follow it.
+
+## Data
+
+Use:
+
+```text
+data/simulated/neighborhood_health_survey_analysis.csv
+```
+
+Important columns:
+
+- `age_years`
+- `systolic_mean`
+- `gender`
+
+## Task
+
+1. Read the dataset.
+2. Keep rows with non-missing `age_years`, `systolic_mean`, and `gender`.
+3. Create a scatter plot of age (x) vs mean systolic blood pressure (y), colored by gender.
+4. Style the plot for publication quality.
+5. Write 2-3 sentences of descriptive interpretation.
+
+## Prompt To Use
+
+```text
+Complete the visualization task in this notebook. Follow any context file in this folder. Use simple R code. Do not make causal claims. After editing, explain which context-file rules you followed.
+```
+
+## Starter Code
+
+This starter code finds the course root from either the course folder or this nested activity folder.
+
+```{r}
+#| eval: false
+
+find_course_root <- function(start = getwd()) {
+  current <- normalizePath(start, winslash = "/", mustWork = TRUE)
+
+  repeat {
+    target <- file.path(
+      current,
+      "data",
+      "simulated",
+      "neighborhood_health_survey_analysis.csv"
+    )
+
+    if (file.exists(target)) {
+      return(current)
+    }
+
+    parent <- dirname(current)
+    if (identical(parent, current)) {
+      stop("Could not find the course root. Open this file inside the course folder.")
+    }
+
+    current <- parent
+  }
+}
+
+course_root <- find_course_root()
+data_path <- file.path(
+  course_root,
+  "data",
+  "simulated",
+  "neighborhood_health_survey_analysis.csv"
+)
+
+survey <- read.csv(data_path)
+
+plot_data <- survey[complete.cases(survey[, c("age_years", "systolic_mean", "gender")]), ]
+plot_data <- plot_data[, c("age_years", "systolic_mean", "gender")]
+
+# TODO: build the scatter plot
+
+# TODO: add descriptive interpretation below the plot
+```

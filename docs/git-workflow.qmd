@@ -1,0 +1,123 @@
+---
+title: "Course Materials And Git Workflow"
+subtitle: "How to update without losing your work"
+format:
+  html:
+    embed-resources: true
+    toc: true
+    toc-depth: 2
+---
+
+# Git
+
+The main source of course materials is the GitHub repository: [https://github.com/erikwestlund/ai-tools-2026]
+
+At the start of each class, we will together open a terminal in the course folder and run:
+
+
+```bash
+git pull
+```
+
+To get updated materials.
+
+# Saving Work
+
+Save your own files only in:
+
+```text
+practice/work/
+```
+
+This folder is ignored by Git. 
+
+Instructor-provided practice tasks live in `practice/tasks/`. That folder updates with `git pull`.
+
+Do not edit course-owned files in `practice/tasks/`, `modules/`, `assignments/`, or `data/`. This will break the ability to update with `git pull`.
+
+# Why We Use Git
+
+Git is the industry standard software for version control. You should probably be using it for your analysis work. 
+
+The course is short and live. I may update examples, add clarifications, fix links, or release the next day's materials after class. Git lets you receive those updates with one command while keeping your own work separate.
+
+For these reasons, please to try to use Git in this course.
+
+# First Setup
+
+Clone the student-facing repository:
+
+```bash
+git clone https://github.com/erikwestlund/ai-tools-2026.git
+cd ai-tools-2026
+```
+
+Then open the folder in RStudio, Positron, VS Code, or your preferred environment.
+
+# Where To Work
+
+Use `practice/work/` for your notebooks, scripts, rendered HTML files, notes, and assignment drafts.
+
+Files in `practice/work/` are ignored by Git. That means `git pull` should not overwrite them. If you want to edit a task from `practice/tasks/`, copy it into `practice/work/` first.
+
+Course-owned folders may change during updates:
+
+- `modules/`
+- `assignments/`
+- `data/`
+- `practice/tasks/`
+
+You can read files in those folders, but do not save your own work there.
+
+# If `git pull` Complains
+
+If Git says your local changes would be overwritten, you probably edited a course-owned file by accident.
+
+First, see what changed:
+
+```bash
+git status
+```
+
+Then save your local changes temporarily:
+
+```bash
+git stash
+```
+
+Update the course materials:
+
+```bash
+git pull
+```
+
+If you need the changes you stashed, try to restore them:
+
+```bash
+git stash pop
+```
+
+If `git stash pop` creates conflicts, stop and ask for help. Do not keep running random Git commands.
+
+**Tip:** AI agents are very good at debugging git safely.
+
+# ZIP Download Fallback
+
+If you cannot use Git, you can download a fresh ZIP copy from GitHub:
+
+1. Go to <https://github.com/erikwestlund/ai-tools-2026>.
+2. Click the green **Code** button.
+3. Click **Download ZIP**.
+4. Unzip the new copy.
+5. Copy your old `practice/` folder into the new copy.
+
+Do not overwrite your old folder until you have copied out your `practice/` files.
+
+# Emergency Reset
+
+If your course folder becomes badly tangled:
+
+1. Copy `practice/` somewhere safe, such as your Desktop.
+2. Delete or rename the broken course folder.
+3. Clone the repository again.
+4. Copy your saved `practice/` files back into the new course folder.

@@ -1,0 +1,238 @@
+---
+title: "AI Tools for Data Science and Statistics"
+subtitle: "Session 2: Context, Agent Differences, and Modeling Workflows"
+author: "Erik Westlund, PhD"
+date: "June 16, 2026"
+bibliography: temp_source/references.bib
+format:
+  revealjs:
+    slide-number: true
+    transition: slide
+    background-transition: fade
+    embed-resources: true
+    incremental: true
+    css: temp_source/slides.css
+---
+
+## Goals For Session 2
+
+- Use context deliberately instead of relying on one-off prompts
+- Compare the same task with and without a local context file
+- Review how different agent/harness/model combinations can produce different analysis quality
+- Practice a modeling workflow with explicit checks and interpretation limits
+
+## Run Of Show
+
+- Arrival and recap: 10 minutes
+- Context management: 25 minutes
+- Context A/B module demo: 20 minutes
+- Break: 7 minutes
+- Agent differences case study: 23 minutes
+- Modeling practice: 35 minutes
+- Wrap-up: 10 minutes
+
+## {background-color="#2c3e50"}
+
+::: {style="color: white; font-size: 1.5em; text-align: center;"}
+Context Management
+:::
+
+::: {style="color: #ecf0f1; font-size: 0.9em; text-align: center;"}
+What the agent can see determines what it can follow
+:::
+
+## What Counts As Context?
+
+- The message you type
+- Files in the working directory
+- Open files in the editor
+- Repository-level instructions such as `AGENTS.md` or `CLAUDE.md`
+- Skills, checklists, rubrics, and examples
+- Prior conversation state
+- Tool outputs from searches, tests, renders, or code execution
+
+## Context Is A Design Problem
+
+- Good context makes the desired workflow easier to follow.
+- Missing context pushes the model toward generic defaults.
+- Excess context can distract the model or bury the important constraint.
+- Conflicting context can produce inconsistent behavior.
+- Sensitive context can create privacy risk.
+
+## What Belongs In Stable Context?
+
+- Project structure
+- Data locations and data restrictions
+- Coding style and package preferences
+- Output paths
+- Verification steps
+- Interpretation rules
+- Language style rules
+
+## What Belongs In The Prompt?
+
+- The current task
+- The specific file or output to change
+- The level of detail wanted now
+- Any temporary constraint for this run
+- The exact question to answer before coding
+
+## Context Files
+
+- `AGENTS.md`: common convention for coding agents
+- `CLAUDE.md`: tool-specific convention used by Claude-family workflows
+- `skills/`: reusable task guidance that can be referenced from prompts
+- Task prompts: short instructions for one activity or assignment
+
+## Useful Context Pattern
+
+```text
+Use these files:
+- Dataset: data/simulated/...
+- Codebook: data/codebooks/...
+- Skill: skills/...
+
+First inspect the files. Then tell me what you plan to do.
+Do not write the full analysis until I approve the plan.
+```
+
+## Common Context Failures
+
+- The agent ignores the codebook.
+- The agent guesses variable meanings.
+- The agent writes outputs to the wrong folder.
+- The agent uses a style that does not match the project.
+- The agent makes causal claims from descriptive data.
+- The agent produces polished interpretation before checks are complete.
+
+## Context A/B Demonstration
+
+Module 02 uses the same visualization task twice:
+
+- `modules/02_context-management/without-context/`
+- `modules/02_context-management/with-context/`
+
+The second folder includes `AGENTS.md` with explicit plotting and interpretation rules.
+
+## What To Watch For
+
+- Does the agent find and follow `AGENTS.md`?
+- Does it use the requested theme, legend position, and color scale?
+- Does it label axes with units?
+- Does it include source information?
+- Does it avoid causal language?
+- Does it explain which context rules it followed?
+
+## {background-color="#2c3e50"}
+
+::: {style="color: white; font-size: 1.5em; text-align: center;"}
+Agent Differences
+:::
+
+::: {style="color: #ecf0f1; font-size: 0.9em; text-align: center;"}
+The harness and prompt are part of the analysis system
+:::
+
+## The Comparison Question
+
+If we give similar analysis tasks to different tools, do we get equivalent work?
+
+Important dimensions:
+
+- Prompt detail
+- Model capability
+- Harness access to files
+- Package choices
+- Ability to run and repair code
+- Quality of statistical judgment
+- Quality of written interpretation
+
+## What The Worked Experiment Shows
+
+- More detailed prompts often produce better structure.
+- Agent workflows can inspect more files and revise code.
+- Chat workflows can still produce useful code when given strong context.
+- Polished output can still contain errors, unsupported claims, or stale assumptions.
+- Some failures are ordinary programming failures, not deep AI failures.
+
+## What We Evaluate
+
+- Did the code run?
+- Did the analysis use the intended dataset?
+- Did the model match the outcome and data structure?
+- Were diagnostics used before interpretation?
+- Were missingness and data quality checked?
+- Were claims limited to what the data support?
+- Was the work reproducible?
+
+## Case Study Module
+
+Module 03 is a cleaned-up case study from a worked agent-comparison experiment.
+
+- Simple prompt versus detailed prompt
+- Chat versus agent workflows
+- Generated code quality
+- Modeling choices
+- Interpretation discipline
+- Review checklist
+
+## Main Lesson
+
+AI output quality is not a property of the model alone.
+
+It is produced by the full workflow:
+
+- model
+- harness
+- prompt
+- context
+- files
+- permissions
+- verification loop
+- analyst review
+
+## {background-color="#2c3e50"}
+
+::: {style="color: white; font-size: 1.5em; text-align: center;"}
+Modeling Practice
+:::
+
+::: {style="color: #ecf0f1; font-size: 0.9em; text-align: center;"}
+Use AI to help build the workflow, then audit the workflow
+:::
+
+## Practice Task
+
+Use `practice/tasks/02_modeling-workflow/`.
+
+Goal:
+
+- Build a comorbidity count from simulated maternal-health indicators.
+- Fit and compare plausible count models.
+- Report diagnostics and limitations.
+- Save work in `practice/work/`.
+
+## Modeling Guardrails
+
+- Define the outcome explicitly.
+- Check the outcome distribution before choosing a model.
+- Compare at least two reasonable model specifications.
+- Treat synthetic data as synthetic.
+- Avoid causal claims.
+- Keep interpretation tied to fitted model output.
+
+## Prompting Pattern For Modeling
+
+1. Ask for a plan before code.
+2. Ask for code in small steps.
+3. Run the code.
+4. Paste errors back if needed.
+5. Ask for a review of the model choice and interpretation.
+6. Check the final result yourself.
+
+## Wrap-Up
+
+- Context belongs in files when it should persist.
+- Prompts should reference the context that matters now.
+- Agent comparisons should be judged by correctness and reproducibility, not polish.
+- Modeling workflows need diagnostics and restrained interpretation.

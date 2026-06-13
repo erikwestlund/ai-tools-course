@@ -1,0 +1,18 @@
+I am working in the course repository for AI Tools for Data Science and Statistics.
+
+Dataset: data/synthetic/simulated_maternal_health_data.csv
+Language guidance: skills/matter-of-fact-language.md
+
+Goal: create a reproducible modeling workflow for a simulated maternal-health dataset.
+
+Please work step by step. First inspect the dataset and propose a plan. Do not write the full analysis yet.
+
+The analysis should eventually:
+- check row count, column count, variable types, missingness, and suspicious values
+- define comorbidity_count as the row-wise sum of obesity, multiple_gestation, diabetes, heart_disease, placenta_previa, hypertension, gest_hypertension, and preeclampsia
+- summarize the comorbidity_count distribution
+- compare at least two plausible count-modeling approaches
+- fit a selected model
+- report diagnostics, interpretable results, and limitations
+
+Use direct, matter-of-fact language. Use bullets for checks and findings. Do not speculate. Do not make causal claims.

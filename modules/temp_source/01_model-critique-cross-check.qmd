@@ -1,0 +1,40 @@
+---
+title: "Critique AI Statistical Output"
+subtitle: "Use multiple models or agents as reviewers"
+format:
+  html:
+    embed-resources: true
+    toc: true
+---
+
+# Goal
+
+Use AI tools to critique AI-assisted statistical work.
+
+# Task
+
+Take the output from the advanced modeling module or OLS diagnostics module and ask at least two independent tools, models, or sessions to critique it.
+
+# Rules
+
+- Give the reviewer enough context to understand the analysis.
+- Ask for statistical critique, not just code style.
+- Ask reviewers to identify assumptions, diagnostics, data leakage, overclaiming, and interpretation errors.
+- Compare the critiques and decide what to act on.
+
+# Acceptance Criteria
+
+Your report should include:
+
+- What analysis was reviewed.
+- Which tools/models reviewed it.
+- A table of critique themes.
+- Which critiques you accepted.
+- Which critiques you rejected and why.
+- One revised result or interpretation.
+
+# Work Area
+
+```{r}
+# Start here.
+```

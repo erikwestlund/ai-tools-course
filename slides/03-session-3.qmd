@@ -1,0 +1,116 @@
+---
+title: "AI Tools for Data Science and Statistics"
+subtitle: "Session 3: PHI, Privacy, and Simulated-Data Workflows"
+author: "Erik Westlund, PhD"
+date: "June 17, 2026"
+bibliography: temp_source/references.bib
+format:
+  revealjs:
+    slide-number: true
+    transition: slide
+    background-transition: fade
+    embed-resources: true
+    incremental: true
+    css: temp_source/slides.css
+---
+
+## Goals For Session 3
+
+- Explain why PHI changes AI-assisted workflow design
+- Separate code movement from data movement
+- Use simulated data for development and review
+- Identify what information can safely leave a restricted environment only after project-specific approval
+- Prepare final-project workflows without exposing restricted data to AI tools
+
+## Core Principle
+
+Code can move across computing environments; sensitive data cannot.
+
+## What Counts As Sensitive Here?
+
+- Direct identifiers
+- Dates, geography, rare conditions, and small cells that can become identifying
+- Free text
+- Linkable combinations of variables
+- Restricted-use datasets even when they do not look individually identifying
+- Project-specific metadata covered by agreements or policy
+
+## Agent Risk Surface
+
+- A chat tool sees what you paste or upload.
+- An agent can inspect files it has permission to read.
+- If sensitive files are in the workspace, assume the agent may access them.
+- Policy and data-use agreements determine what is allowed.
+- Vendor terms do not override institutional or legal restrictions.
+
+## Safe Workflow Shape
+
+1. Work with restricted data only in the approved environment.
+2. Extract only approved structural information.
+3. Develop code outside the restricted environment using simulated data.
+4. Review generated code before it returns to the restricted environment.
+5. Run reviewed code on real data only where real data are allowed.
+6. Export only approved aggregate outputs.
+
+## Structural Information
+
+Structural information may include, when allowed:
+
+- Variable names
+- Variable types
+- Value labels
+- Allowed categories
+- Plausible ranges
+- Missing-value codes
+- Broad missingness patterns
+- Non-disclosive row and column counts
+
+## Information To Treat Carefully
+
+- Exact rare category counts
+- Extreme values
+- Dates and timestamps
+- Geographic detail
+- Free-text examples
+- Unusual variable combinations
+- Any output that could identify a person, clinic, provider, school, or small group
+
+## Simulated Data Purpose
+
+Simulated data are useful for:
+
+- Building cleaning code
+- Testing joins and reshaping
+- Prototyping tables and plots
+- Debugging model syntax
+- Reviewing workflow structure
+
+Simulated data are not final evidence.
+
+## No External Public Repository Requirement
+
+This workflow does not require an external public repository.
+
+Code can move through institution-approved mechanisms such as:
+
+- approved internal repositories
+- secure file transfer
+- controlled shared drives
+- manual code transfer reviewed before use
+
+The key rule is that sensitive data do not leave the approved environment.
+
+## Final Project Connection
+
+- Develop on simulated or public data.
+- Keep real or restricted data out of AI-visible workspaces.
+- Submit a workflow that shows what was developed with AI assistance.
+- Include a reflection on what was checked manually.
+- Do not include restricted data in submitted materials.
+
+## Wrap-Up
+
+- Privacy is a workflow constraint, not an afterthought.
+- Agents increase the importance of file boundaries and permissions.
+- Simulated data support development, not final inference.
+- The analyst remains responsible for correctness, privacy, and interpretation.

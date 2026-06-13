@@ -1,0 +1,61 @@
+---
+title: "Statistical Modeling 2"
+subtitle: "Stretch modeling outside your comfort zone"
+format:
+  html:
+    embed-resources: true
+    toc: true
+---
+
+# Goal
+
+Use an AI agent to attempt a model that is outside your current comfort zone, then document what you trust and what still needs review.
+
+# Choose One Option
+
+## Option A: Multilevel Negative Binomial Model
+
+Dataset: `data/simulated/county_wellness_indicators_long.csv`
+
+Task: Identify or create a count-like outcome and fit a model with county/state-style clustering if appropriate.
+
+## Option B: Ordered Logistic Regression
+
+Dataset: `data/simulated/neighborhood_health_survey_analysis.csv`
+
+Task: Create an ordered outcome from blood pressure category or another ordinal variable and fit an ordered logit model.
+
+## Option C: Latent Profile Model
+
+Dataset: `data/simulated/neighborhood_health_survey_analysis.csv`
+
+Task: Use continuous diet and blood pressure variables to identify profiles.
+
+## Option D: Latent Class Model
+
+Dataset: `data/simulated/neighborhood_health_survey_analysis.csv`
+
+Task: Use categorical health, demographic, or behavior indicators to identify classes.
+
+# Required Framing
+
+Tell the AI tool you are new to the method and need it to explain the workflow, assumptions, diagnostics, and interpretation.
+
+Treat the first answer as a draft. Make a serious attempt, then evaluate the output.
+
+# Acceptance Criteria
+
+Your report should include:
+
+- Why you chose the model.
+- What package or function was used.
+- What assumptions or identification issues matter.
+- Output and interpretation.
+- At least two checks on whether the model is appropriate.
+- A list of things that still need review.
+
+# Work Area
+
+```{r}
+# Start here.
+```
