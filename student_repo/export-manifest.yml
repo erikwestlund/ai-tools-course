@@ -41,18 +41,22 @@ must_exist_after_export:
   - modules/01_agent-demo/01_data-cleaning.qmd
   - modules/01_agent-demo/02_data-summary.qmd
   - modules/01_agent-demo/03_data-analysis.qmd
+  - modules/01_agent-demo/_quarto.yml
   - modules/01_agent-demo/agent-demo.Rproj
   - modules/01_agent-demo/agent-demo.code-workspace
   - modules/01_agent-demo/outputs/.gitkeep
   - modules/02_context-management/index.qmd
   - modules/02_context-management/with-context/AGENTS.md
+  - modules/02_context-management/with-context/_quarto.yml
   - modules/02_context-management/with-context/context-with-context.Rproj
   - modules/02_context-management/with-context/context-with-context.code-workspace
   - modules/02_context-management/with-context/visualization-task.qmd
+  - modules/02_context-management/without-context/_quarto.yml
   - modules/02_context-management/without-context/context-without-context.Rproj
   - modules/02_context-management/without-context/context-without-context.code-workspace
   - modules/02_context-management/without-context/visualization-task.qmd
   - modules/03_agent-differences-example/index.qmd
+  - modules/03_agent-differences-example/_quarto.yml
   - modules/03_agent-differences-example/agent-differences-example.Rproj
   - modules/03_agent-differences-example/agent-differences-example.code-workspace
   - modules/03_agent-differences-example/simple-prompt.txt
@@ -70,11 +74,13 @@ must_exist_after_export:
   - data/codebooks/simulated_neighborhood_health_survey_analysis.md
   - data/codebooks/simulated_county_wellness_indicators_long.md
   - practice/tasks/README.md
+  - practice/tasks/00_open-project-and-glimpse/_quarto.yml
   - practice/tasks/00_open-project-and-glimpse/data/project_check.csv
   - practice/tasks/00_open-project-and-glimpse/data/codebook.md
   - practice/tasks/00_open-project-and-glimpse/open-project-and-glimpse.Rproj
   - practice/tasks/00_open-project-and-glimpse/open-project-and-glimpse.code-workspace
   - practice/tasks/00_open-project-and-glimpse/starter-notebook.qmd
+  - practice/tasks/01_clean-and-visualize/_quarto.yml
   - practice/tasks/01_clean-and-visualize/data/county_wellness_indicators_long.csv
   - practice/tasks/01_clean-and-visualize/data/codebook.md
   - practice/tasks/01_clean-and-visualize/clean-and-visualize.Rproj
@@ -82,6 +88,7 @@ must_exist_after_export:
   - practice/tasks/01_clean-and-visualize/01_data-cleaning.qmd
   - practice/tasks/01_clean-and-visualize/02_data-summary.qmd
   - practice/tasks/01_clean-and-visualize/03_data-analysis.qmd
+  - practice/tasks/02_modeling-workflow/_quarto.yml
   - practice/tasks/02_modeling-workflow/data/maternal_health_data.csv
   - practice/tasks/02_modeling-workflow/data/codebook.md
   - practice/tasks/02_modeling-workflow/modeling-workflow.Rproj
