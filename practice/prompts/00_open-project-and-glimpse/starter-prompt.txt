@@ -1,0 +1,9 @@
+I am checking that I opened the correct practice task folder as my project.
+
+The data and codebook are in this folder:
+- data/project_check.csv
+- data/codebook.md
+
+Please help me write only the two R lines needed to read the CSV file and run dplyr::glimpse() on it.
+
+Do not clean, summarize, plot, model, or interpret the data.

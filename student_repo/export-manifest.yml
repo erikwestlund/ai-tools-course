@@ -70,6 +70,11 @@ must_exist_after_export:
   - data/codebooks/simulated_neighborhood_health_survey_analysis.md
   - data/codebooks/simulated_county_wellness_indicators_long.md
   - practice/tasks/README.md
+  - practice/tasks/00_open-project-and-glimpse/data/project_check.csv
+  - practice/tasks/00_open-project-and-glimpse/data/codebook.md
+  - practice/tasks/00_open-project-and-glimpse/open-project-and-glimpse.Rproj
+  - practice/tasks/00_open-project-and-glimpse/open-project-and-glimpse.code-workspace
+  - practice/tasks/00_open-project-and-glimpse/starter-notebook.qmd
   - practice/tasks/01_clean-and-visualize/data/county_wellness_indicators_long.csv
   - practice/tasks/01_clean-and-visualize/data/codebook.md
   - practice/tasks/01_clean-and-visualize/clean-and-visualize.Rproj
@@ -81,9 +86,8 @@ must_exist_after_export:
   - practice/tasks/02_modeling-workflow/modeling-workflow.code-workspace
   - practice/tasks/02_modeling-workflow/starter-notebook.qmd
   - practice/prompts/README.md
-  - practice/prompts/01_clean-and-visualize/README.md
+  - practice/prompts/00_open-project-and-glimpse/starter-prompt.txt
   - practice/prompts/01_clean-and-visualize/starter-prompt.txt
-  - practice/prompts/02_modeling-workflow/README.md
   - practice/prompts/02_modeling-workflow/starter-prompt.txt
   - practice/work/.gitkeep
   - practice/work/README.md
@@ -95,11 +99,16 @@ must_not_exist_after_export:
   - assignments/problem-set-2-statistical-modeling.qmd
   - assignments/final-project-simulated-data-workflow.qmd
   - practice/templates
+  - practice/tasks/00_open-project-and-glimpse/README.md
+  - practice/tasks/00_open-project-and-glimpse/starter-prompt.txt
+  - practice/prompts/00_open-project-and-glimpse/README.md
   - practice/tasks/01_clean-and-visualize/README.md
   - practice/tasks/01_clean-and-visualize/starter-prompt.txt
   - practice/tasks/01_clean-and-visualize.md
   - practice/tasks/02_modeling-workflow/README.md
   - practice/tasks/02_modeling-workflow/starter-prompt.txt
+  - practice/prompts/01_clean-and-visualize/README.md
+  - practice/prompts/02_modeling-workflow/README.md
   - demos
   - slides/temp_source
   - slides/01-session-1.qmd

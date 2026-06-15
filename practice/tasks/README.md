@@ -6,4 +6,6 @@ Open only the specific task folder you are working in with your agent tool. Each
 
 Prompts and instructions live separately in `practice/prompts/` so they do not automatically become part of the agent's project context.
 
+Start with `00_open-project-and-glimpse/` if you want to check that RStudio or Positron is using the task folder as the project root.
+
 Create your own notebooks, scripts, and notes in `practice/work/`; files there are ignored by Git so course updates can be pulled without overwriting your work.

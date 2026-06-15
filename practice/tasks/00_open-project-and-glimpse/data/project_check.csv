@@ -1,0 +1,7 @@
+site_id,state_name,visit_count,response_rate
+A01,Maryland,18,0.82
+A02,Maryland,14,0.76
+B01,Virginia,21,0.88
+B02,Virginia,17,0.79
+C01,Pennsylvania,12,0.71
+C02,Pennsylvania,16,0.84

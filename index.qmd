@@ -29,6 +29,7 @@ Department of Biostatistics, Johns Hopkins Bloomberg School of Public Health
 We will start with a condensed introduction to LLMs, why they are useful for statistical work, where they fail, and why structured workflows matter. We will compare chatbots, browser tools, GUI/IDE harnesses, and CLI harnesses on the same small task, then introduce context management with `AGENTS.md`, `CLAUDE.md`, and skills.
 
 - **Slides:** [Session 1: Foundations and First Workflow](slides/01-session-1.html)
+- **Setup practice:** [Open Project And Glimpse folder](practice/tasks/00_open-project-and-glimpse/) and [prompt](practice/prompts/00_open-project-and-glimpse/starter-prompt.txt)
 - **Demo:** [First Agent Demo](modules/01_agent-demo/01_data-cleaning.qmd)
 - **Practice:** [Clean And Visualize project folder](practice/tasks/01_clean-and-visualize/) and [prompt/instructions](practice/prompts/01_clean-and-visualize/)
 - **Assigned:** [Problem Set 1: Data Visualization](assignments/problem-set-1-data-visualization.html)

@@ -1,0 +1,33 @@
+---
+title: "Practice Task 0: Open Project And Glimpse"
+format:
+  html:
+    embed-resources: true
+    toc: true
+---
+
+# Goal
+
+Open this folder as its own project, read one small dataset from `data/`, and run `glimpse()`. Do not clean, plot, model, or interpret the data.
+
+# Files
+
+- Dataset: `data/project_check.csv`
+- Codebook: `data/codebook.md`
+
+# Setup Check
+
+Use the starter prompt from `practice/prompts/00_open-project-and-glimpse/`. Paste the prompt into the agent rather than placing it in this folder.
+
+Ask the agent to help you write only the two lines needed to:
+
+1. Read `data/project_check.csv`.
+2. Run `dplyr::glimpse()` on the result.
+
+```{r}
+# Add the two lines here.
+```
+
+# Manual Check
+
+After running the chunk, confirm that the output shows 6 rows and 4 columns.

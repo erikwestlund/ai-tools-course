@@ -468,6 +468,17 @@ What it does:
 
 If you do not use R, run `git pull` and create your own files in `practice/work/`.
 
+## Computing Check-Up
+
+1. From the course project root, run `source("updater.R")`.
+2. Find `practice/tasks/00_open-project-and-glimpse/`.
+3. Open `open-project-and-glimpse.Rproj` in RStudio or `open-project-and-glimpse.code-workspace` in Positron.
+4. Open `starter-notebook.qmd`.
+5. Use the prompt in `practice/prompts/00_open-project-and-glimpse/starter-prompt.txt`.
+6. Read `data/project_check.csv`, run `dplyr::glimpse()`, and render the notebook.
+
+Stop there. This task only checks that the project root and local data paths work.
+
 ## If the Updater Fails
 
 **If you edit files outside `practice/work/` the updater may fail.**
