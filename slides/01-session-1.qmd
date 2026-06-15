@@ -525,7 +525,7 @@ Use [Practice Task 1](../practice/tasks/01_clean-and-visualize/) or the matching
 - Data and codebook are inside that folder's `data/` directory.
 - Prompts and instructions are outside the task folder in `practice/prompts/01_clean-and-visualize/`.
 - Paste the prompt into the agent; do not put prompt files inside the project folder.
-- Use `starter-notebook.qmd` if you want an R/Quarto starting point.
+- Use the empty phase notebooks: `01_data-cleaning.qmd`, `02_data-summary.qmd`, and `03_data-analysis.qmd`.
 
 The task folder contains the working files. The prompt/checklist folder contains instructor instructions.
 

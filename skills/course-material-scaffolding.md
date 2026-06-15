@@ -12,21 +12,23 @@ Use this guidance when creating or revising modules, demos, and practice tasks f
 
 - Put demo project files under `modules/<module-name>/`.
 - Put demo prompts under `modules/prompts/<module-name>/`.
-- Make demo folders self-contained with local `data/`, local codebooks, starter notebooks, and `outputs/.gitkeep` when outputs are expected.
+- Make demo folders self-contained with local `data/`, local codebooks, appropriately named notebooks, and `outputs/.gitkeep` when outputs are expected.
 - Include a small `.Rproj` file and `.code-workspace` file when a module folder is meant to be opened directly in RStudio or Positron.
 - Do not put `prompt.txt`, prompt READMEs, or skill files inside the demo project folder unless the point of the demo is to show agent context behavior.
-- Starter notebooks should be as empty as possible.
+- Do not name module notebooks `starter-notebook.qmd`. Use names that describe the work stage, such as `01_data-cleaning.qmd`, `02_data-summary.qmd`, or `03_data-analysis.qmd`.
+- Scaffold notebooks should usually contain only YAML with a clear `title`. Do not prefill code, explanations, TODOs, or analysis text unless the exercise specifically requires a setup check.
 
 ## Practice Idioms
 
 - Put practice project folders under `practice/tasks/<task-name>/`.
 - Put practice prompts and instructions under `practice/prompts/<task-name>/`.
-- Keep `practice/tasks/<task-name>/` limited to data, codebooks, starter notebooks, and output placeholders.
+- Keep `practice/tasks/<task-name>/` limited to data, codebooks, appropriately named notebooks, project files, and output placeholders.
 - Include a small `.Rproj` file and `.code-workspace` file in each practice task folder so RStudio and Positron use that folder as the project root.
 - The practice-task project files are part of the scaffold. They are there to make `data/...` paths resolve locally when students open the task folder directly.
 - Do not put task READMEs or starter prompts inside `practice/tasks/<task-name>/`.
 - Write practice tasks as realistic work students could encounter: cleaning, checking assumptions, plotting, modeling, debugging, summarizing limitations, or validating AI output.
-- Starter notebooks should give structure without solving the task. Use section headers, setup chunks, and a few comments or TODOs.
+- Use stage-specific notebook names for practice work, not generic `starter-notebook.qmd`, except for minimal setup checks such as `00_open-project-and-glimpse`.
+- Scaffold notebooks should usually contain only YAML with a clear `title`; prompts outside the task folder should drive the work.
 - Do not precompute final plots, final models, final tables, or final interpretations unless the exercise is specifically about critique or verification.
 
 ## Export And Student Workflow

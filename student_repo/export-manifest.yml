@@ -79,7 +79,9 @@ must_exist_after_export:
   - practice/tasks/01_clean-and-visualize/data/codebook.md
   - practice/tasks/01_clean-and-visualize/clean-and-visualize.Rproj
   - practice/tasks/01_clean-and-visualize/clean-and-visualize.code-workspace
-  - practice/tasks/01_clean-and-visualize/starter-notebook.qmd
+  - practice/tasks/01_clean-and-visualize/01_data-cleaning.qmd
+  - practice/tasks/01_clean-and-visualize/02_data-summary.qmd
+  - practice/tasks/01_clean-and-visualize/03_data-analysis.qmd
   - practice/tasks/02_modeling-workflow/data/maternal_health_data.csv
   - practice/tasks/02_modeling-workflow/data/codebook.md
   - practice/tasks/02_modeling-workflow/modeling-workflow.Rproj
@@ -104,6 +106,7 @@ must_not_exist_after_export:
   - practice/prompts/00_open-project-and-glimpse/README.md
   - practice/tasks/01_clean-and-visualize/README.md
   - practice/tasks/01_clean-and-visualize/starter-prompt.txt
+  - practice/tasks/01_clean-and-visualize/starter-notebook.qmd
   - practice/tasks/01_clean-and-visualize.md
   - practice/tasks/02_modeling-workflow/README.md
   - practice/tasks/02_modeling-workflow/starter-prompt.txt
