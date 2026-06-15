@@ -14,13 +14,12 @@ format:
     css: temp_source/slides.css
 ---
 
-## Goals For Session 1
+## Hello
 
-- Understand what LLMs can and cannot do.
-- Place the current moment in historical context.
-- See recurring failure modes the research keeps finding.
-- Learn the working distinction between a model and a harness.
-- Start using an AI-assisted workflow on a data visualization task.
+- Who am I?
+- Please share in the chat your job/role and affiliation, if you feel comfortable.
+- Rate from 1-5 your experience with data science and statistics (1 = you're a total novice; 5 = you do it for a living) 
+- Rate from 1-5 your experience using AI Tools in your daily work (1 = never; 5 = every day for core tasks)
 
 ## Housekeeping
 
@@ -29,6 +28,15 @@ format:
   - Problem Set 1: Data Visualization
   - Problem Set 2: Statistical Model
   - Final Project
+
+## Goals For Session 1
+
+- Understand what LLMs can and cannot do.
+- Place the current moment in historical context.
+- See recurring failure modes the research keeps finding.
+- Learn the working distinction between a model and a harness.
+- Start using an AI-assisted workflow on a data visualization task.
+
 
 # {background-color="#2c3e50"}
 
@@ -438,6 +446,32 @@ Break
 :::
 
 
+
+## Note
+
+- I am demoing in Positron, which behaves similarly to RStudio.
+- Code depends on opening the right folder as a project.
+- You can follow along if you do this.
+
+## Instructor Demo
+
+We will use the [First Agent Demo](../modules/01_agent-demo/01_data-cleaning.qmd) in the repository:
+
+- Open only `modules/01_agent-demo/` in the agent tool.
+- Data and codebook are inside that folder's `data/` directory.
+- Prompts are outside the demo folder in `modules/prompts/01-agent-demo/` (avoid prompt contamination)
+- Goal: use an AI agent to tackle an analysis task.
+- We will go step by step, checking each stage before moving on.
+
+## Workflow
+
+1. Tell the agent about the dataset and the goal.
+2. Ask it to clean the data.
+3. Ask it to summarize the data.
+4. Ask it to analyze the data.
+5. Check the result ourselves.
+
+
 ## Computing Check-in
 
 - Let's pause and check in on everyone's computing setup.
@@ -490,29 +524,6 @@ Stop there. This task only checks that the project root and local data paths wor
 
 One tactic: Ask an agent to merge in new changes and preserve your work. They are very good at this.
 
-## Note
-
-- I am demoing in Positron, which behaves similarly to RStudio.
-- Code depends on opening the right folder as a project.
-- You can follow along if you do this.
-
-## Instructor Demo
-
-We will use the [First Agent Demo](../modules/01_agent-demo/01_data-cleaning.qmd) in the repository:
-
-- Open only `modules/01_agent-demo/` in the agent tool.
-- Data and codebook are inside that folder's `data/` directory.
-- Prompts are outside the demo folder in `modules/prompts/01-agent-demo/`.
-- Goal: use an AI agent to tackle an analysis task.
-- We will go step by step, checking each stage before moving on.
-
-## Workflow
-
-1. Tell the agent about the dataset and the goal.
-2. Ask it to clean the data.
-3. Ask it to summarize the data.
-4. Ask it to analyze the data.
-5. Check the result ourselves.
 
 ## Data Visualization Practice
 

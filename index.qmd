@@ -17,7 +17,7 @@ Department of Biostatistics, Johns Hopkins Bloomberg School of Public Health
 
 * [Syllabus](syllabus.html)
 * [Course Materials And Git Workflow](git-workflow.html)
-* [Pre-Class Setup Checklist](modules/01_installation-instructions.qmd)
+* [Pre-Class Setup Checklist](modules/00_installation-instructions.qmd)
 * [Problem Set 1: Data Visualization](assignments/problem-set-1-data-visualization.html)
 * [Problem Set 2: Statistical Modeling](assignments/problem-set-2-statistical-modeling.html)
 * [Final Project: Simulated Data Workflow](assignments/final-project-simulated-data-workflow.html)
@@ -44,9 +44,9 @@ We will focus on context management, agent differences, and repeatable AI-assist
 - Practice: count-modeling workflow on simulated maternal-health data
 
 - **Slides:** [Session 2: Context, Agent Differences, and Modeling Workflows](slides/02-session-2.html)
-- **Module:** [Context Management](modules/02_context-management/index.qmd)
-- **Module:** [Agent Differences Example](modules/03_agent-differences-example/index.qmd)
-- **Practice:** [Modeling Workflow project folder](practice/tasks/02_modeling-workflow/) and [prompt/instructions](practice/prompts/02_modeling-workflow/)
+- **Module:** Context Management (to be released)
+- **Module:** Agent Differences Example (to be released)
+- **Practice:** Context workflow (to be released)
 - **Due before class:** Short course project topic proposal.
 - **Assigned:** [Problem Set 2: Statistical Modeling](assignments/problem-set-2-statistical-modeling.html)
 
@@ -59,7 +59,7 @@ We will make privacy the capstone workflow. The day focuses on PHI, simulated-da
 
 ## Pre-Work
 
-Before the first class, students should complete the [Pre-Class Setup Checklist](modules/01_installation-instructions.qmd): install Git if needed, install R/RStudio or Positron, install Quarto, and arrange access to at least one AI agent tool. A GitHub account is only needed if your chosen AI tool requires it, such as GitHub Copilot.
+Before the first class, students should complete the [Pre-Class Setup Checklist](modules/00_installation-instructions.qmd): install Git if needed, install R/RStudio or Positron, install Quarto, and arrange access to at least one AI agent tool. A GitHub account is only needed if your chosen AI tool requires it, such as GitHub Copilot.
 
 ## Course Readings
 

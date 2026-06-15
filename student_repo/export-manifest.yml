@@ -30,7 +30,7 @@ must_exist_after_export:
   - slides/01-session-1.html
   - slides/02-session-2.html
   - slides/03-session-3.html
-  - modules/01_installation-instructions.qmd
+  - modules/00_installation-instructions.qmd
   - modules/01_agent-demo/data/subgroup_estimates.csv
   - modules/01_agent-demo/data/codebook.md
   - modules/prompts/01-agent-demo/01-inspect-and-clean.txt
@@ -45,24 +45,6 @@ must_exist_after_export:
   - modules/01_agent-demo/agent-demo.Rproj
   - modules/01_agent-demo/agent-demo.code-workspace
   - modules/01_agent-demo/outputs/.gitkeep
-  - modules/02_context-management/index.qmd
-  - modules/02_context-management/with-context/AGENTS.md
-  - modules/02_context-management/with-context/_quarto.yml
-  - modules/02_context-management/with-context/context-with-context.Rproj
-  - modules/02_context-management/with-context/context-with-context.code-workspace
-  - modules/02_context-management/with-context/visualization-task.qmd
-  - modules/02_context-management/without-context/_quarto.yml
-  - modules/02_context-management/without-context/context-without-context.Rproj
-  - modules/02_context-management/without-context/context-without-context.code-workspace
-  - modules/02_context-management/without-context/visualization-task.qmd
-  - modules/03_agent-differences-example/index.qmd
-  - modules/03_agent-differences-example/_quarto.yml
-  - modules/03_agent-differences-example/agent-differences-example.Rproj
-  - modules/03_agent-differences-example/agent-differences-example.code-workspace
-  - modules/03_agent-differences-example/simple-prompt.txt
-  - modules/03_agent-differences-example/detailed-prompt.txt
-  - modules/03_agent-differences-example/review-checklist.txt
-  - modules/03_agent-differences-example/outputs/.gitkeep
   - data/manifest.csv
   - data/synthetic/simulated_maternal_health_data.csv
   - data/simulated/prams_messy_for_cleaning.csv
@@ -88,16 +70,9 @@ must_exist_after_export:
   - practice/tasks/01_clean-and-visualize/01_data-cleaning.qmd
   - practice/tasks/01_clean-and-visualize/02_data-summary.qmd
   - practice/tasks/01_clean-and-visualize/03_data-analysis.qmd
-  - practice/tasks/02_modeling-workflow/_quarto.yml
-  - practice/tasks/02_modeling-workflow/data/maternal_health_data.csv
-  - practice/tasks/02_modeling-workflow/data/codebook.md
-  - practice/tasks/02_modeling-workflow/modeling-workflow.Rproj
-  - practice/tasks/02_modeling-workflow/modeling-workflow.code-workspace
-  - practice/tasks/02_modeling-workflow/starter-notebook.qmd
   - practice/prompts/README.md
   - practice/prompts/00_open-project-and-glimpse/starter-prompt.txt
   - practice/prompts/01_clean-and-visualize/starter-prompt.txt
-  - practice/prompts/02_modeling-workflow/starter-prompt.txt
   - practice/work/.gitkeep
   - practice/work/README.md
 
@@ -117,6 +92,8 @@ must_not_exist_after_export:
   - practice/tasks/01_clean-and-visualize.md
   - practice/tasks/02_modeling-workflow/README.md
   - practice/tasks/02_modeling-workflow/starter-prompt.txt
+  - practice/tasks/02_modeling-workflow
+  - practice/prompts/02_modeling-workflow
   - practice/prompts/01_clean-and-visualize/README.md
   - practice/prompts/02_modeling-workflow/README.md
   - demos
@@ -125,6 +102,8 @@ must_not_exist_after_export:
   - slides/02-session-2.qmd
   - slides/03-session-3.qmd
   - modules/temp_source
+  - modules/00_installation-instructions.html
+  - modules/01_installation-instructions.qmd
   - modules/01_installation-instructions.html
   - modules/01_first-agent-demo.html
   - modules/01_first-agent-demo.qmd
@@ -133,9 +112,11 @@ must_not_exist_after_export:
   - modules/01_agent-demo/03_data-analysis.html
   - modules/01_agent-demo/prompt.txt
   - modules/01_agent-demo/skills
+  - modules/02_context-management
   - modules/02_context-management/index.html
   - modules/02_context-management/with-context/visualization-task.html
   - modules/02_context-management/without-context/visualization-task.html
+  - modules/03_agent-differences-example
   - modules/03_agent-differences-example/index.html
   - modules/01_chatbots-vs-agents.qmd
   - modules/01_context-management.qmd

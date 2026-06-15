@@ -1,0 +1,11 @@
+# Module files and folders copied to the public student repo.
+# Keep this list limited to currently published module materials.
+
+copy:
+  - 00_installation-instructions.qmd
+  - 01_agent-demo
+  - prompts/01-agent-demo
+
+future:
+  - 02_context-management
+  - 03_agent-differences-example

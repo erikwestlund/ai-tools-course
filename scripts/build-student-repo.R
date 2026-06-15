@@ -140,6 +140,19 @@ copy_data_path <- function(path) {
   copy_file(p(source_root, "data", path), p(target_root, "data", path))
 }
 
+copy_manifest_entry <- function(source_base, target_base, relative_path, include = function(path) TRUE) {
+  from <- p(source_base, relative_path)
+  to <- p(target_base, relative_path)
+
+  if (dir.exists(from)) {
+    copy_clean_dir(from, to, include = include)
+  } else if (is_file(from)) {
+    copy_file(from, to)
+  } else {
+    stop("Missing export entry: ", from, call. = FALSE)
+  }
+}
+
 validate_manifest_paths <- function(paths, should_exist) {
   if (is.null(paths) || length(paths) == 0) {
     return(invisible(NULL))
@@ -346,36 +359,29 @@ for (directory in data_dirs_to_copy) {
 }
 
 copy_clean_dir(
-  p(source_root, "practice", "tasks"),
-  p(target_root, "practice", "tasks")
-)
-
-copy_clean_dir(
-  p(source_root, "practice", "prompts"),
-  p(target_root, "practice", "prompts")
-)
-
-copy_clean_dir(
   p(source_root, "skills"),
   p(target_root, "skills")
 )
 
-copy_file(
-  p(source_root, "modules", "01_installation-instructions.qmd"),
-  p(target_root, "modules", "01_installation-instructions.qmd")
-)
+practice_export <- read_simple_manifest(p(source_root, "practice", "export.yml"))
+module_export <- read_simple_manifest(p(source_root, "modules", "export.yml"))
 
-active_module_dirs <- c(
-  "01_agent-demo",
-  "prompts",
-  "02_context-management",
-  "03_agent-differences-example"
-)
+for (entry in practice_export$copy) {
+  copy_manifest_entry(
+    p(source_root, "practice"),
+    p(target_root, "practice"),
+    entry,
+    include = function(path) {
+      !grepl("/[.]quarto(/|$)", path)
+    }
+  )
+}
 
-for (directory in active_module_dirs) {
-  copy_clean_dir(
-    p(source_root, "modules", directory),
-    p(target_root, "modules", directory),
+for (entry in module_export$copy) {
+  copy_manifest_entry(
+    p(source_root, "modules"),
+    p(target_root, "modules"),
+    entry,
     include = function(path) {
       !grepl("/[.]quarto(/|$)", path)
     }

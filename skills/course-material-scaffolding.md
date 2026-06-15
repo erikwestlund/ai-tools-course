@@ -38,6 +38,7 @@ Use this guidance when creating or revising modules, demos, and practice tasks f
 ## Export And Student Workflow
 
 - When adding published modules or practice tasks, update `index.qmd` and `student_repo/export-manifest.yml`.
+- Update `modules/export.yml` and `practice/export.yml` when changing which module or practice folders are copied to the public student repo.
 - Keep public `modules/` as source/project materials, not rendered module HTML.
 - Keep prompts trackable in the public repo but separate from agent project folders.
 - Preserve `practice/work/` as the student-owned area. Do not overwrite student work.

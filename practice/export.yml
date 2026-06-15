@@ -1,0 +1,18 @@
+# Practice files and folders copied to the public student repo.
+# Keep prompts outside task project folders.
+
+copy:
+  - tasks/README.md
+  - tasks/00_open-project-and-glimpse
+  - tasks/01_clean-and-visualize
+  - prompts/README.md
+  - prompts/00_open-project-and-glimpse
+  - prompts/01_clean-and-visualize
+
+future:
+  - tasks/02_context-management
+  - prompts/02_context-management
+  - tasks/03_modeling-workflow
+  - prompts/03_modeling-workflow
+  - tasks/04_data-safety
+  - prompts/04_data-safety
