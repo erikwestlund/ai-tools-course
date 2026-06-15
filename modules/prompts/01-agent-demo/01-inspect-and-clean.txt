@@ -1,0 +1,12 @@
+We're analyzing the data in `data/`.
+
+Files:
+- data/subgroup_estimates.csv
+- data/codebook.md
+
+Inspect the csv and codebook. Tell me:
+- what one row represents
+- what needs cleaning before summaries or plots
+- what checks you would run
+
+Do not write the full analysis yet. After that, write R code to clean the data using 01_data-cleaning.qmd.

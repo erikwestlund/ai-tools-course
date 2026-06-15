@@ -1,67 +1,8 @@
 ---
-title: "Simulated PRAMS Analysis: Data Cleaning"
+title: "Subgroup Estimate Analysis: Data Cleaning"
 subtitle: "Step 1 of 3"
 format:
   html:
     embed-resources: true
     toc: true
 ---
-
-# Objective
-
-Prepare the simulated PRAMS-style subgroup estimate dataset for summary and plotting.
-
-# Files
-
-- Prompt: `modules/01_agent-demo/prompt.txt`
-- Skill: `skills/prams-subgroup-analysis.md`
-- Language: `skills/matter-of-fact-language.md`
-- Dataset: `data/simulated/prams_messy_for_cleaning.csv`
-- Codebook: `data/codebooks/simulated_prams_messy_for_cleaning.md`
-- Outputs: `modules/01_agent-demo/outputs/`
-
-# Output Directory
-
-This analysis writes derived files to `modules/01_agent-demo/outputs/`. Code should use explicit paths to that folder. The `.gitkeep` file only keeps the folder present when it is empty.
-
-Use a setup like this when running from the repository root:
-
-```{r}
-#| eval: false
-output_dir <- file.path("modules", "01_agent-demo", "outputs")
-dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
-
-cleaned_data_path <- file.path(output_dir, "prams_cleaned.csv")
-```
-
-# Analysis Request
-
-Start with `prompt.txt` and the analysis skill. After inspecting the dataset and codebook, request cleaning code only.
-
-```text
-Write R code to clean this dataset.
-
-Requirements:
-- use simple R code or common tidyverse functions
-- make column names syntactic and consistent
-- convert percentage estimates to numeric values
-- preserve missing or suppressed estimates explicitly
-- standardize obvious subgroup-category capitalization issues
-- print checks showing what changed
-
-Save outputs in `modules/01_agent-demo/outputs/` using explicit file paths such as `cleaned_data_path`.
-```
-
-# Checks
-
-Before moving to the summary notebook, check:
-
-- column names
-- number of rows before and after cleaning
-- missing-value codes
-- numeric range of the estimate column
-- subgroup categories before and after standardization
-
-# Next Notebook
-
-After the cleaning output looks reasonable, continue to `02_data-summary.qmd`.

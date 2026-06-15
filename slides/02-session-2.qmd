@@ -203,7 +203,7 @@ Use AI to help build the workflow, then audit the workflow
 
 ## Practice Task
 
-Use `practice/tasks/02_modeling-workflow/`.
+Use `practice/tasks/02_modeling-workflow/` as the project folder. Use `practice/prompts/02_modeling-workflow/` for the prompt and instructions.
 
 Goal:
 

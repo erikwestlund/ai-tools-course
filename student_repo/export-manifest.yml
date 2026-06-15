@@ -16,6 +16,7 @@ student_work:
 
 must_exist_after_export:
   - README.md
+  - updater.R
   - .gitignore
   - _quarto.yml
   - ai-tools-course.Rproj
@@ -29,19 +30,31 @@ must_exist_after_export:
   - slides/01-session-1.html
   - slides/02-session-2.html
   - slides/03-session-3.html
-  - modules/01_installation-instructions.html
-  - modules/01_agent-demo/prompt.txt
-  - skills/prams-subgroup-analysis.md
+  - modules/01_installation-instructions.qmd
+  - modules/01_agent-demo/data/subgroup_estimates.csv
+  - modules/01_agent-demo/data/codebook.md
+  - modules/prompts/01-agent-demo/01-inspect-and-clean.txt
+  - modules/prompts/01-agent-demo/02-summarize.txt
+  - modules/prompts/01-agent-demo/03-analyze-and-plot.txt
+  - skills/course-material-scaffolding.md
   - skills/matter-of-fact-language.md
-  - modules/01_agent-demo/01_data-cleaning.html
-  - modules/01_agent-demo/02_data-summary.html
-  - modules/01_agent-demo/03_data-analysis.html
+  - modules/01_agent-demo/01_data-cleaning.qmd
+  - modules/01_agent-demo/02_data-summary.qmd
+  - modules/01_agent-demo/03_data-analysis.qmd
+  - modules/01_agent-demo/agent-demo.Rproj
+  - modules/01_agent-demo/agent-demo.code-workspace
   - modules/01_agent-demo/outputs/.gitkeep
-  - modules/02_context-management/index.html
+  - modules/02_context-management/index.qmd
   - modules/02_context-management/with-context/AGENTS.md
-  - modules/02_context-management/with-context/visualization-task.html
-  - modules/02_context-management/without-context/visualization-task.html
-  - modules/03_agent-differences-example/index.html
+  - modules/02_context-management/with-context/context-with-context.Rproj
+  - modules/02_context-management/with-context/context-with-context.code-workspace
+  - modules/02_context-management/with-context/visualization-task.qmd
+  - modules/02_context-management/without-context/context-without-context.Rproj
+  - modules/02_context-management/without-context/context-without-context.code-workspace
+  - modules/02_context-management/without-context/visualization-task.qmd
+  - modules/03_agent-differences-example/index.qmd
+  - modules/03_agent-differences-example/agent-differences-example.Rproj
+  - modules/03_agent-differences-example/agent-differences-example.code-workspace
   - modules/03_agent-differences-example/simple-prompt.txt
   - modules/03_agent-differences-example/detailed-prompt.txt
   - modules/03_agent-differences-example/review-checklist.txt
@@ -57,41 +70,54 @@ must_exist_after_export:
   - data/codebooks/simulated_neighborhood_health_survey_analysis.md
   - data/codebooks/simulated_county_wellness_indicators_long.md
   - practice/tasks/README.md
-  - practice/tasks/01_clean-and-visualize/README.md
-  - practice/tasks/01_clean-and-visualize/starter-prompt.txt
+  - practice/tasks/01_clean-and-visualize/data/county_wellness_indicators_long.csv
+  - practice/tasks/01_clean-and-visualize/data/codebook.md
+  - practice/tasks/01_clean-and-visualize/clean-and-visualize.Rproj
+  - practice/tasks/01_clean-and-visualize/clean-and-visualize.code-workspace
   - practice/tasks/01_clean-and-visualize/starter-notebook.qmd
-  - practice/tasks/02_modeling-workflow/README.md
-  - practice/tasks/02_modeling-workflow/starter-prompt.txt
+  - practice/tasks/02_modeling-workflow/data/maternal_health_data.csv
+  - practice/tasks/02_modeling-workflow/data/codebook.md
+  - practice/tasks/02_modeling-workflow/modeling-workflow.Rproj
+  - practice/tasks/02_modeling-workflow/modeling-workflow.code-workspace
   - practice/tasks/02_modeling-workflow/starter-notebook.qmd
+  - practice/prompts/README.md
+  - practice/prompts/01_clean-and-visualize/README.md
+  - practice/prompts/01_clean-and-visualize/starter-prompt.txt
+  - practice/prompts/02_modeling-workflow/README.md
+  - practice/prompts/02_modeling-workflow/starter-prompt.txt
   - practice/work/.gitkeep
   - practice/work/README.md
 
 must_not_exist_after_export:
-  - updater.R
   - docs
   - index.qmd
   - assignments/problem-set-1-data-visualization.qmd
   - assignments/problem-set-2-statistical-modeling.qmd
   - assignments/final-project-simulated-data-workflow.qmd
   - practice/templates
+  - practice/tasks/01_clean-and-visualize/README.md
+  - practice/tasks/01_clean-and-visualize/starter-prompt.txt
   - practice/tasks/01_clean-and-visualize.md
+  - practice/tasks/02_modeling-workflow/README.md
+  - practice/tasks/02_modeling-workflow/starter-prompt.txt
   - demos
   - slides/temp_source
   - slides/01-session-1.qmd
   - slides/02-session-2.qmd
   - slides/03-session-3.qmd
   - modules/temp_source
-  - modules/01_installation-instructions.qmd
+  - modules/01_installation-instructions.html
   - modules/01_first-agent-demo.html
   - modules/01_first-agent-demo.qmd
-  - modules/01_agent-demo/01_data-cleaning.qmd
-  - modules/01_agent-demo/02_data-summary.qmd
-  - modules/01_agent-demo/03_data-analysis.qmd
+  - modules/01_agent-demo/01_data-cleaning.html
+  - modules/01_agent-demo/02_data-summary.html
+  - modules/01_agent-demo/03_data-analysis.html
+  - modules/01_agent-demo/prompt.txt
   - modules/01_agent-demo/skills
-  - modules/02_context-management/index.qmd
-  - modules/02_context-management/with-context/visualization-task.qmd
-  - modules/02_context-management/without-context/visualization-task.qmd
-  - modules/03_agent-differences-example/index.qmd
+  - modules/02_context-management/index.html
+  - modules/02_context-management/with-context/visualization-task.html
+  - modules/02_context-management/without-context/visualization-task.html
+  - modules/03_agent-differences-example/index.html
   - modules/01_chatbots-vs-agents.qmd
   - modules/01_context-management.qmd
   - modules/01_data-summary-practice.qmd

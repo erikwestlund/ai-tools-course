@@ -1,3 +1,6 @@
+project:
+  output-dir: rendered
+
 format:
   revealjs:
     theme: default

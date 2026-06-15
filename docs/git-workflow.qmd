@@ -10,16 +10,24 @@ format:
 
 # Git
 
-The main source of course materials is the GitHub repository: [https://github.com/erikwestlund/ai-tools-2026]
+The main source of course materials is the course repository: [https://github.com/erikwestlund/ai-tools-2026]
 
-At the start of each class, we will together open a terminal in the course folder and run:
+If you are using R or RStudio, run this from the course project root at the start of each class:
+
+```r
+source("updater.R")
+```
+
+This updates course materials and copies any missing practice-task starter files into `practice/work/` without overwriting files you already have there.
+
+If you are not using R, open a terminal in the course folder and run:
 
 
 ```bash
 git pull
 ```
 
-To get updated materials.
+to get updated materials.
 
 # Saving Work
 
@@ -33,7 +41,7 @@ This folder is ignored by Git.
 
 Instructor-provided practice tasks live in `practice/tasks/`. That folder updates with `git pull`.
 
-Do not edit course-owned files in `practice/tasks/`, `modules/`, `assignments/`, or `data/`. This will break the ability to update with `git pull`.
+Do not edit course-owned files in `practice/tasks/`, `modules/`, `assignments/`, `skills/`, or `data/`. This can break the ability to update cleanly.
 
 # Why We Use Git
 
@@ -58,12 +66,13 @@ Then open the folder in RStudio, Positron, VS Code, or your preferred environmen
 
 Use `practice/work/` for your notebooks, scripts, rendered HTML files, notes, and assignment drafts.
 
-Files in `practice/work/` are ignored by Git. That means `git pull` should not overwrite them. If you want to edit a task from `practice/tasks/`, copy it into `practice/work/` first.
+Files in `practice/work/` are ignored by Git. That means course updates should not overwrite them. If you use R, `source("updater.R")` copies missing task starter files into `practice/work/` for you. If you do not use R, create your own files there.
 
 Course-owned folders may change during updates:
 
 - `modules/`
 - `assignments/`
+- `skills/`
 - `data/`
 - `practice/tasks/`
 
@@ -73,7 +82,15 @@ You can read files in those folders, but do not save your own work there.
 
 If Git says your local changes would be overwritten, you probably edited a course-owned file by accident.
 
-First, see what changed:
+If you are using R, try:
+
+```r
+source("updater.R")
+```
+
+The updater saves backup copies of local tracked changes before trying to pull updates.
+
+If you are updating manually, first see what changed:
 
 ```bash
 git status

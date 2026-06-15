@@ -41,9 +41,11 @@ util_docs/
 
 # Rendered slide artifacts
 /slides/_rendered/
+/slides/rendered/
 
 # Allow structure documentation
 !/slides/_rendered/**/README.md
+!/slides/rendered/**/README.md
 
 # ============================================================================
 # R ENVIRONMENT

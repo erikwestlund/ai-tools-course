@@ -9,12 +9,14 @@ format:
 
 # Setup
 
-Copy this starter structure into `practice/work/` or create your own file there.
+Open this task folder, or its copy under `practice/work/`, as the project for your agent tool. For security, only open the folder you are actively working in.
+
+Use the starter prompt from `practice/prompts/02_modeling-workflow/`. Paste the prompt into the agent rather than placing it in this folder.
 
 ```{r}
 #| eval: false
 
-data_path <- file.path("data", "synthetic", "simulated_maternal_health_data.csv")
+data_path <- file.path("data", "maternal_health_data.csv")
 maternal <- read.csv(data_path)
 ```
 

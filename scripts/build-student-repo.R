@@ -183,15 +183,7 @@ day_definitions <- list(
       "assignments/final-project-simulated-data-workflow.html",
       "slides/01-session-1.html",
       "slides/02-session-2.html",
-      "slides/03-session-3.html",
-      "modules/01_installation-instructions.html",
-      "modules/01_agent-demo/01_data-cleaning.html",
-      "modules/01_agent-demo/02_data-summary.html",
-      "modules/01_agent-demo/03_data-analysis.html",
-      "modules/02_context-management/index.html",
-      "modules/02_context-management/with-context/visualization-task.html",
-      "modules/02_context-management/without-context/visualization-task.html",
-      "modules/03_agent-differences-example/index.html"
+      "slides/03-session-3.html"
     ),
     data = c("manifest.csv"),
     data_dirs = character()
@@ -317,6 +309,7 @@ for (path in managed_paths) {
 }
 
 copy_file(student_readme, p(target_root, "README.md"))
+copy_file(p(source_root, "student_repo", "updater.R"), p(target_root, "updater.R"))
 
 copy_optional_file(p(source_root, "ai-tools-course.Rproj"), p(target_root, "ai-tools-course.Rproj"))
 copy_optional_file(p(source_root, "ai-tools-course.code-workspace"), p(target_root, "ai-tools-course.code-workspace"))
@@ -358,12 +351,23 @@ copy_clean_dir(
 )
 
 copy_clean_dir(
+  p(source_root, "practice", "prompts"),
+  p(target_root, "practice", "prompts")
+)
+
+copy_clean_dir(
   p(source_root, "skills"),
   p(target_root, "skills")
 )
 
+copy_file(
+  p(source_root, "modules", "01_installation-instructions.qmd"),
+  p(target_root, "modules", "01_installation-instructions.qmd")
+)
+
 active_module_dirs <- c(
   "01_agent-demo",
+  "prompts",
   "02_context-management",
   "03_agent-differences-example"
 )
@@ -373,7 +377,7 @@ for (directory in active_module_dirs) {
     p(source_root, "modules", directory),
     p(target_root, "modules", directory),
     include = function(path) {
-      !grepl("[.]qmd$", path) && !grepl("/[.]quarto(/|$)", path)
+      !grepl("/[.]quarto(/|$)", path)
     }
   )
 }
@@ -382,11 +386,15 @@ write_lines(p(target_root, "practice", "work", ".gitkeep"), character())
 write_lines(p(target_root, "practice", "work", "README.md"), c(
   "# Practice Work",
   "",
-  "Save your own notebooks, scripts, rendered HTML files, and notes here.",
+  "Create and save your own notebooks, scripts, rendered HTML files, and notes here.",
   "",
   "Files in this folder are ignored by Git so `git pull` can update course materials without overwriting your work.",
   "",
-  "Do not save your work in course-owned folders such as `practice/tasks/`, `modules/`, `assignments/`, or `data/`. Those folders may change during updates."
+  "Use `practice/tasks/` as project folders and `practice/prompts/` for prompts and instructions.",
+  "",
+  "If you use R or RStudio, run `source(\"updater.R\")` from the course project root to update the course and copy missing task starter files into this folder.",
+  "",
+  "Do not save your work in course-owned folders such as `practice/tasks/`, `modules/`, `assignments/`, `skills/`, or `data/`. Those folders may change during updates."
 ))
 
 write_lines(p(target_root, ".gitignore"), c(
@@ -403,11 +411,14 @@ write_lines(p(target_root, ".gitignore"), c(
   "*.utf8.md",
   ".env",
   ".Renviron",
+  "protected-local-changes/",
   "data/private/",
   "**/private/",
   "practice/*",
   "!practice/tasks/",
   "!practice/tasks/**",
+  "!practice/prompts/",
+  "!practice/prompts/**",
   "!practice/work/",
   "practice/work/*",
   "!practice/work/.gitkeep",

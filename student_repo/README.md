@@ -14,21 +14,35 @@ This repository contains the public course materials for AI Tools for Data Scien
 
 - `index.html`: rendered course website.
 - `syllabus.html` and `git-workflow.html`: course information and update instructions.
-- `modules/` and `assignments/`: rendered course materials.
+- `modules/`: Quarto source notebooks and task materials.
+- `assignments/`: rendered assignment pages.
 - `data/`: public and synthetic teaching datasets.
 - `skills/`: reusable agent guidance used by modules and practice tasks.
-- `practice/tasks/`: instructor-provided practice tasks that update with `git pull`.
+- `practice/tasks/`: project folders for practice work.
+- `practice/prompts/`: prompts and instructions kept outside task project folders.
 - `practice/work/`: your own local work area.
 
-## Updating With Git
+When doing a practice task, open that task's `.Rproj` file in RStudio or that task's `.code-workspace` file in Positron. This makes the task folder the local project root while keeping prompts outside the agent context.
 
-At the start of each class, open a terminal in this folder and run:
+## Updating Course Materials
+
+If you are using R or RStudio, run this at the start of each class from the course project root:
+
+```r
+source("updater.R")
+```
+
+This updates course materials and copies any missing practice-task starter files into `practice/work/` without overwriting files you already have there.
+
+If you are not using R, open a terminal in this folder and run:
 
 ```bash
 git pull
 ```
 
-Do not edit course-owned files in `practice/tasks/`, `modules/`, `assignments/`, or `data/`. Save your own work in `practice/work/`.
+Then create your own files in `practice/work/` as needed.
+
+Do not edit course-owned files in `practice/tasks/`, `modules/`, `assignments/`, `skills/`, or `data/`. Save your own work in `practice/work/`.
 
 If Git says your local changes would be overwritten, see `git-workflow.html`.
 

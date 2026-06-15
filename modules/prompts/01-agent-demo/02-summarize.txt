@@ -1,0 +1,11 @@
+Using the cleaned data in outputs/, summarize the available estimates.
+
+Please produce:
+- counts by measure
+- counts by subgroup category
+- mean, minimum, and maximum estimate by measure
+- a short interpretation of what these summaries show
+
+Save any summary tables in outputs/
+
+Create a notebook in 02_data-summary.qmd

@@ -16,13 +16,21 @@ format:
 
 ## Goals For Session 1
 
-- Understand what LLMs can and cannot do
-- Place the current moment in historical context
-- See recurring failure modes the research keeps finding
-- Learn the working distinction between a model and a harness
-- Start using an AI-assisted workflow on a data visualization task
+- Understand what LLMs can and cannot do.
+- Place the current moment in historical context.
+- See recurring failure modes the research keeps finding.
+- Learn the working distinction between a model and a harness.
+- Start using an AI-assisted workflow on a data visualization task.
 
-## {background-color="#2c3e50"}
+## Housekeeping
+
+- Assignments are on CoursePlus and in the GitHub
+- Three assignments
+  - Problem Set 1: Data Visualization
+  - Problem Set 2: Statistical Model
+  - Final Project
+
+# {background-color="#2c3e50"}
 
 ::: {style="color: white; font-size: 1.5em; text-align: center;"}
 What do we mean by AI?
@@ -48,10 +56,12 @@ AI, machine learning, and large language models
 
 ## Tokens And Embeddings
 
-- Text is split into **tokens**: subword units, not whole words
-  - "biostatistics" $\rightarrow$ "bio" + "stat" + "istics"
-- Each token is mapped to a **vector**: a list of numbers
-- These vectors capture meaning through position in high-dimensional space
+- Text is split into **tokens**: subword units, not whole words.
+  - "biostatistics" $\rightarrow$ "bio" + "stat" + "istics".
+- Each token is mapped to a **vector**: a list of numbers.
+- These vectors capture meaning through position in high-dimensional space.
+
+. . .
 
 **PCA analogy:** Just as principal components analysis finds axes of variation in your data, embeddings find axes of meaning in language. Words with similar meanings cluster together.
 
@@ -71,6 +81,8 @@ Two phases:
 
 1. **Pre-training:** Predict the next token across a massive corpus of text, code, and other artifacts. The model learns statistical patterns in the training data, encoding them in mathematical weights/parameters.
 2. **Post-training / tuning:** Further train the model to follow instructions, prefer helpful responses, refuse some requests, and behave more like an assistant.
+
+. . .
 
 Post-training can include supervised instruction tuning, reinforcement learning from human feedback, direct preference optimization, safety tuning, tool-use training, and other methods.
 
@@ -93,10 +105,10 @@ Post-training can include supervised instruction tuning, reinforcement learning 
 - **Not a search engine.** It doesn't retrieve documents unless given tools to do so.
 - **Not deterministic.** Same input $\neq$ same output.
 
-- **Not "thinking" the way you do.** It produces both correct reasoning and convincing nonsense, with no reliable way to tell the difference from the inside.
+- **Not "thinking" the way you do.** It produces both correct reasoning and convincing nonsense with no reliable way to tell the difference from the inside.
 - **Not an expert.** It can sound authoritative while sometimes being correct and sometimes being completely wrong.
 
-## {background-color="#2c3e50"}
+# {background-color="#2c3e50"}
 
 ::: {style="color: white; font-size: 1.5em; text-align: center;"}
 How We Will Use LLMs
@@ -106,35 +118,35 @@ How We Will Use LLMs
 Carefully!
 :::
 
-## Biostatistics
+## Biostatistics: Where AI Is Effective
 
-In my experience, AI tools can:
+In my experience, AI tools can effectively:
 
-- Write code for data cleaning, visualization, and simple to complex analyses
-- Generate boilerplate for reports and documentation
-- Translate between programming languages
-- Explain unfamiliar code or statistical concepts
+- Write code for data cleaning, visualization, and simple to complex analyses.
+- Generate boilerplate for reports and documentation (not manuscripts).
+- Translate between programming languages.
 
 ## Biostatistics: What AI Can Assist
 
-AI *can* assist in all of the following.
+AI *can* assist in all of the following:
 
-- Design a study
-- Interpret clinical context
-- Make judgment calls about modeling decisions
-- Navigate IRB requirements and data use agreements
-- Explain findings
+- Study design.
+- Helping build statistical models.
+- Explaining findings.
+- Explain unfamiliar code or statistical concepts.
+
+. . .
 
 It will give you something back in all of the above contexts, but expertise is required both to verify and craft/de-sloppify into usable work.
 
-**AI cannot take responsibility. The analyst does.**
+**AI cannot take responsibility. You do.**
 
 ## Our Orientation
 
 - Use AI for boilerplate, code scaffolding, explanations, and review.
 - Give it useful context, but do not give external tools sensitive data.
 - Treat generated code and interpretation as untrusted until checked.
-- Use the tool to accelerate your work, not to outsource judgment.
+- Use AI tools to augment your work, not to outsource judgment.
 
 ## Key Takeaways For This Course
 
@@ -142,7 +154,7 @@ It will give you something back in all of the above contexts, but expertise is r
 2. **Validate everything.** You are responsible for the outputs you use.
 3. **Human expertise is essential.** Developers who know code is AI-generated catch more bugs [@tang2024developer].
 
-## {background-color="#2c3e50"}
+# {background-color="#2c3e50"}
 
 ::: {style="color: white; font-size: 1.5em; text-align: center;"}
 A Brief History
@@ -157,6 +169,8 @@ A Brief History
 - **1950:** Turing proposes the imitation game. "Can machines think?"
 - **1956:** Dartmouth workshop coins "Artificial Intelligence."
 - **1958:** Rosenblatt builds the Perceptron, the first neural network.
+
+. . .
 
 The *New York Times* reports the Navy expects it to "walk, talk, see, write, reproduce itself, and be conscious."
 
@@ -190,42 +204,45 @@ The *New York Times* reports the Navy expects it to "walk, talk, see, write, rep
 
 :::
 
-**We are somewhere on this curve. Knowing the history helps you locate where.**
 
 ## AI Revival
 
-AI stopped trying to be "intelligent" and started being useful:
+Researchers focused on practical applications:
 
-- **Machine learning** replaces hand-coded rules with learning from data
-- **Statistical methods** dominate: SVMs, random forests, boosting
-- **Deep learning breakthrough** (2012): AlexNet wins ImageNet by a landslide using a neural network and GPUs
+- **Machine learning** replaces hand-coded rules with learning from data.
+- **Statistical methods** dominate: SVMs, random forests, boosting.
+- **Deep learning breakthrough** (2012): AlexNet wins ImageNet by a landslide using a neural network and GPUs.
+
+. . .
 
 The shift: from **"encode what we know"** to **"learn from what we have."**
 
-## The Foundation And The Leap
+## AI/LLM Advancements
 
-- **2017:** "Attention Is All You Need" introduces the Transformer architecture
-- **2018:** GPT-1. Language modeling as pre-training
-- **2020:** GPT-3. Can perform tasks from just a few examples in the prompt
-- **2021:** Codex powers GitHub Copilot
-- **2022:** ChatGPT launches
-- **2023:** GPT-4 arrives; open-source accelerates
+- **2017:** "Attention Is All You Need" introduces the Transformer architecture.
+- **2018:** GPT-1. Language modeling as pre-training.
+- **2020:** GPT-3. Can perform tasks from just a few examples in the prompt.
+- **2021:** Codex powers GitHub Copilot.
+- **2022:** ChatGPT launches.
+- **2023:** GPT-4 arrives; open-source accelerates.
 
-## The Reasoning Era
+## Today: Reasoning Models
 
-- **2024:** OpenAI releases o1, a "reasoning model" that thinks step-by-step
-- **2025:** o3-mini and DeepSeek-R1 push reasoning further
+- **2024:** OpenAI releases o1, a "reasoning model" that thinks step-by-step.
+- **2025:** o3-mini and DeepSeek-R1 push reasoning further.
 - **2026:** GPT 5.5/Opus 4.8/Fable/Mythos: Frontier models grow in size and capability.
 
-**Key insight:** Reasoning models use the **same underlying architecture**.
+. . .
+
+Reasoning models use the **same underlying architecture** but differences in pre- and post-training to make them more effective problem solvers.
 
 ## What Makes Reasoning Models Different?
 
-The difference is **how they spend compute**:
+The difference is **how they iterate**:
 
-- A standard model answers immediately. One pass through the network.
-- A reasoning model spends more tokens before answering.
-- It trades speed and cost for accuracy.
+- A non-reasoning model answers immediately. You ask, it generates an answer.
+- A reasoning model will get an answer, use a model to study its outputs, and improve upon the outputs until it's "satisfied."
+- This takes longer, and costs more money, but is more accurate in most situations.
 
 ## Benchmark Progress {.smaller}
 
@@ -249,26 +266,28 @@ Model advancement is real, but take the results with a grain of salt.
 
 Even with better models, these problems are probably not solved:
 
-- **Buggy context.** Models still don't always detect upstream bugs [@dinh2023buggy]; can propogate mistakes in analyses.
-- **Poor calibration.** Models are often sometimes miscalibrated on hard questions [@phan2025hle]
-- **Benchmark contamination.** Static benchmark scores can be substantially inflated under contamination [@chen2025dycodeeval]
+- **Buggy context.** Models still don't always detect upstream bugs [@dinh2023buggy]; can propagate mistakes in analyses.
+- **Poor calibration.** Models are often sometimes miscalibrated on hard questions [@phan2025hle].
+- **Benchmark contamination.** Static benchmark scores can be substantially inflated under contamination [@chen2025dycodeeval].
 
-## {background-color="#2c3e50"}
+# {background-color="#2c3e50"}
 
 ::: {style="color: white; font-size: 1.5em; text-align: center;"}
 Current Performance And Failure Modes
 :::
 
-## A Simple Map Of Failure Modes
+## LLM Failure Modes
 
 Four patterns show up repeatedly in the literature:
 
-- **Brittleness to context:** small upstream errors can cascade
-- **Overconfidence:** models sound certain when they are wrong
-- **Contamination:** headline benchmark scores can be inflated
-- **Distribution shift:** real-world tasks differ from curated benchmarks
+- **Brittleness to context:** small upstream errors can cascade.
+- **Overconfidence:** models sound certain when they are wrong.
+- **Contamination:** headline benchmark scores can be inflated.
+- **Distribution shift:** real-world tasks differ from curated benchmarks.
 
-The point is to develop good scientific instincts about when the tool is likely to help.
+. . .
+
+A goal for us is to develop good instincts about when the tool is likely to help, and then bring your scientific expertise to the outputs to ensure they are correct.
 
 ## Where LLMs Succeed
 
@@ -317,16 +336,16 @@ The point is to develop good scientific instincts about when the tool is likely 
 :::
 
 - In their analysis, the model **fails to react** to the potential bug in 90% of instances [@dinh2023buggy].
-- **Takeaway: Context quality is important.** 
+- **Takeaway: Context quality is important.**
 - These results are old; things have improved.
 
 ## Overconfidence
 
 LLMs are wrong frequently and don't convey their uncertainty:
 
-- **Calibration error on expert questions:** 70-89% RMS error across all models [@phan2025hle]
-- On MATH, confidence is near 100% **regardless of correctness** [@hendrycks2021math]
-- Bugs are common in practice; one empirical study catalogs 10 recurring bug patterns from 333 collected bugs in LLM-generated code [@tambon2024bugs]
+- **Wrong on expert questions:** To this day still cannot accurately pass expert-level questions across domains that are easily recalled from training data [@phan2025hle].
+- On MATH, confidence is near 100% **regardless of correctness** [@hendrycks2021math].
+- Bugs are common in practice; one empirical study catalogs 10 recurring bug patterns from 333 collected bugs in LLM-generated code [@tambon2024bugs].
 
 ## Benchmarks Can Lie
 
@@ -334,7 +353,20 @@ LLMs are wrong frequently and don't convey their uncertainty:
 - **Even uncontaminated benchmarks are too easy:** Code that passes HumanEval often fails on more rigorous test suites [@liu2023evalplus].
 - **Be skeptical of headline numbers.**
 
-## {background-color="#2c3e50"}
+
+## Making Sense of Benchmarks
+
+- Research on benchmarks that is over a couple of years old is dated.
+- Models have improved substantially over the last two years.
+- Benchmarks themselves can be artificial and gamed.
+- Goodhart's Law: "when a measure becomes a target, it ceases to be a good measure."
+
+. . .
+
+Regardless of how objectively "intelligent" the models are, they still need supervision, and we still bear responsibility for how we use their outputs.
+
+
+# {background-color="#2c3e50"}
 
 ::: {style="color: white; font-size: 1.5em; text-align: center;"}
 Harness Vs. Model
@@ -349,22 +381,24 @@ Brief version today; more detail tomorrow
 - **Model:** the system that generates text or code from context.
 - **Harness:** the environment around the model.
 
+. . .
+
 **Harness = Model + Tools + Permissions + Context + Workflow**
 
-Same model, different harness, different output.
+The same model with a different harness will result in different output.
 
 ## Chat Interfaces
 
 **The standard way most people use AI:**
 
-- Paste in some context and a question
-- Get an answer back
-- Paste the answer into your editor, wire it up, test
-- Repeat
+- Paste in some context and a question.
+- Get an answer back.
+- Paste the answer into your editor, fit it into your code, test.
+- Repeat.
 
-## The Chat Limit
+## Limits of Chat
 
-**You act as a middleman.**
+**You act as a go-between.**
 
 - The model has no persistent context of your files.
 - It cannot test the code it writes.
@@ -376,59 +410,92 @@ An **agent** is a **harness** around an AI model.
 
 Rather than just returning text, the model can:
 
-- `read` a file in your project
-- `search` your files for context
-- `edit` files directly
-- `execute` scripts/programs to achieve tasks
+- `read` a file in your project.
+- `search` your files for context.
+- `edit` files directly.
+- `execute` scripts/programs to achieve tasks.
 
 ## The Agent Workflow
 
 1. You give it a task: "Create a summary stats table for my dataset."
 2. The agent explores the directory.
 3. It writes the code and saves it.
-4. It runs the code, reads the error log, and fixes its own mistake.
+4. It runs the code, reads the error log, and fixes its own mistakes.
 5. It presents the final result.
 
 ## Verify Before Trust
 
 Agents today seldom fully fail, but they make mistakes, and those mistakes can propagate.
 
-- Syntactically valid $\neq$ statistically correct
-- Check tables and plots for accuracy
-- Use another model or another prompt to critique important output
+- Syntactically valid $\neq$ statistically correct.
+- Check tables and plots for accuracy.
+- Use another model or another prompt to critique important output.
 
-## {background-color="#2c3e50"}
+# {background-color="#2c3e50"}
 
 ::: {style="color: white; font-size: 1.8em; text-align: center;"}
 Break
 :::
 
-## After Break: Setup And Demo
+
+## Computing Check-in
+
+- Let's pause and check in on everyone's computing setup.
+
+## Computing Setup
 
 Goal: get everyone to a working starting point.
 
-- Open the course repository
-- Confirm `git pull` works, or use the ZIP fallback if necessary
-- Open the project in RStudio, Positron, or your preferred editor
-- Confirm the data folders and assignment pages are visible
-- Use an AI tool on a small clean-summary-analysis workflow
+- Open the course repository **as a project** in RStudio, Positron, or your preferred editor.
+- Confirm `source("updater.R")` or `git pull` works.
+- Confirm the data folders and assignment pages are visible.
+- Use an AI tool on a small clean-summary-analysis workflow.
+
+## Updating With R
+
+If you use R, run this from the course project root each day to get the new material.
+
+```r
+source("updater.R")
+```
+
+What it does:
+
+- Pulls updated course materials with Git.
+- Copies missing practice-task files into `practice/work/` (this directory is `.gitignore`d).
+- Leaves existing files in `practice/work/` alone.
+- Saves backup copies if you accidentally edited tracked course files.
+
+If you do not use R, run `git pull` and create your own files in `practice/work/`.
+
+## If the Updater Fails
+
+**If you edit files outside `practice/work/` the updater may fail.**
+
+- Look at what files were edited; do you need any of the changes?
+- If so, copy and save them.
+- Run `git stash`.
+- Run the updater again.
+
+One tactic: Ask an agent to merge in new changes and preserve your work. They are very good at this.
 
 ## Note
 
-- I am demoing in Positron, which behaves similarly to RStudio
-- Code depends on opening this repository as a project
+- I am demoing in Positron, which behaves similarly to RStudio.
+- Code depends on opening the right folder as a project.
 - You can follow along if you do this.
 
 ## Instructor Demo
 
-We will use [First Agent Demo](../modules/01_agent-demo/01_data-cleaning.html):
+We will use the [First Agent Demo](../modules/01_agent-demo/01_data-cleaning.qmd) in the repository:
 
-- Dataset: `data/simulated/prams_messy_for_cleaning.csv`
-- Prompt: `modules/01_agent-demo/prompt.txt`
-- Goal: use an AI agent to tackle an analysis task
-- We will go step by step, checking each stage before moving on
+- Open only `modules/01_agent-demo/` in the agent tool.
+- Data and codebook are inside that folder's `data/` directory.
+- Prompts are outside the demo folder in `modules/prompts/01-agent-demo/`.
+- Goal: use an AI agent to tackle an analysis task.
+- We will go step by step, checking each stage before moving on.
 
-## Demo Workflow
+## Workflow
 
 1. Tell the agent about the dataset and the goal.
 2. Ask it to clean the data.
@@ -436,24 +503,25 @@ We will use [First Agent Demo](../modules/01_agent-demo/01_data-cleaning.html):
 4. Ask it to analyze the data.
 5. Check the result ourselves.
 
-## Computing Check-in
-
-- Let's pause and check in on everyone's computing setup.
-
 ## Data Visualization Practice
 
-Start in `practice/work/`.
+Open only the project folder you are working in with your agent tool.
 
-Use [Practice Task 1](../practice/tasks/01_clean-and-visualize/):
+Security reason: an agent can inspect files in the folder you give it. Do not open a larger folder than needed.
 
-- `data/simulated/county_wellness_indicators_long.csv`
-- `data/codebooks/simulated_county_wellness_indicators_long.md`
-- starter prompt: `practice/tasks/01_clean-and-visualize/starter-prompt.txt`
+Use [Practice Task 1](../practice/tasks/01_clean-and-visualize/) or the matching copy in `practice/work/`:
 
-The prompt and detailed checklist live in the practice task folder, not in these slides.
+- Data and codebook are inside that folder's `data/` directory.
+- Prompts and instructions are outside the task folder in `practice/prompts/01_clean-and-visualize/`.
+- Paste the prompt into the agent; do not put prompt files inside the project folder.
+- Use `starter-notebook.qmd` if you want an R/Quarto starting point.
+
+The task folder contains the working files. The prompt/checklist folder contains instructor instructions.
 
 ## Wrap-Up
 
-- Today: foundations, practical posture, harness vs. model, first visualization workflow
-- Tomorrow: model choice, agents, context files, structured workflows
-- Assignment: Problem Set 1 is due Thursday, June 18, 2026, at 11:59 pm
+- Today: foundations, practical posture, harness vs. model, first visualization workflow.
+- Tomorrow: model choice, agents, context files, structured workflows.
+- Assignment: Problem Set 1 is due Thursday, June 18, 2026, at 11:59 pm.
+
+## References

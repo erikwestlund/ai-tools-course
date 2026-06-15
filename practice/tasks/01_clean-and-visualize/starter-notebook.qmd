@@ -6,17 +6,16 @@ format:
     toc: true
 ---
 
-> If you use a different analysis method, language, or tool, you will need to set up a workable file for that method. For example, you might use an R script, Python notebook, or Word document instead of this Quarto notebook. Make sure your file can load the data from the course repository and that your final output includes code, results, and your checks.
+> If you use a different analysis method, language, or tool, you will need to adapt this to your set up.
 
 # Goal
 
-Use an AI tool to help clean, summarize, and visualize the simulated county wellness dataset. Check the AI output yourself before trusting it.
+Use an AI tool to help clean, summarize, and visualize the county wellness dataset. Check the AI output yourself before trusting it.
 
 # Files
 
-- Dataset: `data/simulated/county_wellness_indicators_long.csv`
-- Codebook: `data/codebooks/simulated_county_wellness_indicators_long.md`
-- Prompt: `practice/tasks/01_clean-and-visualize/starter-prompt.txt`
+- Dataset: `data/county_wellness_indicators_long.csv`
+- Codebook: `data/codebook.md`
 
 # Setup
 
@@ -26,10 +25,10 @@ Use an AI tool to help clean, summarize, and visualize the simulated county well
 
 # Inspect The Data
 
-Use the prompt file to ask your AI tool to inspect the dataset and codebook before writing the full analysis.
+Use the starter prompt from `practice/prompts/01_clean-and-visualize/` to ask your AI tool to inspect the dataset and codebook before writing the full analysis. Paste the prompt into the agent rather than placing it in this folder.
 
 ```{r}
-county_wellness <- read.csv("data/simulated/county_wellness_indicators_long.csv")
+county_wellness <- read.csv("data/county_wellness_indicators_long.csv")
 
 dim(county_wellness)
 names(county_wellness)

@@ -79,7 +79,7 @@ We will study and practice privacy-aware AI-assisted workflows. The class will f
 
 ## Pre-Work
 
-Before the first class, students should complete the [Pre-Class Setup Checklist](modules/01_installation-instructions.html). In brief, students should:
+Before the first class, students should complete the [Pre-Class Setup Checklist](modules/01_installation-instructions.qmd). In brief, students should:
 
 - Install Git or confirm that Git is available on their computer.
 - Install R, RStudio or Positron, and Quarto. You may use alternative tools if you are comfortable with them.

@@ -17,7 +17,7 @@ Department of Biostatistics, Johns Hopkins Bloomberg School of Public Health
 
 * [Syllabus](syllabus.html)
 * [Course Materials And Git Workflow](git-workflow.html)
-* [Pre-Class Setup Checklist](modules/01_installation-instructions.html)
+* [Pre-Class Setup Checklist](modules/01_installation-instructions.qmd)
 * [Problem Set 1: Data Visualization](assignments/problem-set-1-data-visualization.html)
 * [Problem Set 2: Statistical Modeling](assignments/problem-set-2-statistical-modeling.html)
 * [Final Project: Simulated Data Workflow](assignments/final-project-simulated-data-workflow.html)
@@ -29,8 +29,8 @@ Department of Biostatistics, Johns Hopkins Bloomberg School of Public Health
 We will start with a condensed introduction to LLMs, why they are useful for statistical work, where they fail, and why structured workflows matter. We will compare chatbots, browser tools, GUI/IDE harnesses, and CLI harnesses on the same small task, then introduce context management with `AGENTS.md`, `CLAUDE.md`, and skills.
 
 - **Slides:** [Session 1: Foundations and First Workflow](slides/01-session-1.html)
-- **Demo:** [First Agent Demo](modules/01_agent-demo/01_data-cleaning.html)
-- **Practice:** [Clean And Visualize](practice/tasks/01_clean-and-visualize/)
+- **Demo:** [First Agent Demo](modules/01_agent-demo/01_data-cleaning.qmd)
+- **Practice:** [Clean And Visualize project folder](practice/tasks/01_clean-and-visualize/) and [prompt/instructions](practice/prompts/01_clean-and-visualize/)
 - **Assigned:** [Problem Set 1: Data Visualization](assignments/problem-set-1-data-visualization.html)
 
 ### Session 2 (Tuesday, June 16): Context, Agent Differences, and Modeling Workflows
@@ -43,9 +43,9 @@ We will focus on context management, agent differences, and repeatable AI-assist
 - Practice: count-modeling workflow on simulated maternal-health data
 
 - **Slides:** [Session 2: Context, Agent Differences, and Modeling Workflows](slides/02-session-2.html)
-- **Module:** [Context Management](modules/02_context-management/index.html)
-- **Module:** [Agent Differences Example](modules/03_agent-differences-example/index.html)
-- **Practice:** [Modeling Workflow](practice/tasks/02_modeling-workflow/)
+- **Module:** [Context Management](modules/02_context-management/index.qmd)
+- **Module:** [Agent Differences Example](modules/03_agent-differences-example/index.qmd)
+- **Practice:** [Modeling Workflow project folder](practice/tasks/02_modeling-workflow/) and [prompt/instructions](practice/prompts/02_modeling-workflow/)
 - **Due before class:** Short course project topic proposal.
 - **Assigned:** [Problem Set 2: Statistical Modeling](assignments/problem-set-2-statistical-modeling.html)
 
@@ -58,7 +58,7 @@ We will make privacy the capstone workflow. The day focuses on PHI, simulated-da
 
 ## Pre-Work
 
-Before the first class, students should complete the [Pre-Class Setup Checklist](modules/01_installation-instructions.html): install Git if needed, install R/RStudio or Positron, install Quarto, and arrange access to at least one AI agent tool. A GitHub account is only needed if your chosen AI tool requires it, such as GitHub Copilot.
+Before the first class, students should complete the [Pre-Class Setup Checklist](modules/01_installation-instructions.qmd): install Git if needed, install R/RStudio or Positron, install Quarto, and arrange access to at least one AI agent tool. A GitHub account is only needed if your chosen AI tool requires it, such as GitHub Copilot.
 
 ## Course Readings
 
