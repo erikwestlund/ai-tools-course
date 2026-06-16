@@ -123,6 +123,7 @@ must_exist_after_export:
   - practice/tasks/03_simulated-data-privacy-workflow/sim-data/02_modeling.qmd
   - practice/tasks/03_simulated-data-privacy-workflow/sim-data/data/.gitkeep
   - practice/tasks/03_simulated-data-privacy-workflow/sim-data/metadata/.gitkeep
+  - practice/tasks/03_simulated-data-privacy-workflow/sim-data/real-data-metadata/.gitkeep
   - practice/prompts/README.md
   - practice/prompts/00_open-project-and-glimpse/prompt.txt
   - practice/prompts/01_clean-and-visualize/prompt.txt

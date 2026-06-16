@@ -88,6 +88,40 @@ copy_local_changes_to_backup <- function(project_root, status_lines, backup_dir)
   invisible(list(copied = copied, not_copied = not_copied))
 }
 
+remove_still_untracked_files <- function(project_root, status_lines) {
+  untracked_lines <- status_lines[grepl("^[?][?] ", status_lines)]
+
+  if (length(untracked_lines) == 0) {
+    return(invisible(character()))
+  }
+
+  removed <- character()
+
+  for (status_line in untracked_lines) {
+    relative_path <- safe_path_from_status(status_line)
+
+    if (!nzchar(relative_path) ||
+      grepl("^protected-local-changes/", relative_path) ||
+      grepl("^practice/work/", relative_path)) {
+      next
+    }
+
+    source_path <- file.path(project_root, relative_path)
+
+    if (file.exists(source_path)) {
+      unlink(source_path, recursive = TRUE, force = TRUE)
+      removed <- c(removed, relative_path)
+    }
+  }
+
+  if (length(removed) > 0) {
+    message("Removed backed-up untracked files before git pull:")
+    message(paste0("- ", removed, collapse = "\n"))
+  }
+
+  invisible(removed)
+}
+
 move_backup_into_project <- function(project_root, backup_dir, timestamp) {
   protected_parent <- file.path(project_root, "protected-local-changes")
   protected_dir <- file.path(protected_parent, timestamp)
@@ -167,6 +201,8 @@ protect_and_stash_local_changes <- function(project_root) {
   if (length(stash_output) > 0) {
     message(paste(stash_output, collapse = "\n"))
   }
+
+  remove_still_untracked_files(project_root, status_lines)
 
   message("Backup copies saved in: ", protected_dir)
   message("Git stash also saved these changes. Use `git stash list` if an instructor asks you to recover them from Git.")
