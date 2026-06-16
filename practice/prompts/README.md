@@ -1,6 +1,6 @@
 # Practice Prompts
 
-This folder keeps starter prompts outside the practice task project folders.
+This folder keeps prompts outside the practice task project folders.
 
 For agent work, open only the matching task folder or work folder. Copy or paste a prompt from here into the agent when needed, but do not put prompt files inside the task folder.
 

@@ -17,7 +17,11 @@ Department of Biostatistics, Johns Hopkins Bloomberg School of Public Health
 
 * [Syllabus](syllabus.html)
 * [Course Materials And Git Workflow](git-workflow.html)
-* [Pre-Class Setup Checklist](modules/00_installation-instructions.qmd)
+* [Installation Instructions](docs/install-instructions/installation-instructions.html)
+* [RStudio Repository Setup](docs/install-instructions/rstudio-repository-setup.html)
+* [Positron Or VS Code Repository Setup](docs/install-instructions/positron-or-vs-code-repository-setup.html)
+* [Other Software Repository Setup](docs/install-instructions/other-software-repository-setup.html)
+* [Posit AI Setup](docs/install-instructions/posit-ai-setup.html)
 * [Problem Set 1: Data Visualization](assignments/problem-set-1-data-visualization.html)
 * [Problem Set 2: Statistical Modeling](assignments/problem-set-2-statistical-modeling.html)
 * [Final Project: Simulated Data Workflow](assignments/final-project-simulated-data-workflow.html)
@@ -29,24 +33,26 @@ Department of Biostatistics, Johns Hopkins Bloomberg School of Public Health
 We will start with a condensed introduction to LLMs, why they are useful for statistical work, where they fail, and why structured workflows matter. We will compare chatbots, browser tools, GUI/IDE harnesses, and CLI harnesses on the same small task, then introduce context management with `AGENTS.md`, `CLAUDE.md`, and skills.
 
 - **Slides:** [Session 1: Foundations and First Workflow](slides/01-session-1.html)
-- **Setup practice:** [Open Project And Glimpse folder](practice/tasks/00_open-project-and-glimpse/) and [prompt](practice/prompts/00_open-project-and-glimpse/starter-prompt.txt)
+- **Setup practice:** run `source("updater.R")`, open `practice/work/00_open-project-and-glimpse/`, and use the [prompt](practice/prompts/00_open-project-and-glimpse/prompt.txt)
 - **Demo:** [First Agent Demo](modules/01_agent-demo/01_data-cleaning.qmd)
-- **Practice:** [Clean And Visualize project folder](practice/tasks/01_clean-and-visualize/) and [prompt/instructions](practice/prompts/01_clean-and-visualize/)
+- **Practice:** run `source("updater.R")`, open `practice/work/01_clean-and-visualize/`, and use the [prompt](practice/prompts/01_clean-and-visualize/prompt.txt)
 - **Assigned:** [Problem Set 1: Data Visualization](assignments/problem-set-1-data-visualization.html)
 
-### Session 2 (Tuesday, June 16): Context, Agent Differences, and Modeling Workflows
+### Session 2 (Tuesday, June 16): Models, Privacy, And Harnesses
 
-We will focus on context management, agent differences, and repeatable AI-assisted modeling workflows. The day moves from a controlled context A/B demo into a worked agent-comparison case study and hands-on modeling practice.
+We will start hands-on with the clean-and-visualize practice, then step back to compare model types, local versus cloud deployment, API versus subscription billing, privacy constraints, and agent harnesses.
 
-- Context files, skills, prompts, and working-directory context
-- A/B demo: the same plotting task with and without `AGENTS.md`
-- Case study: how tool, model, prompt, and harness differences affect analysis output
-- Practice: count-modeling workflow on simulated maternal-health data
+- Start with `practice/work/01_clean-and-visualize/`
+- Model types, local versus cloud, and privacy
+- API billing versus subscriptions
+- Static demo walkthrough: [model and harness comparison](docs/model-harness-comparison/summary.html)
+- Harnesses and tool permissions
+- Start the modeling workflow after lecture
 
-- **Slides:** [Session 2: Context, Agent Differences, and Modeling Workflows](slides/02-session-2.html)
-- **Module:** Context Management (to be released)
-- **Module:** Agent Differences Example (to be released)
-- **Practice:** Context workflow (to be released)
+- **Slides:** [Session 2: Models, Privacy, And Harnesses](slides/02-session-2.html)
+- **Start here:** run `source("updater.R")`, open `practice/work/01_clean-and-visualize/`, and use the [prompt](practice/prompts/01_clean-and-visualize/prompt.txt)
+- **Demo reference:** [Model and harness comparison summary](docs/model-harness-comparison/summary.html)
+- **Next practice:** run `source("updater.R")`, open `practice/work/02_modeling-workflow/`, and use the prompts in `practice/prompts/02_modeling-workflow/`
 - **Due before class:** Short course project topic proposal.
 - **Assigned:** [Problem Set 2: Statistical Modeling](assignments/problem-set-2-statistical-modeling.html)
 
@@ -59,7 +65,7 @@ We will make privacy the capstone workflow. The day focuses on PHI, simulated-da
 
 ## Pre-Work
 
-Before the first class, students should complete the [Pre-Class Setup Checklist](modules/00_installation-instructions.qmd): install Git if needed, install R/RStudio or Positron, install Quarto, and arrange access to at least one AI agent tool. A GitHub account is only needed if your chosen AI tool requires it, such as GitHub Copilot.
+Before the first class, students should complete the [Installation Instructions](docs/install-instructions/installation-instructions.html): install Git if needed, install R/RStudio or Positron, install Quarto, and arrange access to at least one AI agent tool. RStudio users can follow the [RStudio Repository Setup](docs/install-instructions/rstudio-repository-setup.html); Positron or VS Code users can follow the [Positron Or VS Code Repository Setup](docs/install-instructions/positron-or-vs-code-repository-setup.html); other users can follow the [Other Software Repository Setup](docs/install-instructions/other-software-repository-setup.html). Posit AI users can follow the [Posit AI Setup](docs/install-instructions/posit-ai-setup.html). A GitHub account is only needed if your chosen AI tool requires it, such as GitHub Copilot.
 
 ## Course Readings
 

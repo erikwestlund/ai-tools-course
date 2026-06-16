@@ -9,13 +9,16 @@ format:
 
 # Purpose
 
-This module demonstrates how persistent context changes agent behavior on the same analysis task.
+This module demonstrates how persistent context files and reusable skill files can change agent behavior on the same analysis task.
 
 # Files
 
 - `without-context/visualization-task.qmd`: the task without a local context file.
 - `with-context/visualization-task.qmd`: the same task with a local `AGENTS.md` file.
-- `with-context/AGENTS.md`: plotting and interpretation rules for the agent.
+- `with-context/AGENTS.md`: plotting and interpretation rules for the context-file demonstration.
+- `without-skills/visualization-task.qmd`: the task without a local skill file.
+- `with-skills/visualization-task.qmd`: the same task with a local skill file.
+- `with-skills/skills/ggplot-style/SKILL.md`: plotting and interpretation rules for the skill demonstration.
 - Dataset: `data/simulated/neighborhood_health_survey_analysis.csv`.
 
 # Demonstration Sequence
@@ -25,7 +28,9 @@ This module demonstrates how persistent context changes agent behavior on the sa
 3. Record what style, labels, missing-data handling, and interpretation it produced.
 4. Open the task in `with-context/`.
 5. Ask the agent to inspect and follow `AGENTS.md`.
-6. Compare whether the output follows the explicit context rules.
+6. Compare whether the output follows the explicit context-file rules.
+7. Repeat the same comparison with `without-skills/` and `with-skills/`.
+8. In the skill version, ask the agent to inspect and follow `skills/ggplot-style/SKILL.md`.
 
 # Comparison Questions
 
@@ -35,8 +40,8 @@ This module demonstrates how persistent context changes agent behavior on the sa
 - Did the agent add a subtitle and source caption?
 - Did the agent drop missing rows before plotting?
 - Did the written interpretation avoid causal language?
-- Did the agent explain which context rules it followed?
+- Did the agent explain which context-file or skill rules it followed?
 
 # Takeaway
 
-Persistent context files are useful when rules should apply across multiple prompts or files. They do not replace review. The analyst still checks whether the agent followed the rules.
+Context files are useful when rules should apply across a project or directory. Skill files are useful when a workflow rule should be reusable across prompts, projects, or tasks. Neither replaces review. The analyst still checks whether the agent followed the rules.

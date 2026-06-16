@@ -1,0 +1,21 @@
+---
+title: "Data Summary"
+---
+
+## Goal
+
+```{r}
+nhanes_data <- read.csv("data/nhanes_2021_2023_analysis.csv")
+```
+
+## Structure
+
+```{r}
+
+```
+
+## Summary
+
+```{r}
+
+```

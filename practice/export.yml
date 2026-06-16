@@ -5,14 +5,14 @@ copy:
   - tasks/README.md
   - tasks/00_open-project-and-glimpse
   - tasks/01_clean-and-visualize
+  - tasks/02_modeling-workflow
+  - tasks/03_simulated-data-privacy-workflow
   - prompts/README.md
   - prompts/00_open-project-and-glimpse
   - prompts/01_clean-and-visualize
+  - prompts/02_modeling-workflow
+  - prompts/03_simulated-data-privacy-workflow
 
 future:
   - tasks/02_context-management
   - prompts/02_context-management
-  - tasks/03_modeling-workflow
-  - prompts/03_modeling-workflow
-  - tasks/04_data-safety
-  - prompts/04_data-safety

@@ -1,9 +1,0 @@
-I am practicing an AI-assisted data visualization workflow in R.
-
-The data and codebook are in this folder:
-- data/county_wellness_indicators_long.csv
-- data/codebook.md
-
-Please inspect the dataset and codebook. First, tell me what one row represents,
-what cleaning or checking is needed, and what visualization would be reasonable.
-Do not write the full analysis yet.

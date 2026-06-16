@@ -1,0 +1,7 @@
+Work only in `practice/work/03_simulated-data-privacy-workflow/sim-data/`.
+
+Use the simulated file `data/nhanes_2021_2023_analysis.csv` to improve `01_data-summary.qmd`.
+
+Write code that checks structure, missingness, categorical levels, and basic summaries. Do not make substantive claims from simulated data.
+
+Keep the notebook portable so it can later be copied to `../real-data/` and run there without path changes.

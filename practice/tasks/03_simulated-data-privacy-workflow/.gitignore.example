@@ -1,0 +1,37 @@
+# Example .gitignore for a single-repository workflow.
+#
+# In a real project, this file would usually be named .gitignore.
+# The goal is to keep both real data and generated stand-in data out of Git,
+# while keeping the folder skeleton and reusable code tracked.
+
+# Operating system and editor files
+.DS_Store
+.Rhistory
+.RData
+.Ruserdata/
+.Rproj.user/
+.quarto/
+*_cache/
+*_files/
+*.knit.md
+*.utf8.md
+
+# Real data must not be committed.
+real-data/data/*
+!real-data/data/.gitkeep
+
+# Outputs extracted from real data require review before sharing.
+real-data/outputs/*
+!real-data/outputs/.gitkeep
+
+# Approved metadata copied for simulation may still be project-sensitive.
+sim-data/metadata/*
+!sim-data/metadata/.gitkeep
+
+# Generated simulated data are development artifacts, not source files.
+sim-data/data/*
+!sim-data/data/.gitkeep
+
+# Local secrets or credentials
+.env
+.Renviron

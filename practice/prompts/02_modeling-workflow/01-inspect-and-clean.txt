@@ -1,0 +1,13 @@
+We're analyzing the data in `data/`.
+
+Files:
+- data/maternal_health_data.csv
+- data/codebook.md
+
+Inspect the csv and codebook. Tell me:
+- what one row represents
+- which variables are candidate outcomes, predictors, or identifiers
+- what needs cleaning before modeling
+- what checks you would run
+
+Do not write the full analysis yet. After that, write R code to clean the data using 01_data-cleaning.qmd.

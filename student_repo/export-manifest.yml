@@ -30,14 +30,35 @@ must_exist_after_export:
   - slides/01-session-1.html
   - slides/02-session-2.html
   - slides/03-session-3.html
-  - modules/00_installation-instructions.qmd
+  - slides/references.bib
+  - slides/slides.css
+  - docs/install-instructions/installation-instructions.html
+  - docs/install-instructions/rstudio-repository-setup.html
+  - docs/install-instructions/positron-or-vs-code-repository-setup.html
+  - docs/install-instructions/other-software-repository-setup.html
+  - docs/install-instructions/posit-ai-setup.html
+  - docs/model-harness-comparison/summary.html
+  - docs/model-harness-comparison/rendered_notebooks
+  - modules/00_installation-instructions/installation-instructions.qmd
+  - modules/00_installation-instructions/rstudio-repository-setup.qmd
+  - modules/00_installation-instructions/positron-or-vs-code-repository-setup.qmd
+  - modules/00_installation-instructions/other-software-repository-setup.qmd
+  - modules/00_installation-instructions/posit-ai-setup.qmd
+  - modules/00_installation-instructions/images/positron-new-folder-from-git-menu.png
+  - modules/00_installation-instructions/images/positron-new-folder-from-git-dialog.png
+  - modules/00_installation-instructions/images/positron-repository-open.png
+  - modules/00_installation-instructions/images/rstudio-project-menu-new-project.png
+  - modules/00_installation-instructions/images/rstudio-new-project-wizard-version-control.png
+  - modules/00_installation-instructions/images/rstudio-version-control-git.png
+  - modules/00_installation-instructions/images/rstudio-clone-git-repository.png
+  - modules/00_installation-instructions/images/rstudio-project-open-four-panes.png
   - modules/01_agent-demo/data/subgroup_estimates.csv
   - modules/01_agent-demo/data/codebook.md
   - modules/prompts/01-agent-demo/01-inspect-and-clean.txt
   - modules/prompts/01-agent-demo/02-summarize.txt
   - modules/prompts/01-agent-demo/03-analyze-and-plot.txt
-  - skills/course-material-scaffolding.md
-  - skills/matter-of-fact-language.md
+  - skills/course-material-scaffolding/SKILL.md
+  - skills/matter-of-fact-language/SKILL.md
   - modules/01_agent-demo/01_data-cleaning.qmd
   - modules/01_agent-demo/02_data-summary.qmd
   - modules/01_agent-demo/03_data-analysis.qmd
@@ -45,6 +66,18 @@ must_exist_after_export:
   - modules/01_agent-demo/agent-demo.Rproj
   - modules/01_agent-demo/agent-demo.code-workspace
   - modules/01_agent-demo/outputs/.gitkeep
+  - modules/02_context-management/index.qmd
+  - modules/02_context-management/with-context/AGENTS.md
+  - modules/02_context-management/with-context/visualization-task.qmd
+  - modules/02_context-management/with-context/data/simulated/neighborhood_health_survey_analysis.csv
+  - modules/02_context-management/without-context/visualization-task.qmd
+  - modules/02_context-management/without-context/data/simulated/neighborhood_health_survey_analysis.csv
+  - modules/02_context-management/with-skills/skills/ggplot-style/SKILL.md
+  - modules/02_context-management/with-skills/visualization-task.qmd
+  - modules/02_context-management/with-skills/data/simulated/neighborhood_health_survey_analysis.csv
+  - modules/02_context-management/without-skills/visualization-task.qmd
+  - modules/02_context-management/without-skills/data/simulated/neighborhood_health_survey_analysis.csv
+  - modules/03_simulated-data-privacy-workflow/README.md
   - data/manifest.csv
   - data/synthetic/simulated_maternal_health_data.csv
   - data/simulated/prams_messy_for_cleaning.csv
@@ -70,30 +103,59 @@ must_exist_after_export:
   - practice/tasks/01_clean-and-visualize/01_data-cleaning.qmd
   - practice/tasks/01_clean-and-visualize/02_data-summary.qmd
   - practice/tasks/01_clean-and-visualize/03_data-analysis.qmd
+  - practice/tasks/02_modeling-workflow/_quarto.yml
+  - practice/tasks/02_modeling-workflow/data/maternal_health_data.csv
+  - practice/tasks/02_modeling-workflow/data/codebook.md
+  - practice/tasks/02_modeling-workflow/modeling-workflow.Rproj
+  - practice/tasks/02_modeling-workflow/modeling-workflow.code-workspace
+  - practice/tasks/02_modeling-workflow/01_data-cleaning.qmd
+  - practice/tasks/02_modeling-workflow/02_model-planning.qmd
+  - practice/tasks/02_modeling-workflow/03_model-analysis.qmd
+  - practice/tasks/02_modeling-workflow/outputs/.gitkeep
+  - practice/tasks/03_simulated-data-privacy-workflow/README.md
+  - practice/tasks/03_simulated-data-privacy-workflow/.gitignore.example
+  - practice/tasks/03_simulated-data-privacy-workflow/real-data/extract-data-info.R
+  - practice/tasks/03_simulated-data-privacy-workflow/real-data/data/nhanes_2021_2023_analysis.csv
+  - practice/tasks/03_simulated-data-privacy-workflow/real-data/data/.gitkeep
+  - practice/tasks/03_simulated-data-privacy-workflow/real-data/outputs/.gitkeep
+  - practice/tasks/03_simulated-data-privacy-workflow/sim-data/generate-sim-data.R
+  - practice/tasks/03_simulated-data-privacy-workflow/sim-data/01_data-summary.qmd
+  - practice/tasks/03_simulated-data-privacy-workflow/sim-data/02_modeling.qmd
+  - practice/tasks/03_simulated-data-privacy-workflow/sim-data/data/.gitkeep
+  - practice/tasks/03_simulated-data-privacy-workflow/sim-data/metadata/.gitkeep
   - practice/prompts/README.md
-  - practice/prompts/00_open-project-and-glimpse/starter-prompt.txt
-  - practice/prompts/01_clean-and-visualize/starter-prompt.txt
+  - practice/prompts/00_open-project-and-glimpse/prompt.txt
+  - practice/prompts/01_clean-and-visualize/prompt.txt
+  - practice/prompts/02_modeling-workflow/01-inspect-and-clean.txt
+  - practice/prompts/02_modeling-workflow/02-plan-model.txt
+  - practice/prompts/02_modeling-workflow/03-fit-and-diagnose.txt
+  - practice/prompts/03_simulated-data-privacy-workflow/01-generate-sim-data.txt
+  - practice/prompts/03_simulated-data-privacy-workflow/02-data-summary.txt
+  - practice/prompts/03_simulated-data-privacy-workflow/03-modeling.txt
   - practice/work/.gitkeep
   - practice/work/README.md
 
 must_not_exist_after_export:
-  - docs
   - index.qmd
+  - docs/syllabus.qmd
+  - docs/git-workflow.qmd
   - assignments/problem-set-1-data-visualization.qmd
   - assignments/problem-set-2-statistical-modeling.qmd
   - assignments/final-project-simulated-data-workflow.qmd
   - practice/templates
   - practice/tasks/00_open-project-and-glimpse/README.md
-  - practice/tasks/00_open-project-and-glimpse/starter-prompt.txt
+  - practice/tasks/00_open-project-and-glimpse/prompt.txt
   - practice/prompts/00_open-project-and-glimpse/README.md
   - practice/tasks/01_clean-and-visualize/README.md
-  - practice/tasks/01_clean-and-visualize/starter-prompt.txt
+  - practice/tasks/01_clean-and-visualize/prompt.txt
   - practice/tasks/01_clean-and-visualize/starter-notebook.qmd
   - practice/tasks/01_clean-and-visualize.md
+  - practice/tasks/02_table-and-visualization
+  - practice/prompts/02_table-and-visualization
   - practice/tasks/02_modeling-workflow/README.md
-  - practice/tasks/02_modeling-workflow/starter-prompt.txt
-  - practice/tasks/02_modeling-workflow
-  - practice/prompts/02_modeling-workflow
+  - practice/tasks/02_modeling-workflow/prompt.txt
+  - practice/tasks/02_modeling-workflow/starter-notebook.qmd
+  - practice/prompts/02_modeling-workflow/prompt.txt
   - practice/prompts/01_clean-and-visualize/README.md
   - practice/prompts/02_modeling-workflow/README.md
   - demos
@@ -103,6 +165,26 @@ must_not_exist_after_export:
   - slides/03-session-3.qmd
   - modules/temp_source
   - modules/00_installation-instructions.html
+  - modules/00_installation-instructions.qmd
+  - modules/installation-instructions.html
+  - modules/installation-instructions.qmd
+  - modules/installation-instructions
+  - modules/00_installation-instructions/index.qmd
+  - modules/00_installation-instructions/installation-instructions.html
+  - modules/00_installation-instructions/rstudio-repository-setup.html
+  - modules/00_installation-instructions/positron-or-vs-code-repository-setup.html
+  - modules/00_installation-instructions/other-software-repository-setup.html
+  - modules/00_installation-instructions/posit-ai-setup.html
+  - modules/00_installation-instructions/positron-repository-setup.qmd
+  - modules/00_installation-instructions/terminal-repository-setup.qmd
+  - modules/installation-instructions/index.qmd
+  - modules/installation-instructions/installation-instructions.html
+  - modules/installation-instructions/rstudio-repository-setup.html
+  - modules/installation-instructions/positron-or-vs-code-repository-setup.html
+  - modules/installation-instructions/other-software-repository-setup.html
+  - modules/installation-instructions/posit-ai-setup.html
+  - modules/installation-instructions/positron-repository-setup.qmd
+  - modules/installation-instructions/terminal-repository-setup.qmd
   - modules/01_installation-instructions.qmd
   - modules/01_installation-instructions.html
   - modules/01_first-agent-demo.html
@@ -112,12 +194,36 @@ must_not_exist_after_export:
   - modules/01_agent-demo/03_data-analysis.html
   - modules/01_agent-demo/prompt.txt
   - modules/01_agent-demo/skills
-  - modules/02_context-management
-  - modules/02_context-management/index.html
-  - modules/02_context-management/with-context/visualization-task.html
-  - modules/02_context-management/without-context/visualization-task.html
+  - modules/02_table-and-visualization/prompt.txt
+  - modules/02_table-and-visualization/README.md
+  - modules/02_table-and-visualization/_quarto.yml
+  - modules/02_table-and-visualization/table-and-visualization.Rproj
+  - modules/02_table-and-visualization/table-and-visualization.code-workspace
+  - modules/02_table-and-visualization/data/community_clinic_visits.csv
+  - modules/02_table-and-visualization/data/codebook.md
+  - modules/02_table-and-visualization/01_table-and-visualization.qmd
+  - modules/02_table-and-visualization/outputs/.gitkeep
+  - modules/prompts/02-table-and-visualization/README.md
+  - modules/prompts/02-table-and-visualization/prompt.txt
+  - modules/02_agent-differences-example
+  - modules/02_agent-differences-example/index.html
   - modules/03_agent-differences-example
   - modules/03_agent-differences-example/index.html
+  - modules/03_simulated-data-privacy-workflow/real-data
+  - modules/03_simulated-data-privacy-workflow/sim-data
+  - modules/03_simulated-data-privacy-workflow/index.qmd
+  - modules/03_simulated-data-privacy-workflow/index.html
+  - modules/03_simulated-data-privacy-workflow/private-side
+  - modules/03_simulated-data-privacy-workflow/ai-simulation-side
+  - modules/03_simulated-data-privacy-workflow/no-ai-real-data-side
+  - practice/tasks/03_simulated-data-privacy-workflow/private-side
+  - practice/tasks/03_simulated-data-privacy-workflow/ai-simulation-side
+  - practice/tasks/03_simulated-data-privacy-workflow/no-ai-real-data-side
+  - practice/prompts/03_simulated-data-privacy-workflow/01-build-simulation.txt
+  - practice/prompts/03_simulated-data-privacy-workflow/02-check-simulation.txt
+  - practice/prompts/03_simulated-data-privacy-workflow/03-analysis-and-transfer.txt
+  - docs/demos
+  - docs/demos/2-tools-introduction/summary.html
   - modules/01_chatbots-vs-agents.qmd
   - modules/01_context-management.qmd
   - modules/01_data-summary-practice.qmd

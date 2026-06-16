@@ -1,9 +1,9 @@
 ---
 title: "AI Tools for Data Science and Statistics"
 subtitle: "Session 3: PHI, Privacy, and Simulated-Data Workflows"
-author: "Erik Westlund, PhD"
+author: "Erik Westlund"
 date: "June 17, 2026"
-bibliography: temp_source/references.bib
+bibliography: references.bib
 format:
   revealjs:
     slide-number: true
@@ -11,8 +11,54 @@ format:
     background-transition: fade
     embed-resources: true
     incremental: true
-    css: temp_source/slides.css
+    css: slides.css
 ---
+
+
+# {background-color="#2c3e50"}
+
+::: {style="color: white; font-size: 1.5em; text-align: center;"}
+Problem Set 2 & Practice
+:::
+
+## Problem Set 2 Practice
+
+- For time reasons, we did not practice the modeling workflow
+- This is the foundation for problem set 2
+- Recommendation: do a quick effort using `practice/02_modeling-workflow`, then the real assignment
+
+## Setting Up Problem Sets/Final Project
+
+- You can use the practice assignments as a guide
+- Set up a separate folder outside the course files
+- You bring the data (you can copy it out of `data/`) and choose how to organize files
+- Email me (ewestlund@jhu.edu) for support
+
+# {background-color="#2c3e50"}
+
+::: {style="color: white; font-size: 1.5em; text-align: center;"}
+Context Files Summary
+:::
+
+## Context Files
+
+- They are plain text instructions.
+- Agents strategically append them to requests so the model sees project guidance.
+- `AGENTS.md` (OpenAI/Other models) and `CLAUDE.md` work well for project-wide or subdirectory-wide settings.
+- Skills are better for targeted actions or repeated workflows.
+
+## Context Files: How To Use Them
+
+- Hand-crafted context files performed better than AI-generated ones in Gloaguen et al.'s `AGENTS.md` study [@gloaguen2026agentsmd].
+- Place must-have constraints in the file before work starts (but know they may not always constrain the models)
+- Do not trust the agent to follow every constraint; still review the output.
+- When the same papercut happens repeatedly, append a short rule to the context file.
+
+# {background-color="#2c3e50"}
+
+::: {style="color: white; font-size: 1.5em; text-align: center;"}
+Session 3
+:::
 
 ## Goals For Session 3
 
@@ -39,9 +85,8 @@ Code can move across computing environments; sensitive data cannot.
 
 - A chat tool sees what you paste or upload.
 - An agent can inspect files it has permission to read.
-- If sensitive files are in the workspace, assume the agent may access them.
+- If sensitive files are in the workspace, assume the agent has access to them.
 - Policy and data-use agreements determine what is allowed.
-- Vendor terms do not override institutional or legal restrictions.
 
 ## Safe Workflow Shape
 
@@ -51,6 +96,37 @@ Code can move across computing environments; sensitive data cannot.
 4. Review generated code before it returns to the restricted environment.
 5. Run reviewed code on real data only where real data are allowed.
 6. Export only approved aggregate outputs.
+
+## Make It Impossible for AI to See Sensitive Data
+
+- It is best that it is physically impossible for the agent to access sensitive information.
+
+- Use a secure enclave for real data access (e.g., SAFE Desktop at Hopkins).
+- Set up a virtual machine witht the sensitive data on it, where no agents could ever access it, regardless of permissions.
+
+## Use Git To Your Advantage
+
+- Git can help you be secure and do code transfer
+- Keep your code in a git repository
+- Use `.gitignore` to exclude the data directory; place your sim data here.
+- `git commit` and `git push` from the AI-agent location
+- `git pull` from the secure location
+
+## Two-Folder Exercise
+
+- `real-data/`: real data and metadata extraction; no AI.
+- `sim-data/`: copied metadata, simulated data generation, and AI-assisted notebooks.
+
+The class data are simulated, but the workflow treats `real-data/` as restricted.
+
+## Real Data Side
+
+- Start where the real data are allowed.
+- Run `extract-data-info.R` without AI assistance.
+- Capture exact column names and R data types.
+- For continuous variables, capture summary statistics.
+- For categorical variables, capture approved levels and distributions.
+- Review `outputs/` before copying anything to `sim-data/metadata/`.
 
 ## Structural Information
 
@@ -65,6 +141,15 @@ Structural information may include, when allowed:
 - Broad missingness patterns
 - Non-disclosive row and column counts
 
+## Sim Data Side
+
+- Use only approved metadata copied into `metadata/`.
+- Ask AI to complete `generate-sim-data.R`.
+- Write simulated data to the same file name as the real data.
+- Use the same column names and compatible types.
+- Develop notebooks against the simulated stand-in.
+- Treat simulated results as code checks, not findings.
+
 ## Information To Treat Carefully
 
 - Exact rare category counts
@@ -74,6 +159,14 @@ Structural information may include, when allowed:
 - Free-text examples
 - Unusual variable combinations
 - Any output that could identify a person, clinic, provider, school, or small group
+
+## Simulated Data Still Need Review
+
+- De-identification does not guarantee privacy.
+- Do not preserve links between original IDs and simulated IDs.
+- Break links between people, providers, clinics, households, schools, and dates.
+- Avoid free text, rare categories, and unusually specific geography.
+- Check whether simulated records recreate recognizable combinations.
 
 ## Simulated Data Purpose
 
@@ -100,6 +193,31 @@ Code can move through institution-approved mechanisms such as:
 
 The key rule is that sensitive data do not leave the approved environment.
 
+## In A Real Project
+
+- You can use a single repository.
+- Git-ignore data on both the real-data and sim-data sides.
+- Copy only approved metadata into the AI-visible environment.
+- Generate simulated data as a complete stand-in.
+- Keep file names and column names identical so code moves cleanly.
+
+## Return To Real Data
+
+- Copy only reviewed code and notebooks back to `real-data/`.
+- Do not copy simulated data back as evidence.
+- Run notebooks against the real file with the same file name.
+- Write final interpretation only after running on real data.
+- Export only approved aggregate results.
+
+## Hands-On Workflow
+
+1. Run `source("updater.R")`.
+2. Run `extract-data-info.R` in `real-data/` without AI.
+3. Copy approved `real-data/outputs/` files to `sim-data/metadata/`.
+4. Open `practice/work/03_simulated-data-privacy-workflow/sim-data/` with your AI tool.
+5. Use prompts from `practice/prompts/03_simulated-data-privacy-workflow/`.
+6. After review, copy notebooks back to `real-data/` and run them there without AI.
+
 ## Final Project Connection
 
 - Develop on simulated or public data.
@@ -107,6 +225,42 @@ The key rule is that sensitive data do not leave the approved environment.
 - Submit a workflow that shows what was developed with AI assistance.
 - Include a reflection on what was checked manually.
 - Do not include restricted data in submitted materials.
+
+## You Are Responsible
+
+- AI use does not transfer responsibility to the tool.
+- You are responsible for privacy, correctness, interpretation, and what you submit.
+- If AI wrote code, you still need to understand what the code does.
+- If you cannot explain or defend a result, do not treat it as finished.
+
+## Use A Second Pass
+
+- Ask a different model or a fresh chat or agent instance to review code.
+- Give it the code and the intended analysis goal.
+- Ask it to look for logic errors, privacy risks, statistical issues, and missing checks.
+- Do not ask only "is this good?" Ask for specific failure modes.
+
+## Cross-Check Prompt {.smaller}
+
+```text
+Review this analysis code as a skeptical statistical collaborator.
+
+Look for:
+- privacy or data exposure risks
+- logic errors
+- incorrect assumptions about variables
+- statistical modeling issues
+- missing diagnostics or sensitivity checks
+- places where the code runs but answers the wrong question
+
+Do not rewrite the code yet. First give me a prioritized list of concerns with line references.
+```
+
+## Second-Pass Caveat
+
+- A second model can catch errors, but it can also invent concerns.
+- Treat model review as triage, not validation.
+- Final checks still belong to the analyst: read the code, run it, inspect outputs, and verify against the scientific question.
 
 ## Wrap-Up
 

@@ -1,1 +1,0 @@
-Study this data set (`data/synthetic/simulated_maternal_health_data.csv`), show me descriptive statistics, pick a modeling strategy, and report the model. Be thorough.

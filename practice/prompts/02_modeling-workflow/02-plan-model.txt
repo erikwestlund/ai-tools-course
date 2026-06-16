@@ -1,0 +1,11 @@
+Using the cleaned data, create a constructed outcome called comorbidity_count.
+
+Please produce:
+- checks that the comorbidity indicators are coded as expected
+- code to create comorbidity_count from the eight binary health indicators
+- a summary of the outcome distribution
+- a short comparison of plausible model families for this outcome
+
+Save any cleaned data or summary tables in outputs/ if needed.
+
+Create a notebook in 02_model-planning.qmd.

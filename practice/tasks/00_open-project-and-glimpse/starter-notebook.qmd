@@ -17,7 +17,7 @@ Open this folder as its own project, read one small dataset from `data/`, and ru
 
 # Setup Check
 
-Use the starter prompt from `practice/prompts/00_open-project-and-glimpse/`. Paste the prompt into the agent rather than placing it in this folder.
+Use `practice/prompts/00_open-project-and-glimpse/prompt.txt`. Paste the prompt into the agent rather than placing it in this folder.
 
 Ask the agent to help you write only the two lines needed to:
 

@@ -1,0 +1,108 @@
+---
+title: "Posit AI Setup"
+subtitle: "Use Posit Assistant in RStudio, Positron, or VS Code"
+format:
+  html:
+    embed-resources: true
+    toc: true
+    toc-depth: 3
+---
+
+# Using Posit AI
+
+This page explains how to start using [Posit AI](https://posit.ai/) for this course.
+
+Posit AI provides access to Posit Assistant. It works with RStudio and is compatible with Positron and VS Code-style editor workflows. 
+
+The official getting-started guide is here:
+
+<https://docs.posit.co/posit-ai/user/getting-started/>
+
+At the time of course preparation, Posit AI advertises a free trial credit. Check <https://posit.ai/> for the current trial amount and billing details. This trial should get you through this course.
+
+# When To Use This Option
+
+Posit AI is a good option if you want an AI assistant integrated with Posit tools rather than a separate command-line agent.
+
+Use it if:
+
+- you use RStudio and want the assistant inside RStudio,
+- you use Positron and want the assistant inside the editor,
+- you want a course workflow that stays close to R and Quarto.
+
+Posit AI also has the benefit of a zero data retention agreement with Anthropic, which provides the models backing the service.
+
+
+# RStudio Setup
+
+Follow the official Posit AI RStudio instructions:
+
+<https://docs.posit.co/posit-ai/user/getting-started/#rstudio>
+
+The basic workflow is:
+
+1. Install the current version of RStudio Desktop.
+2. Open RStudio.
+3. Show Posit Assistant from the toolbar icon in the upper-right area of the IDE.
+4. If prompted, install Posit AI.
+5. Verify that you trust the workspace.
+6. Click **Sign In**.
+7. Authorize in the browser and return to RStudio.
+8. Confirm that Posit Assistant is ready.
+
+# Positron Or VS Code Setup
+
+Follow the official Posit AI Positron instructions:
+
+<https://docs.posit.co/posit-ai/user/getting-started/#positron>
+
+The basic workflow is:
+
+1. Install the current version of Positron.
+2. Open Positron.
+3. Open Posit Assistant from the activity bar.
+4. Click **Help me set it up**.
+5. Click **Enable Posit Assistant**.
+6. Configure language model providers.
+7. Choose **Posit AI** and click **Sign In**.
+8. Authorize in the browser and return to Positron.
+9. Confirm that Posit Assistant is ready.
+
+If you use VS Code, follow the closest matching Posit Assistant or extension instructions available for your setup. The important course workflow is the same: open only the assigned copied work folder and keep prompts outside that folder unless instructed otherwise.
+
+# Course Workflow Reminder
+
+For course tasks, do not open the full course repository as the agent context unless the task explicitly asks for it. Do not let agents edit course-owned folders such as `modules/` or `practice/tasks/`; your editable notebooks belong in `practice/work/`.
+
+For Day 2, open:
+
+```text
+practice/work/01_clean-and-visualize/
+```
+
+Then use the prompt from:
+
+```text
+practice/prompts/01_clean-and-visualize/prompt.txt
+```
+
+Paste the prompt into Posit Assistant. Do not copy the prompt file into the work folder.
+
+# What To Check
+
+Before relying on Posit Assistant, confirm:
+
+- you are signed in to Posit AI,
+- the assigned folder under `practice/work/` is open,
+- the file explorer does not include unrelated course folders,
+- code runs locally,
+- rendered output uses the local `data/` folder,
+- you manually check generated tables, plots, and interpretations.
+
+# If Something Fails
+
+Check the official Posit AI documentation first:
+
+<https://docs.posit.co/posit-ai/user/getting-started/>
+
+Bring the exact error message to class if setup still fails.

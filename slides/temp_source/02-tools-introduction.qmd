@@ -3,14 +3,14 @@ title: "AI Tools for Data Science and Statistics"
 subtitle: "Models, Agents, and Structured Workflows"
 author: "Erik Westlund"
 date: "June 16, 2026"
-bibliography: references.bib
+bibliography: ../references.bib
 format:
   revealjs:
     slide-number: true
     transition: slide
     background-transition: fade
     self-contained: true
-    css: slides.css
+    css: ../slides.css
 ---
 
 ## {background-color="#2c3e50"}

@@ -18,11 +18,11 @@ This repository contains the public course materials for AI Tools for Data Scien
 - `assignments/`: rendered assignment pages.
 - `data/`: public and synthetic teaching datasets.
 - `skills/`: reusable agent guidance used by modules and practice tasks.
-- `practice/tasks/`: project folders for practice work.
+- `practice/tasks/`: course-owned starter folders copied by `updater.R`.
 - `practice/prompts/`: prompts and instructions kept outside task project folders.
 - `practice/work/`: your own local work area.
 
-When doing a practice task, open that task's `.Rproj` file in RStudio or that task's `.code-workspace` file in Positron. This makes the task folder the local project root while keeping prompts outside the agent context.
+When doing a practice task, run `source("updater.R")`, then open the copied task folder in `practice/work/`. Open that copied task's `.Rproj` file in RStudio or `.code-workspace` file in Positron. This makes the copied task folder the local project root while keeping prompts outside the agent context.
 
 ## Updating Course Materials
 

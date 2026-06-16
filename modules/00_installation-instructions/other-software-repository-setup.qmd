@@ -1,0 +1,182 @@
+---
+title: "Other Software Repository Setup"
+subtitle: "For Stata, SAS, other editors, and CLI agent users"
+format:
+  html:
+    embed-resources: true
+    toc: true
+    toc-depth: 3
+---
+
+Use this walkthrough if you are not using RStudio, Positron, or VS Code as your main editor.
+
+# What You Need
+
+You need:
+
+- Git installed.
+- A terminal app.
+- A folder where you keep course or project files.
+- Optional: a CLI agent such as Codex CLI, Claude Code, Gemini CLI, or another approved tool.
+
+# Windows Checklist
+
+Before cloning the course repository on Windows, check these items.
+
+## Git Is Installed
+
+Open **PowerShell** and run:
+
+```powershell
+git --version
+```
+
+If Git is installed, you should see a version number.
+
+If Windows says `git` is not recognized, install Git from:
+
+<https://git-scm.com/downloads/win>
+
+During installation, choose the option that allows Git to be used from the command line. This adds Git to your PATH.
+
+## Git Is On Your PATH
+
+After installing Git, close and reopen PowerShell, then run:
+
+```powershell
+git --version
+```
+
+If this still fails, restart your computer. If it still fails after restarting, Git is not on your PATH. [The second answer on this StackOverflow Post](https://stackoverflow.com/questions/26620312/git-installing-git-in-path-with-github-client-for-windows) provides a good tutorial on how to fix the PATH issue.
+
+## Choose A Directory For Course Materials
+
+Pick a folder for the course repository. For example:
+
+```text
+C:\Users\yourname\Code
+```
+
+Avoid saving the course repository inside a synced or protected folder if possible, such as OneDrive Desktop or a restricted institutional folder.
+
+# macOS Checklist
+
+Open **Terminal** and run:
+
+```bash
+git --version
+```
+
+If Git is missing, macOS may prompt you to install Command Line Tools. Follow the prompt.
+
+# Clone The Course Repository
+
+Open a terminal and move to the folder where you want the course repository to live.
+
+Windows example:
+
+```powershell
+cd C:\Users\yourname\Code
+```
+
+macOS/Linux example:
+
+```bash
+cd ~/Code
+```
+
+Then clone the repository:
+
+```bash
+git clone https://github.com/erikwestlund/ai-tools-2026.git
+```
+
+Move into the course folder:
+
+```bash
+cd ai-tools-2026
+```
+
+# Open The Course Website
+
+Open `index.html` from your file browser.
+
+This is the main course navigation page. It links to slides, modules, practice tasks, and assignments.
+
+# Update The Course Repository
+
+If you are not using R, update from the terminal:
+
+```bash
+git pull --ff-only
+```
+
+**Note:** The updater.R provides other benefits than pull, such as handling file conflicts, and scaffolding out practice examples.
+
+If you are using R from any editor or terminal, you can instead run this from the course repository root:
+
+```r
+source("updater.R")
+```
+
+The updater does two things:
+
+- pulls the latest course files,
+- copies missing practice task files into `practice/work/` without overwriting your existing work.
+
+# Where To Work
+
+Course-owned folders may change during updates:
+
+- `modules/`
+- `slides/`
+- `assignments/`
+- `data/`
+- `skills/`
+- `practice/tasks/`
+
+Save your own work in:
+
+```text
+practice/work/
+```
+
+# Using A CLI Agent
+
+If you use a CLI agent such as Codex CLI or Claude Code, open the terminal in only the copied work folder assigned for the task.
+
+For example, to start the Day 2 practice:
+
+```bash
+cd practice/work/01_clean-and-visualize
+```
+
+Then start your agent from that folder.
+
+Do not start the agent from the full course repository unless the task explicitly asks for that. Do not let agents edit course-owned folders such as `modules/` or `practice/tasks/`. A smaller working folder gives the agent less irrelevant context and reduces the chance of editing the wrong files.
+
+# Quarto Project Roots
+
+Some practice work folders include a local `_quarto.yml` file.
+
+Quarto uses the nearest `_quarto.yml` to decide where a project starts. This helps local paths such as `data/county_wellness_indicators_long.csv` resolve from the assigned folder.
+
+If you render from a terminal, first move into the assigned folder:
+
+```bash
+cd practice/work/01_clean-and-visualize
+quarto render 01_data-cleaning.qmd
+```
+
+Note that if you want to use Quarto, you will need to install Quarto manually if you are not using RStudio or Positron.
+
+# Quick Check
+
+Before moving on, confirm:
+
+- `git --version` works.
+- You cloned `ai-tools-2026`.
+- `index.html` opens.
+- `git pull --ff-only` works, or `source("updater.R")` works if you use R.
+- You know where `practice/work/` is.
+- If using a CLI agent, you know how to start it from the assigned folder under `practice/work/`.

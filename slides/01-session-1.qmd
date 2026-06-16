@@ -3,7 +3,7 @@ title: "AI Tools for Data Science and Statistics"
 subtitle: "Session 1: Foundations and First Workflow"
 author: "Erik Westlund, PhD"
 date: "June 15, 2026"
-bibliography: temp_source/references.bib
+bibliography: references.bib
 format:
   revealjs:
     slide-number: true
@@ -11,7 +11,7 @@ format:
     background-transition: fade
     embed-resources: true
     incremental: true
-    css: temp_source/slides.css
+    css: slides.css
 ---
 
 ## Hello
@@ -451,13 +451,14 @@ Break
 
 - I am demoing in Positron, which behaves similarly to RStudio.
 - Code depends on opening the right folder as a project.
-- You can follow along if you do this.
+- Watch the demo workflow here; use `practice/work/` for your own editable notebooks.
 
 ## Instructor Demo
 
 We will use the [First Agent Demo](../modules/01_agent-demo/01_data-cleaning.qmd) in the repository:
 
-- Open only `modules/01_agent-demo/` in the agent tool.
+- Instructor demo context: `modules/01_agent-demo/`.
+- Do not edit demo notebooks in `modules/`; your editable work belongs in `practice/work/`.
 - Data and codebook are inside that folder's `data/` directory.
 - Prompts are outside the demo folder in `modules/prompts/01-agent-demo/` (avoid prompt contamination)
 - Goal: use an AI agent to tackle an analysis task.
@@ -505,10 +506,10 @@ If you do not use R, run `git pull` and create your own files in `practice/work/
 ## Computing Check-Up
 
 1. From the course project root, run `source("updater.R")`.
-2. Find `practice/tasks/00_open-project-and-glimpse/`.
+2. Find `practice/work/00_open-project-and-glimpse/`.
 3. Open `open-project-and-glimpse.Rproj` in RStudio or `open-project-and-glimpse.code-workspace` in Positron.
 4. Open `starter-notebook.qmd`.
-5. Use the prompt in `practice/prompts/00_open-project-and-glimpse/starter-prompt.txt`.
+5. Use the prompt in `practice/prompts/00_open-project-and-glimpse/prompt.txt`.
 6. Read `data/project_check.csv`, run `dplyr::glimpse()`, and render the notebook.
 
 Stop there. This task only checks that the project root and local data paths work.

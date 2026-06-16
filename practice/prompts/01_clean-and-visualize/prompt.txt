@@ -1,0 +1,9 @@
+The data and codebook are in this folder:
+- data/county_wellness_indicators_long.csv
+- data/codebook.md
+
+Please inspect the dataset and codebook. Then:
+
+1. Clean the dataset, saving it to data/clean_data.csv. Create a notebook in 01_data-cleaning.qmd that documents the cleaning process and demonstrates that it was done correctly.
+2. Summarize the dataset. Include what variables are in it and key statistical summaries and visualizations.
+

@@ -93,6 +93,12 @@ source_qmd_path <- function(path) {
 
   if (path %in% c("syllabus.html", "git-workflow.html")) {
     source_path <- p("docs", source_path)
+  } else if (startsWith(path, "docs/install-instructions/")) {
+    source_path <- p(
+      "modules",
+      "00_installation-instructions",
+      sub("[.]html$", ".qmd", basename(path))
+    )
   }
 
   source_path
@@ -131,7 +137,23 @@ render_html_path <- function(path) {
     stop("Failed to render ", source_path, call. = FALSE)
   }
 
-  if (!is_file(p(target_root, path))) {
+  expected_output <- p(target_root, path)
+
+  if (!is_file(expected_output)) {
+    rendered_candidates <- list.files(
+      output_dir,
+      pattern = paste0("^", basename(path), "$"),
+      recursive = TRUE,
+      full.names = TRUE
+    )
+
+    if (length(rendered_candidates) == 1) {
+      copy_file(rendered_candidates[[1]], expected_output)
+      unlink(dirname(rendered_candidates[[1]]), recursive = TRUE, force = TRUE)
+    }
+  }
+
+  if (!is_file(expected_output)) {
     stop("Render completed but expected output is missing: ", path, call. = FALSE)
   }
 }
@@ -196,7 +218,12 @@ day_definitions <- list(
       "assignments/final-project-simulated-data-workflow.html",
       "slides/01-session-1.html",
       "slides/02-session-2.html",
-      "slides/03-session-3.html"
+      "slides/03-session-3.html",
+      "docs/install-instructions/installation-instructions.html",
+      "docs/install-instructions/rstudio-repository-setup.html",
+      "docs/install-instructions/positron-or-vs-code-repository-setup.html",
+      "docs/install-instructions/other-software-repository-setup.html",
+      "docs/install-instructions/posit-ai-setup.html"
     ),
     data = c("manifest.csv"),
     data_dirs = character()
@@ -350,6 +377,14 @@ for (path in docs_to_copy) {
   render_html_path(path)
 }
 
+copy_clean_dir(
+  p(source_root, "docs", "model-harness-comparison"),
+  p(target_root, "docs", "model-harness-comparison")
+)
+
+copy_optional_file(p(source_root, "slides", "references.bib"), p(target_root, "slides", "references.bib"))
+copy_optional_file(p(source_root, "slides", "slides.css"), p(target_root, "slides", "slides.css"))
+
 for (path in data_to_copy) {
   copy_data_path(path)
 }
@@ -383,7 +418,7 @@ for (entry in module_export$copy) {
     p(target_root, "modules"),
     entry,
     include = function(path) {
-      !grepl("/[.]quarto(/|$)", path)
+      !grepl("/[.]quarto(/|$)", path) && !grepl("[.]html$", path)
     }
   )
 }
@@ -396,7 +431,7 @@ write_lines(p(target_root, "practice", "work", "README.md"), c(
   "",
   "Files in this folder are ignored by Git so `git pull` can update course materials without overwriting your work.",
   "",
-  "Use `practice/tasks/` as project folders and `practice/prompts/` for prompts and instructions.",
+  "Run `source(\"updater.R\")` to copy starter task folders into `practice/work/`, then open the copied folder in `practice/work/` as your project.",
   "",
   "If you use R or RStudio, run `source(\"updater.R\")` from the course project root to update the course and copy missing task starter files into this folder.",
   "",
