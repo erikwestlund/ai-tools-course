@@ -20,13 +20,13 @@
 real-data/data/*
 !real-data/data/.gitkeep
 
-# Outputs extracted from real data require review before sharing.
-real-data/outputs/*
-!real-data/outputs/.gitkeep
+# Metadata extracted from real data requires review before sharing.
+real-data/real-data-metadata/*
+!real-data/real-data-metadata/.gitkeep
 
 # Approved metadata copied for simulation may still be project-sensitive.
-sim-data/metadata/*
-!sim-data/metadata/.gitkeep
+sim-data/real-data-metadata/*
+!sim-data/real-data-metadata/.gitkeep
 
 # Generated simulated data are development artifacts, not source files.
 sim-data/data/*

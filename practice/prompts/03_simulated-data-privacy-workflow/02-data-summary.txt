@@ -1,6 +1,4 @@
-Work only in `practice/work/03_simulated-data-privacy-workflow/sim-data/`.
-
-Use the simulated file `data/nhanes_2021_2023_analysis.csv` to improve `01_data-summary.qmd`.
+Use the simulated file `data/nhanes_2021_2023_analysis.csv` to generate code in `01_data-summary.qmd`.
 
 Write code that checks structure, missingness, categorical levels, and basic summaries. Do not make substantive claims from simulated data.
 

@@ -117,12 +117,11 @@ must_exist_after_export:
   - practice/tasks/03_simulated-data-privacy-workflow/real-data/extract-data-info.R
   - practice/tasks/03_simulated-data-privacy-workflow/real-data/data/nhanes_2021_2023_analysis.csv
   - practice/tasks/03_simulated-data-privacy-workflow/real-data/data/.gitkeep
-  - practice/tasks/03_simulated-data-privacy-workflow/real-data/outputs/.gitkeep
+  - practice/tasks/03_simulated-data-privacy-workflow/real-data/real-data-metadata/.gitkeep
   - practice/tasks/03_simulated-data-privacy-workflow/sim-data/generate-sim-data.R
   - practice/tasks/03_simulated-data-privacy-workflow/sim-data/01_data-summary.qmd
   - practice/tasks/03_simulated-data-privacy-workflow/sim-data/02_modeling.qmd
   - practice/tasks/03_simulated-data-privacy-workflow/sim-data/data/.gitkeep
-  - practice/tasks/03_simulated-data-privacy-workflow/sim-data/metadata/.gitkeep
   - practice/tasks/03_simulated-data-privacy-workflow/sim-data/real-data-metadata/.gitkeep
   - practice/prompts/README.md
   - practice/prompts/00_open-project-and-glimpse/prompt.txt
@@ -220,6 +219,8 @@ must_not_exist_after_export:
   - practice/tasks/03_simulated-data-privacy-workflow/private-side
   - practice/tasks/03_simulated-data-privacy-workflow/ai-simulation-side
   - practice/tasks/03_simulated-data-privacy-workflow/no-ai-real-data-side
+  - practice/tasks/03_simulated-data-privacy-workflow/real-data/outputs
+  - practice/tasks/03_simulated-data-privacy-workflow/sim-data/metadata
   - practice/prompts/03_simulated-data-privacy-workflow/01-build-simulation.txt
   - practice/prompts/03_simulated-data-privacy-workflow/02-check-simulation.txt
   - practice/prompts/03_simulated-data-privacy-workflow/03-analysis-and-transfer.txt

@@ -1,13 +1,7 @@
-Work only in `practice/work/03_simulated-data-privacy-workflow/sim-data/`.
+This is metadata from a real dataset. Use the metadata in `real-data-metadata/` to generate a simulated dataset so we can use AI tools to work on it.
 
-Do not inspect or use files in `../real-data/`.
-
-The `metadata/` directory contains approved outputs from the real-data side. Complete `generate-sim-data.R` so it reads the metadata and writes:
+Write the simulated dataset to:
 
 ```text
 data/nhanes_2021_2023_analysis.csv
 ```
-
-The simulated file must use the same file name, column names, broad data types, categorical values, and plausible numeric ranges described by the metadata.
-
-Create simulated IDs. Do not recreate real IDs or linkages.

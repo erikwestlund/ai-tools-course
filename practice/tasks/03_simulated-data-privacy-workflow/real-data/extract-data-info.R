@@ -2,7 +2,7 @@
 # Run this in the real-data environment without AI assistance.
 
 input_path <- "data/nhanes_2021_2023_analysis.csv"
-output_dir <- "outputs"
+output_dir <- "real-data-metadata"
 
 if (!file.exists(input_path)) {
   stop("Missing input file: ", input_path, call. = FALSE)
@@ -118,7 +118,7 @@ writeLines(
     "# Review Before Sharing",
     "",
     "These files are not automatically safe to share with AI tools.",
-    "Review them for identifiers, free text, rare categories, small cells, exact dates, geography, or other disclosive values before copying anything to sim-data/metadata/."
+    "Review them for identifiers, free text, rare categories, small cells, exact dates, geography, or other disclosive values before copying anything to ../sim-data/real-data-metadata/."
   ),
   file.path(output_dir, "REVIEW_BEFORE_SHARING.md")
 )

@@ -1,8 +1,10 @@
 # Sim Data
 
-Use AI tools only in this folder.
+You can use AI tools in this folder.
 
-Before using AI, copy approved files from `../real-data/outputs/` into `metadata/`.
+Open the project using the `.Rproj` / `.code-workspace` files with your editor to enforce this.
+
+Before using AI, copy approved files from `../real-data/real-data-metadata/` into `real-data-metadata/` in this directory.
 
 Then use AI to complete `generate-sim-data.R`. The script should write a simulated file to:
 
